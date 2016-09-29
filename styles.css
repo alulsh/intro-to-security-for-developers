@@ -1,0 +1,32 @@
+body {
+    background-color: #848484;
+    font-family: Arial, sans-serif;
+    color: #FFF;
+}
+.firamono {
+    font-family: 'Fira Mono', Arial, serif;
+    font-weight: 700;
+}
+h1 {
+    text-align: center;
+}
+p {
+    line-height: 160%;
+    font-size: 1.1em;
+}
+.container {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+/* Links */
+a {
+    text-decoration: none;
+    color: #000;
+}
+a:hover, a:visited:hover {
+    color: #2E2E2E;
+}
+a:visited {
+    color: #000;
+}
