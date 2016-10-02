@@ -32,45 +32,86 @@
         <div class="reveal">
             <div class="slides">
                 <section>
-                    <h1>Intro to Security for Developers</h1>
-                    <small>Alexandra Ulsh<br/>
-                    Mapbox Miniconf<br/>
-                    DCFemTech Tour de Code 2016</small>
+                    <section>
+                        <h1>Intro to Security for Developers</h1>
+                        <small>Alexandra Ulsh<br/>
+                        Mapbox Miniconf<br/>
+                        DCFemTech Tour de Code 2016</small>
+                    </section>
+                    <section data-markdown>
+                        ## Overview
+                        * About me
+                        * Why learn security?
+                        * Common security terms
+                        * Device security
+                        * Network security
+                        * GitHub security
+                        * Application security
+                        * Infrastructure security
+                    </section>
+                    <section data-markdown>
+                        Developers need to learn more than just how to write secure code.
+
+                        A compromised laptop, weak password, or posting credentials on GitHub can all lead to a breach.
+                    </section>
+                    <section data-markdown>
+                        ["Verizon DBIR: Over Half Of Data Breaches Exploited Legitimate Passwords In 2015"](http://www.darkreading.com/endpoint/verizon-dbir-over-half-of-data-breaches-exploited-legitimate-passwords-in-2015/d/d-id/1325242)
+
+                        ["In major goof, Uber stored sensitive database key on public GitHub page"](http://arstechnica.com/security/2015/03/in-major-goof-uber-stored-sensitive-database-key-on-public-github-page/)
+
+                        ["US Healthworks Suffers Data Breach Via Unencrypted Laptop"](http://www.forbes.com/sites/davelewis/2015/06/01/us-healthworks-suffers-data-breach-via-unencrypted-laptop/#4f9f06897005)
+                    </section>
                 </section>
                 <section>
                     <section>
                         <p><code>&lt;script&gt;alert('whoami?')&lt;/script&gt;</code></p>
                     </section>
                     <section>
-                        <p>Alexandra Ulsh</p>
+                        <p>Alexandra "Alex" Ulsh</p>
                         <p>Information Security Engineer at Mapbox</p>
-                        <img src="img/alex-ulsh.jpg"/>
+                        <img src="img/alex-ulsh.jpg"/><br/>
+                        <a href="https://www.twitter.com/AlexUlsh">@AlexUlsh</a><br/>
+                        <a href="http://www.alexandraulsh.com/">alexandraulsh.com</a>
                     </section>
                     <section>
                         <img src="img/mapbox.jpg"/>
-                        <p>I run our bug bounty program on HackerOne, help lock down our AWS infrastructure, and make sure Mapbox team members are using all their devices and accounts securely.</p>
+                        <p>I run our bug bounty program on <a href="https://hackerone.com/mapbox">HackerOne</a>, help lock down our AWS infrastructure with open source projects like <a href="">Patrol</a>, and make sure Mapbox team members are using all their devices and accounts securely.</p>
                     </section>
-                    <section>
-                        <h3>How did I get started in security?</h3>
-                        <ul>
-                            <li>3.5 years sysadmin for U.S. DoD doing SharePoint administration.</li>
-                            <li>Security+ certification required to work at DoD</li>
-                            <li>STIGs for SharePoint, IIS, and SQL Server for DIACAP security audits</li>
-                            <li>I got really good at applying STIGS and wrote an open source PowerShell library to automatically apply them to SharePoint farms.</li>
-                        </ul>
+                    <section data-markdown>
+                        ## How did I get started in security?
+                        * 3.5 years sysadmin for U.S. DoD doing SharePoint administration
+                        * Security+ certification required for job
+                        * STIGs for SharePoint, IIS, and SQL Server (DIACAP)
+                        * Open-sourced PowerShell module to STIG SharePoint
+                        * [https://github.com/alulsh/SharePoint-2013-STIGs](https://github.com/alulsh/SharePoint-2013-STIGs)
+                    </section>
+                    <section data-markdown>
+                        ## How can you get started in security?
+                        * Learn how to secure your computers, cellphones, and accounts
+                        * Learn how to write secure code and deploy secure infrastructure
+                        * Learn how hackers attack systems and how to defend against them
+                    </section>
+                    <section data-markdown>
+                        * Check out bug bounty programs on [HackerOne](https://hackerone.com/) and [Bugcrowd](https://bugcrowd.com/)
+                        * Teach your friends and coworkers about security
+                        * Offer to harden servers and do secure code reviews
+                        * Think about the ways you or your organization can be hacked, then implement defenses
                     </section>
                 </section>
                 <section>
-                    <section>
-                        <h3>Why learn security?</h3>
-                        <ul>
-                            <li>To protect yourself, people you care about, and your organization.</li>
-                            <li></li>
-                        </ul>
+                    <section data-markdown>
+                        ## Why learn security?
+                        * Protect yourself, people you care about, and your organization
+                        * Responsibility to protect the security and privacy of the people who use our applications
                     </section>
-                    <section>
-                        <p>Software engineers</p>
-                        <p>If we want to call ourselves engineers, then we need to build secure, stable, and reliable software that minimizes harm to others.</p>
+                    <section data-markdown>
+                        # Software engineers
+
+                        > Engineers bear a burden to the public, and their specific expertise as designers and builders of bridges or buildings—or software—emanates from that responsibility. Only after answering this calling does an engineer build anything, whether bridges or buildings or software.
+
+                        ["Programmers: Stop Calling Yourselves Engineers"](http://www.theatlantic.com/technology/archive/2015/11/programmers-should-not-call-themselves-engineers/414271/), The Atlantic
+
+                        If we want to call ourselves engineers, then we need to build secure, stable, and reliable software that minimizes harm to others.
                     </section>
                     <section>
                         <p>Diversity in security</p>
@@ -85,6 +126,7 @@
                     <p>white hat, gray hat, black hat</p>
                     <p>red team vs blue team</p>
                     <p>infosec &amp; cybersecurity</p>
+                    <p>bug bounty programs</p>
                     <!-- 
                     penetration testing, appsec, netsec
                     hacker, hacking, hack3d, pwnd
@@ -92,8 +134,8 @@
                     </section>
                 </section>
                 <section>
-                    <section>
-                        <h1>Device Security</h1>
+                    <section data-markdown>
+                        # Device Security
                     </section>
                     <section>
                         <p>"devices" = computers and phones</p>
@@ -157,8 +199,8 @@
                         brew upgrade foobar
                         ```
                     </section>
-                    <section>
-                        <h2>Smart phones</h2>
+                    <section data-markdown>
+                        ## Smart phones
                     </section>
                     <section data-markdown>
                         ### Passcodes
@@ -196,16 +238,21 @@
                         Man in the middle attacks
                         -->
                     </section>
+                    <section data-markdown>
+                        ## Browser security
+                        * HTTPS everywhere Chrome plugin
+                        * Install an ad blocker
+                    </section>
                 </section>
                 <section>
-                    <section>
-                        <h1>Account Security</h1>
+                    <section data-markdown>
+                        # Account Security
                     </section>
                     <section data-markdown>
                         ## Secure Passwords
                         * 16+ characters in length (the longer, the better)
                         * At least 2 lower case, 2 upper case, 2 numbers, and 2 special characters (`!@#$%^&amp;*()`)
-                        * Should be so complex you can't memorize it
+                        * So complex you can't memorize it
                         * Unique - shouldn't be used anywhere else
                         * Use [diceware passphrases](http://world.std.com/~reinhold/diceware.html) if you need to memorize a secure passphrase
                     </section>
@@ -213,31 +260,170 @@
                         * How do you use passwords you can't remember?
                         * Use a password manager!
                         * **Most important thing you can do for your personal security if you're not already using one.**
-                    </section>
-                    <section>
-                        * I recommend 1Password for individuals ($2.99/mo) or 1Password for Families.
-                        * Password managers protect against password reuse and weak passwords.
-                        * Easy to change and rotate passwords
-                        * Password audit and breach 
+                        * Use one that you can easily use on all your devices, including smartphones.
                     </section>
                     <section data-markdown>
-                        ## Two Factor Authentication
-                        * 
+                        ## Password manager benefits
+                        * Password managers protect against password reuse and weak passwords.
+                        * Easy to change and rotate passwords.
+                        * Password audit and breach notification services.
+                        * Store more than just passwords - access tokens, 2FA backup codes, security questions, and credit cards.
+                        * I recommend [1Password](https://1password.com/), others include [Encryptr](https://spideroak.com/solutions/encryptr), [LastPass](https://lastpass.com/), and [KeePass](http://keepass.info/).
+                    </section>
+                    <section data-markdown>
+                        ## Two Factor Authentication (2FA)
+                        * Requires a "second factor" or "second step."
+                        * Usually a code generated from an app or sent via SMS.
+                        * Generated with [Time-based One Time Passwords (TOTP)](https://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm) or [HMAC-based One-time Password Algorithm (HOTP)](https://en.wikipedia.org/wiki/HMAC-based_One-time_Password_Algorithm) algorithms.
+                        * Someone can't hack your account with just the password, they also need the second factor.
+                        * A weak password protected with 2FA is more secure than a complex password alone.
+                        * 2FA apps - [Google Authenticator](https://en.wikipedia.org/wiki/Google_Authenticator), [Authy](https://www.authy.com/), and [Duo](https://duo.com/)
+                    </section>
+                    <section data-markdown>
+                        ## 2FA Backup and Recovery Codes
+                        * **Generate and save 2FA backup codes immediately after enabling.**
+                        * Securely store in a password manager, safe, or lockbox.
+                        * If you lose your phone or get a new one, **you'll lose access to all your 2FA-enabled accounts unless you have your backup codes**.
+                        * [1Password comes with a 2FA authenticator](https://support.1password.com/one-time-passwords/) - recommended for ease of use and to avoid account lock out.
+                    </section>
+                    <section data-markdown>
+                        ## Security questions
+                        * Don't provide the correct answers to security questions.
+                        * Answers to these questions are easy to find out on social media.
+                        * Instead store fake answers in your password manager.
+                        * Hackers stole security question answers in the [2014 Yahoo! breach](https://www.wired.com/2016/09/time-kill-security-questions-answer-lies/).
                     </section>
                 </section>
                 <section>
-                    <section>
-                        <h1>GitHub Security</h1>
+                    <section data-markdown>
+                        # GitHub Security
+                    </section>
+                    <section data-markdown>
+                        # GitHub Account Security
+                        * Enable 2FA on your GitHub account
+                        * Use SSH authentication
+                        * Use a strong passphrase for your SSH key
+                        <!-- TODO create a code sample for new SSH key -->
+                    </section>
+                    <section data-markdown>
+                        # Repository Security
+                        * Public vs. private repos
+                    </section>
+                    <section data-markdown>
+                        # Gist Security
+                        * Private vs. public gists
+                    </section>
+                    <section data-markdown>
+                        # Travis CI security
+                        * Encrypt secrets in your Travis CI configuration files
+                    </section>
+                        <!--
+                        Be mindful of public gists
+                        Don’t post passwords or credentials on GitHub, including secret access tokens
+                        *public* access tokens for client-side JavaScript code can be checked in
+                        Force commit or git history clean tool
+                        -->
                     </section>
                 </section>
                 <section>
-                    <section>
-                        <h1>Application Security</h1>
+                    <section data-markdown>
+                        # Application Security
+
+                        #### "AppSec"
+
+                    </section>
+                    <section data-markdown>
+                        ## Golden rules of AppSec
+                        * All user input is untrusted and potentially malicious
+                        * Encrypt all the things
+                        * Add reasonable limits
+                        * Hash and salt passwords
+                    </section>
+                    <section data-markdown>
+                        ## HTTPS - SSL/TLS
+                        * Node.js code example of a server using an HTTPS certificate
+                        * OpenSSL command to generate a self-signed certificate
+                        * Let’s encrypt
+                        * Mixed content
+                        <!-- TODO code sample for HTTPS expressjs server -->
+                    </section>
+                    <section data-markdown>
+                        ## Information disclosure
+                        * Disable or hide headers that show which version of which software you are using
+                        <!-- Code sample here for express.js -->
+                    </section>
+                    <section data-markdown>
+                        ## Secure cookies
+                        * What is a cookie?
+                        * Secure and httpOnly flags
+                    </section>
+                    <section data-markdown>
+                        ## Cross-site Scripting (XSS)
+                        * Reflected
+                        * Stored
+                        * self-XSS
+                        <!-- TODO: code samples (may need to be a local example) -->
+                    </section>
+                    <section data-markdown>
+                        ## CSRF
+                        * csurf express middleware
+                    </section>
+                    <section data-markdown>
+                        ## oAuth security
+                        * Use the `state` parameter when building oAuth solutions
+                        <!-- TODO code sameple for adding state parameter - passport module -->
+                    </section>
+                    <section data-markdown>
+                        ## Denial of Service (DoS)
+                    </section>
+                    <section data-markdown>
+                        ## Distributed Denial of Service (DDoS)
+                    </section>
+                    <section data-markdown>
+                        ## Brute force attacks
+                    </section>
+                    <section data-markdown>
+                        ## Rate limiting
+                    </section>
+                    <section data-markdown>
+                        ## Password security
+                        * Salt and hash passwords with bcrypt
+                    </section>
+                    <section data-markdown>
+                        ## Content Security Policy (CSP)
+                    </section>
+                    <section data-markdown>
+                        ## Clickjacking
+                        * Also known as UI redressing
+                    </section>
+                    <section data-markdown>
+                        ## Common security headers
+                    </section>
+                    <section data-markdown>
+                        ## Expressjs helmet module
+                    </section>
+                    <section data-markdown>
+                        ## HSTS
+                        * PKP (public-key pinning)
+                    </section>
+                    <section data-markdown>
+                        ## Dependency management
+                        * Use up to date packages and dependencies in your code
+                        * Automate using `nsp` or `retire.js`
                     </section>
                 </section>
                 <section>
                     <section>
                         <h1>Server Security</h1>
+                        <!--
+                        Don’t run processes as root or admin
+                        Service accounts should have strong complex passwords
+                        Update your operating system and apply patches
+                        Disable directory listing
+                        Limit size of file uploads
+                        AWS security
+                        Directory listing on buckets
+                        -->
                     </section>
                 </section>
             </div>
