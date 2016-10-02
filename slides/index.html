@@ -1,50 +1,264 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+        <title>Intro to Security for Developers</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+        <meta name="description" content="Intro to security for developers, presented at Mapbox Miniconf at DCFemTech Tour de Code 2016">
+        <meta name="author" content="Alexandra Ulsh">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css">
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				history: true,
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Intro to Security for Developers</h1>
+                    <small>Alexandra Ulsh<br/>
+                    Mapbox Miniconf<br/>
+                    DCFemTech Tour de Code 2016</small>
+                </section>
+                <section>
+                    <section>
+                        <p><code>&lt;script&gt;alert('whoami?')&lt;/script&gt;</code></p>
+                    </section>
+                    <section>
+                        <p>Alexandra Ulsh</p>
+                        <p>Information Security Engineer at Mapbox</p>
+                        <img src="img/alex-ulsh.jpg"/>
+                    </section>
+                    <section>
+                        <img src="img/mapbox.jpg"/>
+                        <p>I run our bug bounty program on HackerOne, help lock down our AWS infrastructure, and make sure Mapbox team members are using all their devices and accounts securely.</p>
+                    </section>
+                    <section>
+                        <h3>How did I get started in security?</h3>
+                        <ul>
+                            <li>3.5 years sysadmin for U.S. DoD doing SharePoint administration.</li>
+                            <li>Security+ certification required to work at DoD</li>
+                            <li>STIGs for SharePoint, IIS, and SQL Server for DIACAP security audits</li>
+                            <li>I got really good at applying STIGS and wrote an open source PowerShell library to automatically apply them to SharePoint farms.</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Why learn security?</h3>
+                        <ul>
+                            <li>To protect yourself, people you care about, and your organization.</li>
+                            <li></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <p>Software engineers</p>
+                        <p>If we want to call ourselves engineers, then we need to build secure, stable, and reliable software that minimizes harm to others.</p>
+                    </section>
+                    <section>
+                        <p>Diversity in security</p>
+                    </section>
+                    <section>
+                        <p>Job opportunities in security</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                    <p>Common security roles and terms</p>
+                    <p>white hat, gray hat, black hat</p>
+                    <p>red team vs blue team</p>
+                    <p>infosec &amp; cybersecurity</p>
+                    <!-- 
+                    penetration testing, appsec, netsec
+                    hacker, hacking, hack3d, pwnd
+                    -->
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>Device Security</h1>
+                    </section>
+                    <section>
+                        <p>"devices" = computers and phones</p>
+                        <p>"mobile devices" = laptops and cellphones</p>
+                        <p>MDM = mobile device management</p>
+                    </section>
+                    <section>
+                        <p>We write code and store sensitive information on our devices.</p>
+                        <p>We use our devices to authenticate to other (cloud) accounts</p>
+                        <p>They're some of the first things we should lock down and protect.</p>
+                    </section>
+                    <section>
+                        <h2>Laptops</h2>
+                    </section>
+                    <section data-markdown>
+                        ## Physical security
+                        * Don't leave your laptop unattended
+                        * Be mindful of shoulder surfers
+                            * Dim your screen or use a privacy screen
+                        * Enable a device tracking and recovery program like [Find My Mac]() or [Prey]()
+                        * Secure and encrypt your physical &amp; cloud backups
+                    </section>
+                    <section data-markdown>
+                        ## Passwords
+                        * Use a strong, complex password on your laptop
+                        * Lock your computer when you step away from it
+                        * Set your screen to auto lock after 5 minutes of inactivity
+                        * Require a password on wake
+                    </section>
+                    <section data-markdown>
+                        ## Hard Disk Encryption
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+                        [![Encrypting hard drives](http://imgs.xkcd.com/comics/security.png)](http://xkcd.com/538/)
+
+                        * Windows - [BitLocker](http://www.windowscentral.com/how-use-bitlocker-encryption-windows-10)
+                        * Mac - [FileVault](https://support.apple.com/en-us/HT204837)
+                        * Linux - [LUKS](http://david.dw-perspective.org.uk/da/index.php/computer-resources/encrypted-partitions-on-linux-with-luks/comment-page-1/)
+                    </section>
+                    <section data-markdown>
+                        Update your operating system and applications frequently.
+
+                        Many updates are also security patches.
+
+                        * [Windows Update](https://en.wikipedia.org/wiki/Windows_Update)
+                        * [Mac App Store](https://www.apple.com/support/mac/app-store/) updates
+                        * Linux: `sudo apt-get upgrade`
+                    </section>
+                    <section data-markdown>
+                        Mac - keep [Homebrew](http://brew.sh/index.html) package manager up to date
+
+                        Update Homebrew to latest gitsha
+                        ```sh
+                        brew update
+                        ```
+                        View outdated packages
+                        ```sh
+                        brew outdated
+                        ```
+                        Upgrade package `foobar`
+                        ```sh
+                        brew upgrade foobar
+                        ```
+                    </section>
+                    <section>
+                        <h2>Smart phones</h2>
+                    </section>
+                    <section data-markdown>
+                        ### Passcodes
+                        * Use a strong and long (12+) alphanumeric passcode
+                        * If you want to only use numbers, then at least use more than 8 numbers
+                        * Require a passcode immediately after sleep
+                        * iPhone: Enable erase data after 10 bad passcode attempts (take backups!)
+                        * iPhone: If you are truly paranoid, don't enable [Touch ID](https://support.apple.com/en-us/HT201371)
+                    </section>
+                    <section>
+                        <p>Android: don't use <a href="http://www.androidauthority.com/lock-pattern-predictable-636267/">common lock patterns</a></p>
+                        <img src="img/weak-android-lock-patterns.png" /><br/>
+                        <small>Edgar Cervantes, "Lock patterns are more predictable than we thought", <a href="http://www.androidauthority.com/lock-pattern-predictable-636267/">Android Authority</a></small>
+                    </section>
+                    <section>
+                        <p>Enable Find My iPhone or Android Device Manager (remote wipe)</p>
+                        <p>Apply the latest operating system and app updates</p>
+                        <p>Android: Encrypt your phone (iPhones are encrypted by default)</p>
+                    </section>
+                </section>
+                <section>
+                    <section><h1>Network security</h1></section>
+                    <section>
+                        <h2>wi-fi</h2>
+                        <p>Don't connect to unencrypted (passwordless) wifi networks</p>
+                        <p>Anyone can sniff (view) HTTP traffic using tools like <a href="https://www.wireshark.org/">Wireshark</a> or <a href="http://www.tcpdump.org/">tcpdump</a></p>
+                        <p>Traffic with HTTPS sites is protected with SSL/TLS though</p>
+                    </section>
+                    <section>
+                        <p>If you must connect to unencrypted wifi, use a VPN client.</p>
+                        <p>Find one that works on both laptops and cell phones</p>
+                        <p>Pay for a VPN service. Unfortunately, if your VPN service is free then it may not be legit.</p>
+                        <!--
+                        Be wary of rogue, fake, or malicious wireless access points
+                        Man in the middle attacks
+                        -->
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>Account Security</h1>
+                    </section>
+                    <section data-markdown>
+                        ## Secure Passwords
+                        * 16+ characters in length (the longer, the better)
+                        * At least 2 lower case, 2 upper case, 2 numbers, and 2 special characters (`!@#$%^&amp;*()`)
+                        * Should be so complex you can't memorize it
+                        * Unique - shouldn't be used anywhere else
+                        * Use [diceware passphrases](http://world.std.com/~reinhold/diceware.html) if you need to memorize a secure passphrase
+                    </section>
+                    <section data-markdown>
+                        * How do you use passwords you can't remember?
+                        * Use a password manager!
+                        * **Most important thing you can do for your personal security if you're not already using one.**
+                    </section>
+                    <section>
+                        * I recommend 1Password for individuals ($2.99/mo) or 1Password for Families.
+                        * Password managers protect against password reuse and weak passwords.
+                        * Easy to change and rotate passwords
+                        * Password audit and breach 
+                    </section>
+                    <section data-markdown>
+                        ## Two Factor Authentication
+                        * 
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>GitHub Security</h1>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>Application Security</h1>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>Server Security</h1>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+            // More info https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                history: true,
+
+                // More info https://github.com/hakimel/reveal.js#dependencies
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
 </html>
