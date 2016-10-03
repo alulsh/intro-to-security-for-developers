@@ -105,13 +105,16 @@
                         * Responsibility to protect the security and privacy of the people who use our applications
                     </section>
                     <section data-markdown>
-                        # Software engineers
+                        ## Software engineers
 
                         > Engineers bear a burden to the public, and their specific expertise as designers and builders of bridges or buildings—or software—emanates from that responsibility. Only after answering this calling does an engineer build anything, whether bridges or buildings or software.
 
-                        ["Programmers: Stop Calling Yourselves Engineers"](http://www.theatlantic.com/technology/archive/2015/11/programmers-should-not-call-themselves-engineers/414271/), The Atlantic
+                        ["Programmers: Stop Calling Yourselves Engineers"](http://www.theatlantic.com/technology/archive/2015/11/programmers-should-not-call-themselves-engineers/414271/)
 
-                        If we want to call ourselves engineers, then we need to build secure, stable, and reliable software that minimizes harm to others.
+                        The Atlantic
+                    </section>
+                    <section data-markdown>
+                        If we want to call ourselves software **engineers**, then we need to build secure, stable, and reliable software that minimizes harm to others.
                     </section>
                     <section>
                         <p>Diversity in security</p>
@@ -121,16 +124,38 @@
                     </section>
                 </section>
                 <section>
+                    <section data-markdown>
+                        # Common Security Terms
+                    </section>
+                    <section data-markdown>
+                        * infosec = information security
+                        * cybersecurity vs. infosec vs. information assurance (IA)
+                        * appsec = application security
+                        * netsec = network security
+                        * physical security = locks, alarm systems, protecting devices from being stolen
+                    </section>
+                    <section data-markdown>
+                        ## Offense vs. Defense
+                        * Penetration testing (pentesting) = finding vulnerabilities in systems
+                        * Red team = offensive team that pentests systems and breaks things
+                        * Blue team = defensive team that protects systems and write secure systems
+                    </section>
                     <section>
-                    <p>Common security roles and terms</p>
-                    <p>white hat, gray hat, black hat</p>
-                    <p>red team vs blue team</p>
-                    <p>infosec &amp; cybersecurity</p>
-                    <p>bug bounty programs</p>
-                    <!-- 
-                    penetration testing, appsec, netsec
-                    hacker, hacking, hack3d, pwnd
-                    -->
+                        <h2>So Many Hats</h2>
+                        <img alt="Archer wearing a gray hat, white hat, and black hat" src="img/hats.jpg" /><br/>
+                        <small>Credit: Alex Hernandez, <a href="http://techaeris.com/2015/08/19/not-all-hackers-are-bad-short-guide-to-hacker-hat-colors/">Not All Hackers Are Bad – Short Guide To Hacker Hat Colors</a>, Techaeris</small>
+                    </section>
+                    <section data-markdown>
+                        * White hat = ethical hacker, asks for permission, responsibly discloses vulnerabilities, possibly hired as a pentester
+                        * Black hat = malicious, doesn't ask for permission, deletes data, asks victims for money
+                        * Gray hat = nonchalant, may or may not ask for permission, may not report vulnerabilities at all or publicly discloses, hacks just for fun
+                        * Red Hat? A type of Linux distribution
+                    </section>
+                    <section data-markdown>
+                        ## Bug Bounty Programs
+                        * Responsible disclosure
+                        * Full disclosure
+                        * Public disclosure
                     </section>
                 </section>
                 <section>
@@ -301,10 +326,17 @@
                     <section data-markdown>
                         # GitHub Account Security
                         * Enable 2FA on your GitHub account
+                        * Encourage your organization to make this required for all members
                         * Use SSH authentication
                         * Use a strong passphrase for your SSH key
                         <!-- TODO create a code sample for new SSH key -->
                     </section>
+                    <section data-markdown>
+                        Help! I enabled 2FA and broke `git clone`!
+
+                        * HTTPS - [create a personal access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/) (store in your password manager)
+                        * Alternatively, [enable Git SSH authentication](https://help.github.com/articles/generating-an-ssh-key/)
+                        * **Always use a passphrase to encrypt your SSH keys**
                     <section data-markdown>
                         # Repository Security
                         * Public vs. private repos
