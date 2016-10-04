@@ -13,7 +13,4 @@ https.createServer(options, app).listen(4000, function(err){
     console.log('Server started on port 4000');
 });
 
-app.get('/', function (req, res) {
-    res.header('Content-type', 'text/html');
-    return res.end('<h1>Served over HTTPS</h1>');
-});
+app.use('/', express.static('https'));

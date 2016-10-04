@@ -473,11 +473,10 @@
                         You should see two new files - `privatekey.pem` and `cert.pem`
                     </section>
                     <section data-markdown>
-                        ## Simple HTTP/HTTPS Express server
+                        ## Simple HTTPS Express server
                         ```js
                         var express = require('express');
                         var https = require('https');
-                        var http = require('http');
                         var fs = require('fs');
                         var app = express();
 
@@ -486,16 +485,18 @@
                             cert: fs.readFileSync('cert.pem')
                         }
 
-                        http.createServer(app).listen(3000, function(err){
-                            if (err) throw err;
-                            console.log('Server started on port 3000');
-                        });
-
                         https.createServer(options, app).listen(4000, function(err){
                             if (err) throw err;
                             console.log('Server started on port 4000');
                         });
+
+                        app.get('/', function (req, res) {
+                            res.header('Content-type', 'text/html');
+                            return res.end('&lt;h1&gt;Served over HTTPS&lt;/h1&gt;');
+                        });
                         ```
+
+                        From `https-server` folder, run `npm start` command, then visit `https://localhost:4000/`
                     </section>
                     <section data-markdown>
                         ## SSL vs TLS
@@ -513,9 +514,35 @@
                         * **Disable old versions of SSL and TLS if possible**
                     </section>
                     <section data-markdown>
-                        * Mixed content
-                        <!-- TODO code sample for HTTPS expressjs server -->
+                        ## Mixed content
+                        * HTTPS page contains HTTP content - images, scripts, iframes
+                        * The connection is now only **partially encrypted** - less privacy
+                        * Victims subject to sniffing or man-in-the-middle attacks
                     </section>
+                    <section data-markdown>
+                        * Passive mixed content
+                            * `&lt;img&gt;`, `&lt;audio&gt;`, `&lt;video&gt;`
+                            * Less harmful, attacker can only replace images
+                        * Active mixed content
+                            * `&lt;script&gt;`, `&lt;link&gt;`, `XMLHttpRequest`
+                            * Harmful, attacker can replace with malicious scripts!
+                        * Good write up on [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content)
+                    </section>
+                    <section data-markdown>
+                        ## Code sample
+                        Follow along with the code sample in the `mixed-content` directory
+
+                        Requires Node v4.6.0 and npm v2.15.19
+
+                        ```sh
+                        git clone git@github.com:alulsh/intro-to-security-for-developers.git
+                        cd mixed-content
+                        npm install
+                        npm start
+                        ```
+                    </section>
+                </section>
+                <section>
                     <section data-markdown>
                         ## Information disclosure
                         * Disable or hide headers that show which version of which software you are using
