@@ -1,0 +1,19 @@
+{
+  "name": "https-server",
+  "version": "1.0.0",
+  "description": "Code sample for a simple HTTP and HTTPS expressjs server",
+  "main": "server.js",
+  "scripts": {
+    "cert": "openssl req -x509 -newkey rsa:2048 -keyout privatekey.pem -out cert.pem -days 365 -subj '/C=US/ST=DC/O=MyOrganization' -nodes",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "4.6.0",
+    "npm": "2.15.9"
+  },
+  "author": "Alexandra Ulsh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}

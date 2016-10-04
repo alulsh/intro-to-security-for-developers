@@ -116,8 +116,13 @@
                     <section data-markdown>
                         If we want to call ourselves software **engineers**, then we need to build secure, stable, and reliable software that minimizes harm to others.
                     </section>
-                    <section>
-                        <p>Diversity in security</p>
+                    <section data-markdown>
+                        # Diversity in Security
+
+                        ![97% of HackerOne hackers are male](img/WhoAreHackers.png) 
+
+                        * [HackerOne Hacker Report](https://hackerone.com/blog/bug-bounty-hacker-report-2016)
+
                     </section>
                     <section>
                         <p>Job opportunities in security</p>
@@ -267,6 +272,7 @@
                         ## Browser security
                         * HTTPS everywhere Chrome plugin
                         * Install an ad blocker
+                        * Enable click-to-play
                     </section>
                 </section>
                 <section>
@@ -321,40 +327,57 @@
                 </section>
                 <section>
                     <section data-markdown>
-                        # GitHub Security
+                        # Developer Tools Security
                     </section>
                     <section data-markdown>
                         # GitHub Account Security
                         * Enable 2FA on your GitHub account
                         * Encourage your organization to make this required for all members
-                        * Use SSH authentication
-                        * Use a strong passphrase for your SSH key
-                        <!-- TODO create a code sample for new SSH key -->
+                        * Best thing you can do to secure your GitHub account
+                        * Especially in light of http://www.theregister.co.uk/2016/06/16/github_accounts_breached_password_reuse_fail/
                     </section>
                     <section data-markdown>
                         Help! I enabled 2FA and broke `git clone`!
 
                         * HTTPS - [create a personal access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/) (store in your password manager)
                         * Alternatively, [enable Git SSH authentication](https://help.github.com/articles/generating-an-ssh-key/)
-                        * **Always use a passphrase to encrypt your SSH keys**
+                        * **Always use a strong passphrase to encrypt your SSH keys**
+                        * A passphrase-less SSH key can be stolen by an attacker to impersonate you
+                        * TODO: code sample for generating a GitHub SSH key
+                    </section>
                     <section data-markdown>
                         # Repository Security
                         * Public vs. private repos
+                        * Don't post sensitive information in issues in public GitHub repos
+                        * Followers will get the initial email with your sensitive information even if you later edit or scrub the issue
+                        * Don't post link
+                    </section>
+                    <section data-markdown>
+                        * Don't post passwords or credentials on GitHub, including secret access token
+                        * **Public* access tokens for client-side JavaScript code can be checked in
+                        * Force commit or git history clean tool
                     </section>
                     <section data-markdown>
                         # Gist Security
                         * Private vs. public gists
+                        * Be mindful of public Gists
+                    </section>
+                    <section data-markdown>
+                        # Global `.gitignore`
+                        * A robust global `.gitignore` file can help prevent accidentally checking in sensitive files
                     </section>
                     <section data-markdown>
                         # Travis CI security
                         * Encrypt secrets in your Travis CI configuration files
                     </section>
-                        <!--
-                        Be mindful of public gists
-                        Don’t post passwords or credentials on GitHub, including secret access tokens
-                        *public* access tokens for client-side JavaScript code can be checked in
-                        Force commit or git history clean tool
-                        -->
+                    <section data-markdown>
+                        # Node security
+                        * Never run `sudo npm install`
+                        * Instead install Node with a tool like nvms
+                    </section>
+                    <section data-markdown>
+                        # Npm security
+                        * Remove old contributors from your npm packages
                     </section>
                 </section>
                 <section>
@@ -371,11 +394,125 @@
                         * Add reasonable limits
                         * Hash and salt passwords
                     </section>
+                </section>
+                <section>
                     <section data-markdown>
-                        ## HTTPS - SSL/TLS
-                        * Node.js code example of a server using an HTTPS certificate
-                        * OpenSSL command to generate a self-signed certificate
-                        * Let’s encrypt
+                        # Encrypt all the things
+                    </section>
+                    <section data-markdown>
+                        ## `https://`
+                        * HTTP Secure or HTTP over SSL/TLS
+                        * SSL/TLS = Secure Socket Layer/Transport Layer Security
+                        * Port 443 by default
+                        * Encrypts all data in transit between client &amp; server
+                        * Privacy, authentication, and integrity of data
+                    </section>
+                    <section data-markdown>
+                        ## PKI Primer
+                        * PKI = Public Key Infrastructure
+                        * HTTPS uses PKI, specifically asymmetric public key cryptography
+                        * Asymmetric = private keys (secret) and public keys (shared)
+                        * Keys shared with secure key exchange algorithms (RSA, Diffie-Hellmen, elliptical curve)
+                        * Digital certificates issued by certificate authorities verify identity
+                    </section>
+                    <section data-markdown>
+                        ## How do you configure SSL/TLS?
+                        * Buy a certificate from a Certificate Authority (CA)
+                            * Domain Validated (DV), Organization Validated (OV), Extended Validation (EV) 
+                        * [Let's Encrypt](https://letsencrypt.org/)
+                            * Free, automated, and open CA
+                            * Requires shell access to server
+                            * Won't work on GitHub Pages websites :(
+                        * Development use only - self-signed certificates
+                    </section>
+                    <section data-markdown>
+                        ## Code sample
+
+                        Follow along with the code sample in the `http-server` directory
+
+                        Requires Node v4.6.0 and npm v2.15.19
+
+                        ```sh
+                        git clone git@github.com:alulsh/intro-to-security-for-developers.git
+                        cd https-server
+                        npm install
+                        ```
+                    </section>
+                    <section data-markdown>
+                        ## Generate a self-signed cert with OpenSSL
+
+                        OpenSSL `req` command to generate a certificate signing request (CSR)
+
+                        ```sh
+                        openssl req -x509 -newkey rsa:2048 -keyout privatekey.pem -out cert.pem -days 365 -subj '/C=US/ST=DC/O=MyOrganization' -nodes
+                        ```
+                    </section>
+                    <section data-markdown>
+                        * `-x509` - output self-signed certificate instead of CSR
+                        * `-newkey rsa:2048` - 2048 bit RSA private key
+                        * `-keyout privatekey.pem` - private key
+                        * `-out cert.pem` - self signed certificate
+                        * `-subj` - subject name for certificate
+                        * `-days 365` - key is valid for a year
+                        * `-nodes` - private key is un-encrypted without a passphrase (**development only**)
+                    </section>
+                    <section data-markdown>
+                        Add to your app's `package.json` as a script
+
+                        ```js
+                          "scripts": {
+                            "cert": "openssl req -x509 -newkey rsa:2048 -keyout privatekey.pem -out cert.pem -days 365 -subj '/C=US/ST=DC/O=MyOrganization' -nodes",
+                          },
+                        ```
+
+                        To generate new self-signed certs for development:
+                        ```sh
+                        npm run cert
+                        ```
+
+                        You should see two new files - `privatekey.pem` and `cert.pem`
+                    </section>
+                    <section data-markdown>
+                        ## Simple HTTP/HTTPS Express server
+                        ```js
+                        var express = require('express');
+                        var https = require('https');
+                        var http = require('http');
+                        var fs = require('fs');
+                        var app = express();
+
+                        var options = {
+                            key: fs.readFileSync('privatekey.pem'),
+                            cert: fs.readFileSync('cert.pem')
+                        }
+
+                        http.createServer(app).listen(3000, function(err){
+                            if (err) throw err;
+                            console.log('Server started on port 3000');
+                        });
+
+                        https.createServer(options, app).listen(4000, function(err){
+                            if (err) throw err;
+                            console.log('Server started on port 4000');
+                        });
+                        ```
+                    </section>
+                    <section data-markdown>
+                        ## SSL vs TLS
+                        * SSL/TLS handshake to determine which versions of SSL or TLS
+                        * All versions of SSL (1.0, 2.0, and 3.0) are insecure
+                        * Disable all versions of SSL on your servers &amp; clients (browsers)
+                        * Instead use TLS, preferably TLS 1.2
+                        * Visit [https://www.howsmyssl.com/](How's My SSL?) to test your browser's SSL/TLS security
+                    </section>
+                    <section data-markdown>
+                        ## SSL/TLS Exploits
+                        * POODLE - SSLv3 downgrade exploit, later [certain TLS implementations](https://blog.qualys.com/ssllabs/2014/12/08/poodle-bites-tls)
+                        * [Heartbleed](https://en.wikipedia.org/wiki/Heartbleed) - OpenSSL vulnerability
+                        * [DROWN](https://en.wikipedia.org/wiki/DROWN_attack) - TLS vulnerability that exploited SSLv2 legacy support
+                        * **Disable old versions of SSL and TLS if possible**
+                    </section>
+                    <section data-markdown>
                         * Mixed content
                         <!-- TODO code sample for HTTPS expressjs server -->
                     </section>
@@ -445,17 +582,18 @@
                     </section>
                 </section>
                 <section>
-                    <section>
-                        <h1>Server Security</h1>
-                        <!--
-                        Don’t run processes as root or admin
-                        Service accounts should have strong complex passwords
-                        Update your operating system and apply patches
-                        Disable directory listing
-                        Limit size of file uploads
-                        AWS security
-                        Directory listing on buckets
-                        -->
+                    <section data-markdown>
+                        # Infrastructure Security
+                    </section>
+                    <section data-markdown>
+                        * Don’t run processes as root or admin
+                        * Service accounts should have strong complex passwords
+                        * Update your operating system and apply patches
+                        * Disable directory listing
+                        * Limit size of file uploads
+                    <section data-markdown>
+                        ## AWS security
+                        * Don't enable directory listing on buckets
                     </section>
                 </section>
             </div>
