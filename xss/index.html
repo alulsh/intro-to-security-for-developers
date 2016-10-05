@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>XSS Demos</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+</head>
+<body>
+    <h1>Best Shibe Memes Site</h1>
+    <img alt="shibe" src="shibe.jpg" />
+    <p>Search our database of the best shibe memes!</p>
+    <input type="text" name="query" id="search" />
+    <input type="submit" name="Search" onclick="redirectUser()" />
+    <p><a href="results.html?query=%3Cimg%20src=%22fake.jpg%22%20onerror=alert(1)%3E">See a random shibe!</a></p>
+
+    <p>Search for &lt;svg onload=alert(1)&gt; if you want to see a cute shibe!</p>
+
+    <h2>Worried about bad doges? Try Shibe Safe Search</h2>
+    <input type="text" name="safeQuery" id="safeSearch" />
+    <input type="submit" name="Safe Search" onclick="redirectUserSafe()" />
+
+    <script type="text/javascript">
+        function redirectUser() {
+            var search = document.getElementById("search").value;
+            window.location = "results.html?query=" + search;
+        }
+
+        function redirectUserSafe() {
+            var search = document.getElementById("safeSearch").value;
+            window.location = "safe.html?query=" + search;
+        }
+    </script>
+</body>
+</html>

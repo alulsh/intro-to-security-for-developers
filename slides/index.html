@@ -544,21 +544,143 @@
                 </section>
                 <section>
                     <section data-markdown>
+                        # Cross-Site Scripting (XSS)
+                    </section>
+                    <section data-markdown>
+                        ## What's XSS?
+                        * Attackers injecting malicious code, usually JavaScript, into your website
+                        * XSS payload = malicious code or JavaScript
+                        * Treating user-provided data or input as trusted and not potentially malicious
+                        * "Failure to separate data from instructions" - ["A Gentle Introduction to Application Security"](https://paragonie.com/blog/2015/08/gentle-introduction-application-security) from Paragon Initiative
+                    </section>
+                    <section data-markdown>
+                        ## How malicious is JavaScript, anyway?
+                        * Stealing cookies (access to `document.cookie`)
+                        * Keyloggers (`addEventListener`)
+                        * Phishing (create fake login forms)
+                        * Capturing screenshots of user's session
+                        * More scary XSS payloads at [xss-payloads.com](http://www.xss-payloads.com/payloads.html)
+                    </section>
+                    <section data-markdown>
+                        ## Types of XSS
+
+                        * Where is the vulnerable code?
+                            * Server-side - server XSS
+                            * Client-side - client XSS or DOM-based XSS
+                        * How is the payload triggered?
+                            * Stored or persistent XSS
+                            * Reflected XSS
+                            * Self-XSS
+                    </section>
+                    <section data-markdown>
+                        ### Stored XSS
+                        * Attacker injects script into a website's database
+                        * e.g. attacker pastes payload into a comment on a forum, which is saved in the thread
+                        * Malicious JavaScript executed **every time victims visit the page**
+                        * Usually server XSS, unable to find real life stored client XSS examples (if you know one, tell me!)
+                        * Real life example - [Stored XSS in Veris member portal](https://hackerone.com/reports/118950)
+                        * Payload - `&lt;svg onload=alert(1)&gt;`
+                    </section>
+                    <section data-markdown>
+                        ### Reflected XSS
+                        * Victim clicks on link crafted to execute payload on page load, e.g. link in a phishing email or social media post
+                        * Either server XSS or client XSS
+                        * Real-life example - [Reflected XSS in scores.ubnt.com](https://hackerone.com/reports/130889)
+                        * Payload - `https://scores.ubnt.com/form.html?uid=1&amp;p=airFiber"&gt;&lt;script&gt;alert(document.cookie);&lt;/script&gt;`
+                    </section>
+                    <section data-markdown>
+                        ### Client XSS
+                        * Also referred to as DOM-based XSS
+                        * Insecure client-side JavaScript code
+                        * Often but not always also reflected XSS
+                        * Commonly seen with insecure use of `innerHTML` or templates (underscore, EJS)
+                    </section>
+                    <section data-markdown>
+                        ### Code samples
+                        Follow along with the code sample in the `xss` directory
+
+                        Requires Node v4.6.0 and npm v2.15.19
+
+                        ```sh
+                        git clone git@github.com:alulsh/intro-to-security-for-developers.git
+                        cd xss
+                        npm install
+                        npm start
+                        ```
+                        Visit `http://localhost:3000/` in your browser
+                    </section>
+                    <section data-markdown>
+                        ### Malicious images
+                        * Payload from code sample - `http://localhost:3000/results.html?query=&lt;img src="fake.jpg" onerror=alert(1)&gt;`
+                        * Websites may block `&lt;script&gt;` tags, but may allow rich HTML content including `&lt;img&gt;` and `&lt;svg&gt;`
+                        * `onerror` attribute executes JavaScript when image fails to load
+                    </section>
+                    <section data-markdown>
+                        ### Incomplete list of client XSS payloads
+                        * `javascript:` protocol - `&lt;IMG SRC=javascript:alert('XSS')&gt;`
+                        * body tag - `&lt;BODY ONLOAD=alert('XSS')&gt;`
+                        * link tag - `&lt;LINK REL="stylesheet" HREF="javascript:alert('XSS');"&gt;`
+                        * CSS URLs - `&lt;DIV STYLE="background-image: url(javascript:alert('XSS'))"&gt;`
+                        * [Markdown parsers](https://hackerone.com/reports/82725) - `[Click here](javascript:alert(1))`
+                    </section>
+                    <section data-markdown>
+                        ### Even more payloads
+                        * OWASP's awesomely long [XSS Filter Evasion Cheat Sheet](https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet)
+                        * [HTML5 Security Checklist](https://html5sec.org/)
+                        * [XSS Hunter](https://xsshunter.com/) for XSS pentesting (ask for permission before using)
+                    </section>
+                    <section data-markdown>
+                        ### How to prevent client XSS
+                        * HTML escape user provided data before adding to the DOM
+                        * HTML escaping &gt; sanitization
+                        * Attackers will find ways to get around sanitization libraries
+                        * Recommend [lodash escape function](https://lodash.com/docs/4.16.3#escape) `_.escape()`
+                        * Don't use `textContent` or `createTextNode` to [escape HTML](http://benv.ca/2012/10/02/you-are-probably-misusing-DOM-text-methods/)
+                        * Use HTML escaped [interpolation](https://en.wikipedia.org/wiki/String_interpolation) templates, as seen in [underscore](http://underscorejs.org/#template)
+                            * `&lt;%-` instead of `&lt;%=` or `<%`
+                            * Real-life example: [Reflected cross-site scripting (XSS) on api.tiles.mapbox.com](https://hackerone.com/reports/135217)
+                    </section>
+                    <section data-markdown>
+                        ### More client XSS mitigations
+                        * [Quote your HTML attribute values](http://wonko.com/post/html-escaping)
+                            * `&lt;a href="url"` not `&lt;a href=url`
+                        * Avoid using `innerHTML` to add user-provided data to the DOM
+                            * Instead create the DOM elements manually (_artisanal DOM elements_)
+                            * Real life example: [XSS in L.mapbox.shareControl in mapbox.js](https://hackerone.com/reports/99245)
+                            * [mapbox.js pull request #1102](https://github.com/mapbox/mapbox.js/pull/1102/files)
+                        * Use `X-XSS-Protection` and Content Security Policy headers
+                    </section>
+                    <section data-markdown>
+                        ### Self-XSS
+                        * Victim is socially engineered into pasting malicious JavaScript into a form or the browser console
+                        * Facebook console warning image
+                        * Facebook help page https://www.facebook.com/help/246962205475854
+                    </section>
+                    <section data-markdown>
+                        ## XSS Resources
+                        * [Excess XSS, A comprehensive tutorial on cross-site scripting](http://excess-xss.com/)
+                        * [XSS Game by Google](https://xss-game.appspot.com/)
+                        * [OWASP XSS Prevention Cheat Sheet](https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet)
+                    </section>
+                </section>
+                <section>
+                    <section data-markdown>
+                        # Authentication Systems
+                    </section>
+                </section>
+                <section>
+                    <section data-markdown>
                         ## Information disclosure
                         * Disable or hide headers that show which version of which software you are using
+                        * Don't leave DEBUG mode in production
+                        * Don't display stack traces and sensitive errors to users
                         <!-- Code sample here for express.js -->
                     </section>
                     <section data-markdown>
                         ## Secure cookies
                         * What is a cookie?
                         * Secure and httpOnly flags
-                    </section>
-                    <section data-markdown>
-                        ## Cross-site Scripting (XSS)
-                        * Reflected
-                        * Stored
-                        * self-XSS
-                        <!-- TODO: code samples (may need to be a local example) -->
+                        * dangers of localstorage - https://michael-coates.blogspot.com/2010/07/html5-local-storage-and-xss.html
                     </section>
                     <section data-markdown>
                         ## CSRF
@@ -584,6 +706,7 @@
                     <section data-markdown>
                         ## Password security
                         * Salt and hash passwords with bcrypt
+                        * learn-bcrypt folder on computer
                     </section>
                     <section data-markdown>
                         ## Content Security Policy (CSP)
@@ -594,9 +717,12 @@
                     </section>
                     <section data-markdown>
                         ## Common security headers
+                        * CSP - https://developers.google.com/web/fundamentals/security/csp/
                     </section>
                     <section data-markdown>
                         ## Expressjs helmet module
+                        * https://helmetjs.github.io/
+                        * https://github.com/helmetjs/helmet
                     </section>
                     <section data-markdown>
                         ## HSTS
@@ -613,6 +739,7 @@
                         # Infrastructure Security
                     </section>
                     <section data-markdown>
+                        * DevSecOps
                         * Don’t run processes as root or admin
                         * Service accounts should have strong complex passwords
                         * Update your operating system and apply patches
@@ -622,6 +749,13 @@
                         ## AWS security
                         * Don't enable directory listing on buckets
                     </section>
+                </section>
+                <section data-markdown>
+                    ## Resources
+                    * [Hacksplaining](https://www.hacksplaining.com/)
+                    * [Node.js security checklist](https://blog.risingstack.com/node-js-security-checklist/)
+                    * [A Gentle Introduction to Application Security](https://paragonie.com/blog/2015/08/gentle-introduction-application-security)
+                    * [Security Checklist for Developers](https://github.com/FallibleInc/security-guide-for-developers/blob/master/security-checklist.md)
                 </section>
             </div>
         </div>
