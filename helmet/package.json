@@ -1,7 +1,7 @@
 {
   "name": "helmet-example",
   "version": "1.0.0",
-  "description": "Helmet sample code",
+  "description": "Example server running helmet for Intro to Security for Developers presentation",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

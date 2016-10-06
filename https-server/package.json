@@ -1,9 +1,10 @@
 {
   "name": "https-server",
   "version": "1.0.0",
-  "description": "Code sample for a simple HTTP and HTTPS expressjs server",
+  "description": "Code sample for a simple HTTPS expressjs server",
   "main": "server.js",
   "scripts": {
+    "start": "npm run cert && node server.js",
     "cert": "openssl req -x509 -newkey rsa:2048 -keyout privatekey.pem -out cert.pem -days 365 -subj '/C=US/ST=DC/O=MyOrganization' -nodes",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

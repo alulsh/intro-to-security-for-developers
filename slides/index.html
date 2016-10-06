@@ -43,23 +43,45 @@
                         * About me
                         * Why learn security?
                         * Common security terms
-                        * Device security
-                        * Network security
-                        * GitHub security
-                        * Application security
-                        * Infrastructure security
+                        * Consumer security quick tips
+                        * 
                     </section>
                     <section data-markdown>
-                        Developers need to learn more than just how to write secure code.
-
-                        A compromised laptop, weak password, or posting credentials on GitHub can all lead to a breach.
+                        ## How to: Slides
+                        * This presentation uses [reveal.js](https://github.com/hakimel/reveal.js).
+                        * Use the left/right arrows to go the next topic and up/down arrows to view the slides.
+                        * These slides are available on my website at http://www.alexandraulsh.com/intro-to-security-for-developers
+                        * To view locally:
+                        ```sh
+                        git clone git@github.com:alulsh/intro-to-security-for-developers.git
+                        cd slides
+                        npm install
+                        npm start
+                        ```
                     </section>
                     <section data-markdown>
-                        ["Verizon DBIR: Over Half Of Data Breaches Exploited Legitimate Passwords In 2015"](http://www.darkreading.com/endpoint/verizon-dbir-over-half-of-data-breaches-exploited-legitimate-passwords-in-2015/d/d-id/1325242)
+                        ## How to: Code Samples
 
-                        ["In major goof, Uber stored sensitive database key on public GitHub page"](http://arstechnica.com/security/2015/03/in-major-goof-uber-stored-sensitive-database-key-on-public-github-page/)
+                        * This presentation includes code samples to help teach security concepts interactively.
+                        * These must be run locally - they're not on my website.
+                        * I use GitHub Pages (can't run Node) and I don't want live vulnerabilities on my domain.
+                        * Prerequisites:
+                            * [node.js](https://nodejs.org/en/download/) (preferably install using [nvm](https://github.com/creationix/nvm))
+                            * [npm](https://docs.npmjs.com/getting-started/installing-node)
+                        * I used Node 4.6.0 and npm 2.15.9, but these samples may work with earlier or later versions of either node/npm
+                        * I'm using Node and Express (due to familiarity) - I may explore other languages for other talks.
+                    </section>
+                    <section data-markdown>
+                        ## How to: Code Samples
+                        * To get a code sample running:
+                        ```sh
+                        git clone git@github.com:alulsh/intro-to-security-for-developers.git
+                        cd &lt;code sample folder&gt;
+                        npm install
+                        npm start
+                        ```
 
-                        ["US Healthworks Suffers Data Breach Via Unencrypted Laptop"](http://www.forbes.com/sites/davelewis/2015/06/01/us-healthworks-suffers-data-breach-via-unencrypted-laptop/#4f9f06897005)
+                        Most code samples use `npm start` as the initial command, but 
                     </section>
                 </section>
                 <section>
@@ -95,6 +117,7 @@
                         * Check out bug bounty programs on [HackerOne](https://hackerone.com/) and [Bugcrowd](https://bugcrowd.com/)
                         * Teach your friends and coworkers about security
                         * Offer to harden servers and do secure code reviews
+                        * Offer to triage bug bounty reports
                         * Think about the ways you or your organization can be hacked, then implement defenses
                     </section>
                 </section>
@@ -103,9 +126,11 @@
                         ## Why learn security?
                         * Protect yourself, people you care about, and your organization
                         * Responsibility to protect the security and privacy of the people who use our applications
+                        * Solve complex and difficult problems that make a difference
+                        * Never boring - threats are constantly changing and evolving
                     </section>
                     <section data-markdown>
-                        ## Software engineers
+                        ### Software engineers
 
                         > Engineers bear a burden to the public, and their specific expertise as designers and builders of bridges or buildings—or software—emanates from that responsibility. Only after answering this calling does an engineer build anything, whether bridges or buildings or software.
 
@@ -115,17 +140,31 @@
                     </section>
                     <section data-markdown>
                         If we want to call ourselves software **engineers**, then we need to build secure, stable, and reliable software that minimizes harm to others.
+
+                        Furthermore, all people involved in creating software and other computer systems should care about security, stability, privacy, and reliabilty in what we create and maintain.
                     </section>
                     <section data-markdown>
-                        # Diversity in Security
-
-                        ![97% of HackerOne hackers are male](img/WhoAreHackers.png) 
-
-                        * [HackerOne Hacker Report](https://hackerone.com/blog/bug-bounty-hacker-report-2016)
-
+                        ### Diversity in Security
+                        * Women make up only 10% of the infosec workforce per an [ISC2 white paper](https://www.boozallen.com/content/dam/boozallen/documents/2015/09/women-in-security.pdf).
+                        * Among the infosec workforce, 20% of women serve in GRC (Governance, Risk, &amp; Compliance) roles vs. 12.5% of men.
+                        * Only 7% of infosec workforce is black per [DC Inno](http://dcinno.streetwise.co/2016/03/23/lack-of-diversity-minorities-in-cybersecurity-industry-hiring/).
+                        * Only 5% of infosec workforce is hispanic per [DC Inno](http://dcinno.streetwise.co/2016/03/23/lack-of-diversity-minorities-in-cybersecurity-industry-hiring/).
                     </section>
-                    <section>
-                        <p>Job opportunities in security</p>
+                    <section data-markdown>
+                        ![97% of HackerOne hackers are male](img/WhoAreHackers.png) 
+                    </section>
+                    <section data-markdown>
+                        ### Diversity of Security Researchers
+                        Per [HackerOne 2016 Hacker Report](https://hackerone.com/blog/bug-bounty-hacker-report-2016), 97% of their security researchers are male.
+
+                        Competitor Bug Crowd doesn't even provide gender statistics in their [2016 State of the Bug Bounty Report](https://pages.bugcrowd.com/2016-state-of-bug-bounty-report).
+                    </section>
+                    <section data-markdown>
+                        ### Job opportunities in security
+
+                        ![Stats from MIT Technology Review](img/TalentGap.png)
+
+                        "[Close the Talent Gap, Secure the Future](https://www.technologyreview.com/s/601537/close-the-talent-gap-secure-the-future/)" from MIT Technology Review
                     </section>
                 </section>
                 <section>
@@ -133,196 +172,90 @@
                         # Common Security Terms
                     </section>
                     <section data-markdown>
-                        * infosec = information security
-                        * cybersecurity vs. infosec vs. information assurance (IA)
-                        * appsec = application security
-                        * netsec = network security
-                        * physical security = locks, alarm systems, protecting devices from being stolen
+                        ## Types of security
+                        * **infosec** = information security
+                        * **cybersecurity** vs. **infosec** vs. **information assurance (IA)**
+                        * **appsec** = application security
+                        * **netsec** = network security
+                        * **physical security** = locks, alarm systems, protecting devices from being stolen
+                    </section>
+                    <section data-markdown>
+                        ## DevSecOps
+                        * todo - bullet points on devops, secops, and devsecops
                     </section>
                     <section data-markdown>
                         ## Offense vs. Defense
-                        * Penetration testing (pentesting) = finding vulnerabilities in systems
-                        * Red team = offensive team that pentests systems and breaks things
-                        * Blue team = defensive team that protects systems and write secure systems
+                        * **Pentesting** = penetrationg testing - finding vulnerabilities in systems
+                        * **Red team** = offensive team that pentests systems and breaks things
+                        * **Blue team** = defensive team that protects systems and write secure systems
                     </section>
                     <section>
                         <h2>So Many Hats</h2>
                         <img alt="Archer wearing a gray hat, white hat, and black hat" src="img/hats.jpg" /><br/>
-                        <small>Credit: Alex Hernandez, <a href="http://techaeris.com/2015/08/19/not-all-hackers-are-bad-short-guide-to-hacker-hat-colors/">Not All Hackers Are Bad – Short Guide To Hacker Hat Colors</a>, Techaeris</small>
+                        <small>Alex Hernandez, <a href="http://techaeris.com/2015/08/19/not-all-hackers-are-bad-short-guide-to-hacker-hat-colors/">Not All Hackers Are Bad – Short Guide To Hacker Hat Colors</a>, Techaeris</small>
                     </section>
                     <section data-markdown>
-                        * White hat = ethical hacker, asks for permission, responsibly discloses vulnerabilities, possibly hired as a pentester
-                        * Black hat = malicious, doesn't ask for permission, deletes data, asks victims for money
-                        * Gray hat = nonchalant, may or may not ask for permission, may not report vulnerabilities at all or publicly discloses, hacks just for fun
-                        * Red Hat? A type of Linux distribution
+                        * **White hat** = ethical hacker, asks for permission, responsibly discloses vulnerabilities, possibly hired as a pentester
+                        * **Black hat** = malicious, doesn't ask for permission, deletes data, asks victims for money
+                        * **Gray hat** = nonchalant, may or may not ask for permission, may not report vulnerabilities at all or publicly discloses, hacks just for fun
+                        * **Red Hat?** A type of Linux distribution
                     </section>
                     <section data-markdown>
-                        ## Bug Bounty Programs
-                        * Responsible disclosure
-                        * Full disclosure
-                        * Public disclosure
+                        ## Reporting Security Issues
+                        * **Full disclosure** - researcher publishes blog post exposing an active security issue on a website or in a desktop application
+                        * **Responsible/coordinated disclosure** - researcher notifies organization of security issue and public isn't notified until the organization releases a fix or a patch
+                        * **Non-disclosure** - vulnerability information should never be shared with a vendor or only under an NDA
+                        * **Bug bounty program** - structured program that encourages security researchers to pentest resources within scope and report security issues for money
                     </section>
                 </section>
                 <section>
                     <section data-markdown>
-                        # Device Security
-                    </section>
-                    <section>
-                        <p>"devices" = computers and phones</p>
-                        <p>"mobile devices" = laptops and cellphones</p>
-                        <p>MDM = mobile device management</p>
-                    </section>
-                    <section>
-                        <p>We write code and store sensitive information on our devices.</p>
-                        <p>We use our devices to authenticate to other (cloud) accounts</p>
-                        <p>They're some of the first things we should lock down and protect.</p>
-                    </section>
-                    <section>
-                        <h2>Laptops</h2>
+                        # Consumer Security Quick Tips
                     </section>
                     <section data-markdown>
-                        ## Physical security
-                        * Don't leave your laptop unattended
-                        * Be mindful of shoulder surfers
-                            * Dim your screen or use a privacy screen
-                        * Enable a device tracking and recovery program like [Find My Mac]() or [Prey]()
-                        * Secure and encrypt your physical &amp; cloud backups
+                        * This is worthy of its own "Intro to Consumer Security" talk.
+                        * Instead I'll point up the most common security issues I see at work, at Meetups, and with friends and family and what you can do to secure your devices and accounts.
+                        * Developers need to learn more than just how to write secure code.
+                        * A compromised laptop, weak password, or posting credentials on GitHub can all lead to a breach.
                     </section>
                     <section data-markdown>
-                        ## Passwords
-                        * Use a strong, complex password on your laptop
-                        * Lock your computer when you step away from it
-                        * Set your screen to auto lock after 5 minutes of inactivity
-                        * Require a password on wake
-                    </section>
-                    <section data-markdown>
-                        ## Hard Disk Encryption
+                        ["Verizon DBIR: Over Half Of Data Breaches Exploited Legitimate Passwords In 2015"](http://www.darkreading.com/endpoint/verizon-dbir-over-half-of-data-breaches-exploited-legitimate-passwords-in-2015/d/d-id/1325242)
 
-                        [![Encrypting hard drives](http://imgs.xkcd.com/comics/security.png)](http://xkcd.com/538/)
+                        ["In major goof, Uber stored sensitive database key on public GitHub page"](http://arstechnica.com/security/2015/03/in-major-goof-uber-stored-sensitive-database-key-on-public-github-page/)
 
-                        * Windows - [BitLocker](http://www.windowscentral.com/how-use-bitlocker-encryption-windows-10)
-                        * Mac - [FileVault](https://support.apple.com/en-us/HT204837)
-                        * Linux - [LUKS](http://david.dw-perspective.org.uk/da/index.php/computer-resources/encrypted-partitions-on-linux-with-luks/comment-page-1/)
+                        ["US Healthworks Suffers Data Breach Via Unencrypted Laptop"](http://www.forbes.com/sites/davelewis/2015/06/01/us-healthworks-suffers-data-breach-via-unencrypted-laptop/#4f9f06897005)
+                    </section> 
+                    <section data-markdown>
+                        ## Laptops
+                        * Lock your screen when you step away from your laptop
+                        * Use a complex password on your laptop and require a password on wake
+                        * Encrypt your hard drive using FileVault (Mac), BitLocker (Windows), or LUKS (Linux)
+                        * Enable a firewall on your computer
+                        * Update your operating system and applications frequently, especially security patches
                     </section>
                     <section data-markdown>
-                        Update your operating system and applications frequently.
-
-                        Many updates are also security patches.
-
-                        * [Windows Update](https://en.wikipedia.org/wiki/Windows_Update)
-                        * [Mac App Store](https://www.apple.com/support/mac/app-store/) updates
-                        * Linux: `sudo apt-get upgrade`
+                        ## Smartphones
+                        * Use a long passcode on your smartphone (8+ characters)
+                        * Android: don't use [common lock patterns](http://www.androidauthority.com/lock-pattern-predictable-636267/)
+                        * Enable Find My iPhone or Android Device Manager (for remote wipe)
+                        * Update your operating system and apps frequently, especially security patches
                     </section>
                     <section data-markdown>
-                        Mac - keep [Homebrew](http://brew.sh/index.html) package manager up to date
-
-                        Update Homebrew to latest gitsha
-                        ```sh
-                        brew update
-                        ```
-                        View outdated packages
-                        ```sh
-                        brew outdated
-                        ```
-                        Upgrade package `foobar`
-                        ```sh
-                        brew upgrade foobar
-                        ```
-                    </section>
-                    <section data-markdown>
-                        ## Smart phones
-                    </section>
-                    <section data-markdown>
-                        ### Passcodes
-                        * Use a strong and long (12+) alphanumeric passcode
-                        * If you want to only use numbers, then at least use more than 8 numbers
-                        * Require a passcode immediately after sleep
-                        * iPhone: Enable erase data after 10 bad passcode attempts (take backups!)
-                        * iPhone: If you are truly paranoid, don't enable [Touch ID](https://support.apple.com/en-us/HT201371)
-                    </section>
-                    <section>
-                        <p>Android: don't use <a href="http://www.androidauthority.com/lock-pattern-predictable-636267/">common lock patterns</a></p>
-                        <img src="img/weak-android-lock-patterns.png" /><br/>
-                        <small>Edgar Cervantes, "Lock patterns are more predictable than we thought", <a href="http://www.androidauthority.com/lock-pattern-predictable-636267/">Android Authority</a></small>
-                    </section>
-                    <section>
-                        <p>Enable Find My iPhone or Android Device Manager (remote wipe)</p>
-                        <p>Apply the latest operating system and app updates</p>
-                        <p>Android: Encrypt your phone (iPhones are encrypted by default)</p>
-                    </section>
-                </section>
-                <section>
-                    <section><h1>Network security</h1></section>
-                    <section>
-                        <h2>wi-fi</h2>
-                        <p>Don't connect to unencrypted (passwordless) wifi networks</p>
-                        <p>Anyone can sniff (view) HTTP traffic using tools like <a href="https://www.wireshark.org/">Wireshark</a> or <a href="http://www.tcpdump.org/">tcpdump</a></p>
-                        <p>Traffic with HTTPS sites is protected with SSL/TLS though</p>
-                    </section>
-                    <section>
-                        <p>If you must connect to unencrypted wifi, use a VPN client.</p>
-                        <p>Find one that works on both laptops and cell phones</p>
-                        <p>Pay for a VPN service. Unfortunately, if your VPN service is free then it may not be legit.</p>
-                        <!--
-                        Be wary of rogue, fake, or malicious wireless access points
-                        Man in the middle attacks
-                        -->
-                    </section>
-                    <section data-markdown>
-                        ## Browser security
-                        * HTTPS everywhere Chrome plugin
+                        ## Internet security
+                        * Don't connect to unencrypted (passwordless) wifi networks
+                        * If you must connect, use a VPN service
+                        * Frequently update your web browsers
+                        * Install HTTPS Everywhere browser plugin
                         * Install an ad blocker
                         * Enable click-to-play
                     </section>
-                </section>
-                <section>
                     <section data-markdown>
-                        # Account Security
-                    </section>
-                    <section data-markdown>
-                        ## Secure Passwords
-                        * 16+ characters in length (the longer, the better)
-                        * At least 2 lower case, 2 upper case, 2 numbers, and 2 special characters (`!@#$%^&amp;*()`)
-                        * So complex you can't memorize it
-                        * Unique - shouldn't be used anywhere else
-                        * Use [diceware passphrases](http://world.std.com/~reinhold/diceware.html) if you need to memorize a secure passphrase
-                    </section>
-                    <section data-markdown>
-                        * How do you use passwords you can't remember?
-                        * Use a password manager!
-                        * **Most important thing you can do for your personal security if you're not already using one.**
-                        * Use one that you can easily use on all your devices, including smartphones.
-                    </section>
-                    <section data-markdown>
-                        ## Password manager benefits
-                        * Password managers protect against password reuse and weak passwords.
-                        * Easy to change and rotate passwords.
-                        * Password audit and breach notification services.
-                        * Store more than just passwords - access tokens, 2FA backup codes, security questions, and credit cards.
-                        * I recommend [1Password](https://1password.com/), others include [Encryptr](https://spideroak.com/solutions/encryptr), [LastPass](https://lastpass.com/), and [KeePass](http://keepass.info/).
-                    </section>
-                    <section data-markdown>
-                        ## Two Factor Authentication (2FA)
-                        * Requires a "second factor" or "second step."
-                        * Usually a code generated from an app or sent via SMS.
-                        * Generated with [Time-based One Time Passwords (TOTP)](https://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm) or [HMAC-based One-time Password Algorithm (HOTP)](https://en.wikipedia.org/wiki/HMAC-based_One-time_Password_Algorithm) algorithms.
-                        * Someone can't hack your account with just the password, they also need the second factor.
-                        * A weak password protected with 2FA is more secure than a complex password alone.
-                        * 2FA apps - [Google Authenticator](https://en.wikipedia.org/wiki/Google_Authenticator), [Authy](https://www.authy.com/), and [Duo](https://duo.com/)
-                    </section>
-                    <section data-markdown>
-                        ## 2FA Backup and Recovery Codes
-                        * **Generate and save 2FA backup codes immediately after enabling.**
-                        * Securely store in a password manager, safe, or lockbox.
-                        * If you lose your phone or get a new one, **you'll lose access to all your 2FA-enabled accounts unless you have your backup codes**.
-                        * [1Password comes with a 2FA authenticator](https://support.1password.com/one-time-passwords/) - recommended for ease of use and to avoid account lock out.
-                    </section>
-                    <section data-markdown>
-                        ## Security questions
-                        * Don't provide the correct answers to security questions.
-                        * Answers to these questions are easy to find out on social media.
-                        * Instead store fake answers in your password manager.
-                        * Hackers stole security question answers in the [2014 Yahoo! breach](https://www.wired.com/2016/09/time-kill-security-questions-answer-lies/).
+                        ## Account Security
+                        * Use a strong password - [long (16+ characters) with special characters](https://www.technologyreview.com/s/542576/youve-been-misled-about-what-makes-a-good-password/)
+                        * Even better, enable two-factor authentication (2FA) or two-step verification (2SV) on every account possible
+                        * Use a password manager like [1Password](https://1password.com/) - use for all your passwords, 2FA tokens, credit cards, access tokens, and backup codes
+                        * **Immediately store your 2FA backup or recovery codes in a safe place (password manager) after enabling 2FA**
+                        * Don't provide real questions to security questions, store fake ones in a password manager - [2014 Yahoo! breach](https://www.wired.com/2016/09/time-kill-security-questions-answer-lies/)
                     </section>
                 </section>
                 <section>
@@ -379,6 +312,27 @@
                         # Npm security
                         * Remove old contributors from your npm packages
                     </section>
+                    <section data-markdown>
+                        ## Dependency management
+                        * Use up to date packages and dependencies in your code
+                        * Automate using `nsp` or `retire.js`
+                    </section>
+                    <section data-markdown>
+                        Mac - keep [Homebrew](http://brew.sh/index.html) package manager up to date
+
+                        Update Homebrew to latest gitsha
+                        ```sh
+                        brew update
+                        ```
+                        View outdated packages
+                        ```sh
+                        brew outdated
+                        ```
+                        Upgrade package `foobar`
+                        ```sh
+                        brew upgrade foobar
+                        ```
+                    </section>
                 </section>
                 <section>
                     <section data-markdown>
@@ -398,6 +352,8 @@
                 <section>
                     <section data-markdown>
                         # Encrypt all the things
+
+                        ## SSL/TLS
                     </section>
                     <section data-markdown>
                         ## `https://`
@@ -665,14 +621,13 @@
                     <section data-markdown>
                         # Authentication Systems
                     </section>
-                </section>
-                <section>
                     <section data-markdown>
-                        ## Information disclosure
-                        * Disable or hide headers that show which version of which software you are using
-                        * Don't leave DEBUG mode in production
-                        * Don't display stack traces and sensitive errors to users
-                        <!-- Code sample here for express.js -->
+                        ## Passport Module
+                    </section>
+                    <section data-markdown>
+                        ## Password security
+                        * Salt and hash passwords with bcrypt
+                        * learn-bcrypt folder on computer
                     </section>
                     <section data-markdown>
                         ## Secure cookies
@@ -689,6 +644,20 @@
                         * Use the `state` parameter when building oAuth solutions
                         <!-- TODO code sameple for adding state parameter - passport module -->
                     </section>
+                </section>
+                <section>
+                    <section data-markdown>
+                        ## Information disclosure
+                        * Disable or hide headers that show which version of which software you are using
+                        * Don't leave DEBUG mode in production
+                        * Don't display stack traces and sensitive errors to users
+                        <!-- Code sample here for express.js -->
+                    </section>
+                </section>
+                <section>
+                    <section data-markdown>
+                        ## API Security
+                    </section>
                     <section data-markdown>
                         ## Denial of Service (DoS)
                     </section>
@@ -701,21 +670,10 @@
                     <section data-markdown>
                         ## Rate limiting
                     </section>
+                </section>
+                <section>
                     <section data-markdown>
-                        ## Password security
-                        * Salt and hash passwords with bcrypt
-                        * learn-bcrypt folder on computer
-                    </section>
-                    <section data-markdown>
-                        ## Content Security Policy (CSP)
-                    </section>
-                    <section data-markdown>
-                        ## Clickjacking
-                        * Also known as UI redressing
-                    </section>
-                    <section data-markdown>
-                        ## Common security headers
-                        * CSP - https://developers.google.com/web/fundamentals/security/csp/
+                        ## Security Headers
                     </section>
                     <section data-markdown>
                         ## Expressjs helmet module
@@ -723,13 +681,15 @@
                         * https://github.com/helmetjs/helmet
                     </section>
                     <section data-markdown>
-                        ## HSTS
-                        * PKP (public-key pinning)
+                        ## Content Security Policy (CSP)
                     </section>
                     <section data-markdown>
-                        ## Dependency management
-                        * Use up to date packages and dependencies in your code
-                        * Automate using `nsp` or `retire.js`
+                        ## Common security headers
+                        * CSP - https://developers.google.com/web/fundamentals/security/csp/
+                    </section>
+                    <section data-markdown>
+                        ## HSTS
+                        * PKP (public-key pinning)
                     </section>
                 </section>
                 <section>
@@ -740,7 +700,7 @@
                         * DevSecOps
                         * Don’t run processes as root or admin
                         * Service accounts should have strong complex passwords
-                        * Update your operating system and apply patches
+                        * Update your operating systems and apply patches
                         * Disable directory listing
                         * Limit size of file uploads
                     <section data-markdown>
@@ -749,11 +709,23 @@
                     </section>
                 </section>
                 <section data-markdown>
+                    ## More Security Topics
+                    * Cryptography
+                    * Forensics
+                    * Compliance
+                    * Social engineering
+                    * Clickjacking (UI redressing)
+                    * SQL Injection and NoSQL Injection
+                    * Remote code execution (RCE)
+                    * XML Entity Expansion ("A billion laughs")
+                </section>
+                <section data-markdown>
                     ## Resources
                     * [Hacksplaining](https://www.hacksplaining.com/)
                     * [Node.js security checklist](https://blog.risingstack.com/node-js-security-checklist/)
                     * [A Gentle Introduction to Application Security](https://paragonie.com/blog/2015/08/gentle-introduction-application-security)
                     * [Security Checklist for Developers](https://github.com/FallibleInc/security-guide-for-developers/blob/master/security-checklist.md)
+                    * [Express Production Best Pracices: Security](http://expressjs.com/en/advanced/best-practice-security.html)
                 </section>
             </div>
         </div>

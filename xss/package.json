@@ -1,7 +1,7 @@
 {
   "name": "xss-demos",
   "version": "1.0.0",
-  "description": "XSS demos for presentation",
+  "description": "XSS demos for Intro to Security for Developers presentation",
   "main": "index.js",
   "scripts": {
     "start": "serve",
