@@ -822,23 +822,40 @@
                 </section>
                 <section>
                     <section data-markdown>
-                        ## Security Headers
+                        ## Security HTTP Headers
                     </section>
                     <section data-markdown>
-                        ## Expressjs helmet module
-                        * https://helmetjs.github.io/
-                        * https://github.com/helmetjs/helmet
+                        ## Express Helmet Module
+                        The [helmet](https://github.com/helmetjs/helmet) Express module easily sets common security-related HTTP headers for your server
+                    </section>
+                    <section data-markdown>
+                        | Header | Value | Purpose |
+                        |---|---|
+                        | `X-DNS-Prefetch-Control` | `off` | [Prevent DNS lookups before a user clicks a link](https://dev.chromium.org/developers/design-documents/dns-prefetching) |
+                        | `X-Frame-Options` | `DENY` | Prevent [clickjacking](https://www.troyhunt.com/clickjack-attack-hidden-threat-right-in/) |
+                        | `X-Powered-By` | removes | Prevent information disclosure |
+                        | `X-Download-Options` | `noopen` | Prevent IE from serving untrusted HTML |
+                        | `X-Content-Type-Options` | `nosniff` | [Prevents browser from guessing MIME type](https://msdn.microsoft.com/en-us/library/gg622941%28v=vs.85%29.aspx) |
+                    </section>
+                    <section data-markdown>
+                        | Header | Value | Purpose |
+                        |---|---|
+                        | `X-XSS-Protection` | `1; mode=block` or `0` | XSS Protection for IE9+ and Chrome |
+                    </section>
+                    <section data-markdown>
+                        ## Non-default Helmet Headers
+                        * noCache
+                        * referrerPolicy
+                        * contentSecurityPolicy
+                        * hpkp
                     </section>
                     <section data-markdown>
                         ## Content Security Policy (CSP)
-                    </section>
-                    <section data-markdown>
-                        ## Common security headers
                         * CSP - https://developers.google.com/web/fundamentals/security/csp/
                     </section>
                     <section data-markdown>
                         ## HSTS
-                        * PKP (public-key pinning)
+                        * HPKP (public-key pinning)
                     </section>
                 </section>
                 <section>
