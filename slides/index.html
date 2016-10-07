@@ -43,7 +43,8 @@
                         * About me
                         * Why learn security?
                         * Common security terms
-                        * Consumer security quick tips
+                        * Consumer Security
+                        * Developer Tools Security
                         * Application Security
                         * Infrastructure Security
                     </section>
@@ -51,10 +52,11 @@
                         ## How to: Slides
                         * This presentation uses [reveal.js](https://github.com/hakimel/reveal.js).
                         * Use the left/right arrows to go the next topic and up/down arrows to view the slides.
-                        * These slides are available on my website at http://www.alexandraulsh.com/intro-to-security-for-developers
+                        * These slides are available [on my website](http://www.alexandraulsh.com/intro-to-security-for-developers).
                         * To view locally:
                         ```sh
                         git clone git@github.com:alulsh/intro-to-security-for-developers.git
+                        git checkout gh-pages
                         cd slides
                         npm install
                         npm start
@@ -179,6 +181,16 @@
                         * **physical security** = locks, alarm systems, protecting devices from being stolen
                     </section>
                     <section data-markdown>
+                        ## AIC/CIA Triad
+                        * Classic model for thinking about infosec
+                        * Usually "CIA triad" but also "AIC triad"
+                        * AIC = availability, integrity, confidentiality
+                        * Availability = systems are online and accessible
+                        * Integrity = data has not been modified and can be trusted
+                        * Confidentiality = data is private
+                        * Availability is often neglected in infosec, but you can't ensure integrity and confidentiality of data if the system is down.
+                    </section>
+                    <section data-markdown>
                         ## DevSecOps
                         * todo - bullet points on devops, secops, and devsecops
                     </section>
@@ -262,11 +274,11 @@
                         # Developer Tools Security
                     </section>
                     <section data-markdown>
-                        # GitHub Account Security
-                        * Enable 2FA on your GitHub account
-                        * Encourage your organization to make this required for all members
-                        * Best thing you can do to secure your GitHub account
-                        * Especially in light of http://www.theregister.co.uk/2016/06/16/github_accounts_breached_password_reuse_fail/
+                        ## GitHub Account Security
+                        * Enable 2FA on your GitHub account.
+                        * Encourage your organization to make this required for all members.
+                        * Best thing you can do to secure your GitHub account if not already enabled.
+                        * Especially in light of recent [GitHub password reuse attack](http://www.theregister.co.uk/2016/06/16/github_accounts_breached_password_reuse_fail/).
                     </section>
                     <section data-markdown>
                         Help! I enabled 2FA and broke `git clone`!
@@ -275,24 +287,62 @@
                         * Alternatively, [enable Git SSH authentication](https://help.github.com/articles/generating-an-ssh-key/)
                         * **Always use a strong passphrase to encrypt your SSH keys**
                         * A passphrase-less SSH key can be stolen by an attacker to impersonate you
-                        * TODO: code sample for generating a GitHub SSH key
                     </section>
                     <section data-markdown>
-                        # Repository Security
+                        ## Code sample - Rotating SSH Keys
+
+                        ```sh
+                        # Backup current SSH keys
+                        cp -a ~/.ssh ~/ssh-backup
+                        # Generate new SSH key pair with a passphrase
+                        ssh-keygen -t rsa -b 4096 -C "your_email@email.com" -f ~/.ssh/id_rsa
+                        # Start the ssh-gent
+                        eval "$(ssh-agent -s)"
+                        # Add newly generated SSH key to the SSH agent and add to OS X Keychain
+                        ssh-add -K ~/.ssh/id_rsa
+                        ```
+                        Full set of commands in `rotate-ssh-keys.sh` in `git-ssh` folder
+                    </section>
+                    <section data-markdown>
+                        ### Repository Security
                         * Public vs. private repos
-                        * Don't post sensitive information in issues in public GitHub repos
-                        * Followers will get the initial email with your sensitive information even if you later edit or scrub the issue
-                        * Don't post link
+                        * Don't commit credentials or secret access tokens in your code
+                        * **Public** access tokens for client-side JavaScript code can be checked in
+                        * Store [sensitive information as environment variables](https://12factor.net/config) instead (even for private repos)
                     </section>
                     <section data-markdown>
-                        * Don't post passwords or credentials on GitHub, including secret access token
-                        * **Public* access tokens for client-side JavaScript code can be checked in
-                        * Force commit or git history clean tool
+                        * Use `git add &lt;file name&gt;` instead of `git add .`
+                        * Don't post sensitive information in issues in public GitHub repos.
+                        * Repo watchers will get the initial email with your sensitive information even if you later edit the comment on GitHub.com.
+                    </section>
+                    <section data-markdown>
+                        ### Making Private Repos Public
+                        * Look for open or closed issues with sensitive information - scrub comments
+                        * Look for previous commits with sensitive information
+                        * Use [BFG Repo Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) to scrub sensitive data in the codebase.
+                        * Look at every part of your code and ask yourself - could an attacker cause harm with this information?
+                    </section>
+                    <section data-markdown>
+                        I posted something sensitive on GitHub!
+
+                        * Take a deep breath.
+                        * Just one commit on one branch? Delete the bad commit then force push.
+                        * `git rebase -i HEAD~2` to interactive rebase the last 2 commits
+                        * Delete the bad commit (`dd` in vim)
+                        * Force push
+                            * `git origin push &lt;branch name&gt; --force-with-lease`
+                        * More than one commit? Check out [BFG Repo Cleaner](https://rtyley.github.io/bfg-repo-cleaner/).
+                        * If credentials, revoke or rotate the compromised ones.
                     </section>
                     <section data-markdown>
                         # Gist Security
                         * Private vs. public gists
-                        * Be mindful of public Gists
+                        * Private Gists are **security by obscurity** - anyone with the URL can see
+                        * Public Gists are posted to the top of the public [discover gists](https://gist.github.com/discover) page
+                        * Hackers and black hats have tools to mine public Gists for access tokens and credentials
+                        * Assume any sensitive information in a public Gist has been compromised
+                        * If something is extremely sensitive, don't store it in a private Gist at all
+                        * [Gist command line tools](https://github.com/defunkt/gist) are public by default - avoid using
                     </section>
                     <section data-markdown>
                         # Global `.gitignore`
@@ -305,7 +355,7 @@
                     <section data-markdown>
                         # Node security
                         * Never run `sudo npm install`
-                        * Instead install Node with a tool like nvms
+                        * Instead install Node with a tool like nvm
                     </section>
                     <section data-markdown>
                         # Npm security
@@ -487,8 +537,6 @@
                         ## Code sample
                         Follow along with the code sample in the `mixed-content` directory
 
-                        Requires Node v4.6.0 and npm v2.15.19
-
                         ```sh
                         git clone git@github.com:alulsh/intro-to-security-for-developers.git
                         cd mixed-content
@@ -553,8 +601,6 @@
                     <section data-markdown>
                         ### Code samples
                         Follow along with the code sample in the `xss` directory
-
-                        Requires Node v4.6.0 and npm v2.15.19
 
                         ```sh
                         git clone git@github.com:alulsh/intro-to-security-for-developers.git
@@ -646,16 +692,57 @@
                 </section>
                 <section>
                     <section data-markdown>
-                        ## Information disclosure
-                        * Disable or hide headers that show which version of which software you are using
-                        * Don't leave DEBUG mode in production
-                        * Don't display stack traces and sensitive errors to users
-                        <!-- Code sample here for express.js -->
+                        ## Information Disclosure
+
+                        Revealing more information than necessary about the configuration of your system or software.
+                    </section>
+                    <section data-markdown>
+                        ## Fingerprinting
+                        * Before attacking a target, attackers will try to find out as much information as possible via **fingerprinting**.
+                        * Easier to hack a system if you know it's architecture or what software it's running
+                        * Easier to social engineer a company if you know the people in it
+                        * Attackers get info from your website, blog posts, employees social media posts, open source code, and HTTP headers.
+                    </section>
+                    <section data-markdown>
+                        ## Banner Grabbing
+                        * Finding out website software and architecture information from HTTP headers
+                        * Command line tools like `nc` (netcat) or `curl`
+                        ```sh
+                        curl -I www.alexandra.ulsh
+                        ```
+                        * Response includes `X-GitHub-Request-Id: 17EB2E2E:40D2:191BAD2C:57F7AFBE`
+                        * Attacker now knows it's a GitHub Pages site
+                        * Programmatic information disclosure is particularly dangerous - attackers can automate attacks
+                    </section>
+                    <section data-markdown>
+                        ## Preventing Information Disclosure
+                        * Disable HTTP headers that reveal software names and versions.
+                        * There is no benefit to leaving these headers up, and removing them may even benefit performance.
+                        * Don't run production servers in debug or verbose mode
+                        * Don't display stack traces or detailed errors to users
+                        * Don't leave sensitive information in HTML or JavaScript comments
+                            * staging/test endpoints, credentials, private IP addresses, workarounds
+                    </section>
+                    <section data-markdown>
+                        ## Preventing Disclosure in Express
+                        * By default Express displays the `X-Powered-By: Express` header
+                        * Disable using `app.disable('x-powered-by');`
+                        * The default cookie name in Express is `connect.sid`
+                        * Use a generic name like `session` instead of the default name
+                        ```js
+                        app.use(session({
+                            secret: 't0ps3cr3t',
+                            name: 'session'
+                            })
+                        );
+                        ```
+                        <!-- Possible to do: code sample and example with X-Powered-By header -->
+                        <!-- Possible to do: code sample with non-default cookie name -->
                     </section>
                 </section>
                 <section>
                     <section data-markdown>
-                        ## API Security
+                        ## Availability
                     </section>
                     <section data-markdown>
                         ## Denial of Service (DoS)
