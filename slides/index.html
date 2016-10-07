@@ -632,6 +632,7 @@
                     </section>
                     <section data-markdown>
                         ### How to prevent client XSS
+                        <!-- To Do: Explain HTML escaping -->
                         * HTML escape user provided data before adding to the DOM
                         * HTML escaping &gt; sanitization
                         * Attackers will find ways to get around sanitization libraries
@@ -742,19 +743,81 @@
                 </section>
                 <section>
                     <section data-markdown>
-                        ## Availability
+                        # Protecting Availability
                     </section>
                     <section data-markdown>
                         ## Denial of Service (DoS)
+                        * Taking a system offline and rendering it unavailable to its users
+                        * Can be triggered by one illogical payload or multiple high-volume requests
+                        * Real life example: [Denial of service in account statistics endpoint](https://hackerone.com/reports/136221)
+                        * DoS condition triggered by requesting a large period of time for account statistics - 20 years of (non-existent) data!
+                        * Resolved by adding a limit to endpoint to not request more than a year of data
+                    </section>
+                    <section data-markdown>
+                        ## Validating Input
+                        * To mitigate DoS conditions, validate user input and add reasonable limits to your application logic.
+                        * Don't allow users to provide or request:
+                            * data from unlimited time periods
+                            * negative values
+                            * strings when it should be a number
+                            * code or specal characters (null bytes) when it should be text
+                        * Limit the size of user uploads (e.g. 20mb)
+                        * Build resilient, scalable systems that stay online when 1 server goes offline
                     </section>
                     <section data-markdown>
                         ## Distributed Denial of Service (DDoS)
+                        * DoS attacks distributed across multiple machines or attackers, often as part of a **botnet**
+                        * Internet hosting company OVH suffered 1 terabyte DDoS attack - [the largest ever so far](http://www.scmagazineuk.com/ovh-suffers-11tbps-ddos-attack/article/524826/)
+                        * Botnet of CCTV &amp; IoT devices with weak passwords launched attack
+                        * Types of attacks: UDP flood, SYN flood, ping of death, DNS reflection
                     </section>
                     <section data-markdown>
-                        ## Brute force attacks
+                        ## Attacker motivations
+                        * geopolitical - [NATO &amp; Ukraine DDoS](http://www.darkreading.com/attacks-and-breaches/ddos-attacks-hit-nato-ukrainian-media-outlets/d/d-id/1127742))
+                        * censoring activist movements - DDoS against Black Lives Matter
+                        * extortion - pay us money and we'll stop the attack
+                        * just because - [Lizard Squad](http://www.bbc.co.uk/newsbeat/article/30306319/who-are-lizard-squad-and-whats-next-for-the-hackers) 
                     </section>
                     <section data-markdown>
-                        ## Rate limiting
+                        ## Mitigating DDoS
+                        * Sign up for a DDoS protection service
+                        * [CloudFlare](https://www.cloudflare.com/ddos/)
+                        * [Akamai](https://www.akamai.com/us/en/solutions/products/cloud-security/ddos-protection-service.jsp)
+                        * AWS WAF (web application firewall) + AWS CloudFront (CDN) - [see AWS DDoS whitepaper](https://d0.awsstatic.com/whitepapers/Security/DDoS_White_Paper.pdf)
+                        * [Deflect](https://deflect.ca/) - free anti-DDoS service "for independent media, human rights organisations and activists"
+                    </section>
+                    <section data-markdown>
+                        ## Brute Force Attacks
+                        * Attacking an application's login endpoint in order to crack a user's password and take over their account
+                        * Hackers use tools like [Burp Suite](https://support.portswigger.net/customer/portal/articles/1964020-using-burp-to-brute-force-a-login-page) to load a dictionary of possible passwords
+                        * Offline brute force attacks can be used to guess computer login passwords using [rainbow tables](https://en.wikipedia.org/wiki/Rainbow_table) and tools like [John the Ripper](https://en.wikipedia.org/wiki/John_the_Ripper)
+                    </section>
+                    <section data-markdown>
+                        ## Brute Force Mitigations
+                        * Account lockout - account locks out after specified number of bad logins
+                        * CAPTCHA - human completes CAPTCHA before logging in
+                        * Rate limit - limit requests to endpoint to 10 request/minute (ok for humans)
+                        * Account lockout not desirable as this prevents legitimate users from accessing their account
+                        * Also allows attackers to intentionally lockout victims
+                    </section>
+                    <section data-markdown>
+                        ## Rate Limiting
+                        * Wealth of rate limiting libraries for Node and Express
+                        * Check out [express-rate-limit](https://github.com/nfriedly/express-rate-limit) and [express-brute](https://www.npmjs.com/package/express-brute)
+                        * Example code to prevent brute force on login endpoint:
+                            ```js
+                            var RateLimit = require('express-rate-limit');
+
+                            var loginLimiter = new RateLimit({
+                              windowMs: 60*1000, // 1 minute
+                              max: 10,
+                              delayMs: 0 // disabled
+                            });
+
+                            app.post('/login', loginLimiter, function(req, res) {
+                                // rest of login code here
+                            });;
+                            ```
                     </section>
                 </section>
                 <section>
@@ -783,7 +846,7 @@
                         # Infrastructure Security
                     </section>
                     <section data-markdown>
-                        * DevSecOps
+                        ## DevSecOps
                         * Don’t run processes as root or admin
                         * Service accounts should have strong complex passwords
                         * Update your operating systems and apply patches
@@ -796,11 +859,17 @@
                 </section>
                 <section data-markdown>
                     ## More Security Topics
+                    This presentation covers a limited set of topics in security, I highly encourage you to explore even more! Here's an incomplete list:
+
                     * Cryptography
                     * Forensics
                     * Compliance
                     * Social engineering
+                    * Lock picking
                     * Clickjacking (UI redressing)
+                    * Content spoofing
+                    * Open redirects
+                    * Phishing
                     * SQL Injection and NoSQL Injection
                     * Remote code execution (RCE)
                     * XML Entity Expansion ("A billion laughs")
@@ -812,6 +881,8 @@
                     * [A Gentle Introduction to Application Security](https://paragonie.com/blog/2015/08/gentle-introduction-application-security)
                     * [Security Checklist for Developers](https://github.com/FallibleInc/security-guide-for-developers/blob/master/security-checklist.md)
                     * [Express Production Best Pracices: Security](http://expressjs.com/en/advanced/best-practice-security.html)
+                    * [DVWA - Damn Vulnerable Web App](https://github.com/ethicalhack3r/DVWA)
+                    * [Facebooks Capture the Flag](https://github.com/facebook/fbctf)
                 </section>
             </div>
         </div>
