@@ -318,7 +318,7 @@
                         Full set of commands in `rotate-ssh-keys.sh` in `git-ssh` folder
                     </section>
                     <section data-markdown>
-                        ### Repository Security
+                        ## Repository Security
                         * Public vs. private repos
                         * Don't commit credentials or secret access tokens in your code
                         * **Public** access tokens for client-side JavaScript code can be checked in
@@ -330,7 +330,7 @@
                         * Repo watchers will get the initial email with your sensitive information even if you later edit the comment on GitHub.com.
                     </section>
                     <section data-markdown>
-                        ### Making Private Repos Public
+                        ## Making Private Repos Public
                         * Look for open or closed issues with sensitive information - scrub comments
                         * Look for previous commits with sensitive information
                         * Use [BFG Repo Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) to scrub sensitive data in the codebase.
@@ -349,7 +349,7 @@
                         * If credentials, revoke or rotate the compromised ones.
                     </section>
                     <section data-markdown>
-                        # Gist Security
+                        ## Gist Security
                         * Private Gists are **security by obscurity** - anyone with the URL can see
                         * If something is extremely sensitive, don't store it in a private Gist at all
                         * Public Gists are posted to the top of the public [discover gists](https://gist.github.com/discover) page
@@ -358,20 +358,32 @@
                         * [Gist command line tools](https://github.com/defunkt/gist) are public by default - avoid using
                     </section>
                     <section data-markdown>
-                        # Global `.gitignore`
+                        ## Global `.gitignore`
                         * A robust global `.gitignore` file can help prevent accidentally checking in sensitive files
+                        <!--
+                        * Instructions on how to create a global gitignore
+                        * Sample gitignore file
+                        * Link to .gitignore repo
+                        -->
                     </section>
                     <section data-markdown>
-                        # Travis CI security
-                        * Encrypt secrets in your Travis CI configuration files
+                        ## CI security
+                        * Don't store sensitive information such as credentials or access tokens in your repo's `.travis.yml` file, even for private repos
+                        * Encrypt sensitive information using the Travis CI ruby gem:
+                        ``` sh
+                        gem install travis
+                        travis encrypt SECRETVARIABLE=supersecretvalue
+                        ```
+                        * See the [Travis CI encryption docs](https://docs.travis-ci.com/user/encryption-keys/) for more information.
+                        * For CircleCI, check out [encrypted-files](https://github.com/circleci/encrypted-files) project
                     </section>
                     <section data-markdown>
-                        # Node Security
+                        ## Node Security
                         * Never run `sudo npm install`
                         * Instead install Node with a tool like nvm
                     </section>
                     <section data-markdown>
-                        # Npm security
+                        ## npm security
                         * Remove old contributors from your npm packages
                     </section>
                     <section data-markdown>
