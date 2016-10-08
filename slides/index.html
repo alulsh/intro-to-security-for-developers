@@ -71,18 +71,16 @@
                     <section data-markdown>
                         ## How to: Code Samples
 
-                        * This presentation includes code samples to help teach security concepts interactively.
+                        * This presentation includes [code samples on GitHub](https://github.com/alulsh/intro-to-security-for-developers) to help teach security concepts interactively.
                         * These must be run locally - they're not on my website.
-                        * I use GitHub Pages (can't run Node) and I don't want live vulnerabilities on my domain.
                         * Prerequisites:
                             * [node.js](https://nodejs.org/en/download/) (preferably install using [nvm](https://github.com/creationix/nvm))
                             * [npm](https://docs.npmjs.com/getting-started/installing-node)
                         * I used Node 4.6.0 and npm 2.15.9, but these samples may work with earlier or later versions of either node/npm
-                        * I'm using Node and Express (due to familiarity) - I may explore other languages for other talks.
                     </section>
                     <section data-markdown>
                         ## How to: Code Samples
-                        * To get a code sample running:
+                        To get a code sample running:
                         ```sh
                         git clone git@github.com:alulsh/intro-to-security-for-developers.git
                         cd &lt;code sample folder&gt;
@@ -110,22 +108,26 @@
                         ## How did I get started in security?
                         * 3.5 years sysadmin for U.S. DoD doing SharePoint administration
                         * Security+ certification required for job
-                        * STIGs for SharePoint, IIS, and SQL Server (DIACAP)
-                        * Open-sourced PowerShell module to STIG SharePoint
-                        * [https://github.com/alulsh/SharePoint-2013-STIGs](https://github.com/alulsh/SharePoint-2013-STIGs)
+                        * [STIGs](https://en.wikipedia.org/wiki/Security_Technical_Implementation_Guide) for SharePoint, IIS, and SQL Server for [DIACAP](https://en.wikipedia.org/wiki/Department_of_Defense_Information_Assurance_Certification_and_Accreditation_Process)
+                            * STIGs = Security Technical Implementation Guides
+                            * DIACAP = DoD Information Assurance Certification and Accreditation Process
+                        * Open-sourced [PowerShell modules to STIG SharePoint on GitHub](https://github.com/alulsh/SharePoint-2013-STIGs)
+                        * "Blue Team" background
                     </section>
                     <section data-markdown>
                         ## How can you get started in security?
                         * Learn how to secure your computers, cellphones, and accounts
                         * Learn how to write secure code and deploy secure infrastructure
                         * Learn how hackers attack systems and how to defend against them
+                        * Teach your friends and coworkers about security
                     </section>
                     <section data-markdown>
                         * Check out bug bounty programs on [HackerOne](https://hackerone.com/) and [Bugcrowd](https://bugcrowd.com/)
-                        * Teach your friends and coworkers about security
                         * Offer to harden servers and do secure code reviews
-                        * Offer to triage bug bounty reports
+                        * Offer to triage bug bounty reports for your organization
                         * Think about the ways you or your organization can be hacked, then implement defenses
+                        * Set up a pentest learning lab with a [Kali Linux](https://www.kali.org/) virtual machine
+                        * **Only hack what you own or have permission to hack**
                     </section>
                 </section>
                 <section>
@@ -138,6 +140,7 @@
                         * Responsibility to protect the security and privacy of the people who use our applications
                         * Solve complex and difficult problems that make a difference
                         * Never boring - threats are constantly changing and evolving
+                        * Diverse field - web app security, cryptography, forensics, malware analysis, IoT security, and more
                     </section>
                     <section data-markdown>
                         ### Software engineers
@@ -194,25 +197,25 @@
                         * Classic model for thinking about infosec
                         * Usually "CIA triad" but also "AIC triad"
                         * AIC = availability, integrity, confidentiality
-                        * Availability = systems are online and accessible
-                        * Integrity = data has not been modified and can be trusted
-                        * Confidentiality = data is private
+                            * **Availability** = systems are online and accessible
+                            * **Integrity** = data has not been modified and can be trusted
+                            * **Confidentiality** = data is private
                         * Availability is often neglected in infosec, but you can't ensure integrity and confidentiality of data if the system is down.
                     </section>
                     <section data-markdown>
                         ## DevSecOps
-                        * Applying same automation philosophy from DevOps to security
+                        * DevSecOps - applying DevOps philosophy to security
                         * Security as code
                         * Self-healing clouds
-                        * Compliance operations instead of checklists and documentation
-                        * Real pentests over theoretical scans and vulnerabilities
+                        * Compliance operations, not checklists and documentation
+                        * Real pentests, not theoretical vulnerabilities and scanners
                         * Check out http://www.devsecops.org/
                     </section>
                     <section data-markdown>
                         ## Offense vs. Defense
-                        * **Pentesting** = penetrationg testing - finding vulnerabilities in systems
+                        * **Pentesting** = penetration testing - finding vulnerabilities in systems
                         * **Red team** = offensive team that pentests systems and breaks things
-                        * **Blue team** = defensive team that protects systems and write secure systems
+                        * **Blue team** = defensive team that protects systems and writes secure code
                     </section>
                     <section>
                         <h2>So Many Hats</h2>
@@ -220,6 +223,7 @@
                         <small>Alex Hernandez, <a href="http://techaeris.com/2015/08/19/not-all-hackers-are-bad-short-guide-to-hacker-hat-colors/">Not All Hackers Are Bad – Short Guide To Hacker Hat Colors</a>, Techaeris</small>
                     </section>
                     <section data-markdown>
+                        ## Hacker Hats
                         * **White hat** = ethical hacker, asks for permission, responsibly discloses vulnerabilities, possibly hired as a pentester
                         * **Black hat** = malicious, doesn't ask for permission, deletes data, asks victims for money
                         * **Gray hat** = nonchalant, may or may not ask for permission, may not report vulnerabilities at all or publicly discloses, hacks just for fun
@@ -238,10 +242,14 @@
                         # Consumer Security Quick Tips
                     </section>
                     <section data-markdown>
-                        * This is worthy of its own "Intro to Consumer Security" talk.
-                        * Instead I'll point up the most common security issues I see at work, at Meetups, and with friends and family and what you can do to secure your devices and accounts.
-                        * Developers need to learn more than just how to write secure code.
-                        * A compromised laptop, weak password, or posting credentials on GitHub can all lead to a breach.
+                        This guidance is worthy of its own dedicated "Intro to Consumer Security" talk.
+                        
+                        Instead, I'll quickly point out the most common security issues I see at work, at Meetups, and with friends and family and what you can do to secure your devices and accounts.
+                    </section>
+                    <section data-markdown>
+                        Developers need to learn more than just how to write secure code.
+                        
+                        A compromised laptop, weak password, or posting credentials on GitHub can all lead to a breach.
                     </section>
                     <section data-markdown>
                         ["Verizon DBIR: Over Half Of Data Breaches Exploited Legitimate Passwords In 2015"](http://www.darkreading.com/endpoint/verizon-dbir-over-half-of-data-breaches-exploited-legitimate-passwords-in-2015/d/d-id/1325242)
@@ -249,12 +257,19 @@
                         ["In major goof, Uber stored sensitive database key on public GitHub page"](http://arstechnica.com/security/2015/03/in-major-goof-uber-stored-sensitive-database-key-on-public-github-page/)
 
                         ["US Healthworks Suffers Data Breach Via Unencrypted Laptop"](http://www.forbes.com/sites/davelewis/2015/06/01/us-healthworks-suffers-data-breach-via-unencrypted-laptop/#4f9f06897005)
-                    </section> 
+                    </section>
+                    <section data-markdown>
+                        ## Reality vs. Fiction
+
+                        Most security breaches aren't glamorous like they are in the movies.
+
+                        [![](http://imgs.xkcd.com/comics/security.png)](http://xkcd.com/538/)
+                    </section>
                     <section data-markdown>
                         ## Laptops
                         * Lock your screen when you step away from your laptop
                         * Use a complex password on your laptop and require a password on wake
-                        * Encrypt your hard drive using FileVault (Mac), BitLocker (Windows), or LUKS (Linux)
+                        * Encrypt your hard drive using [FileVault](https://support.apple.com/en-us/HT204837) (Mac), [BitLocker](http://www.windowscentral.com/how-use-bitlocker-encryption-windows-10) (Windows), or [LUKS](http://www.pavelkogan.com/2014/05/23/luks-full-disk-encryption/) (Linux)
                         * Enable a firewall on your computer
                         * Update your operating system and applications frequently, especially security patches
                     </section>
@@ -266,13 +281,13 @@
                         * Update your operating system and apps frequently, especially security patches
                     </section>
                     <section data-markdown>
-                        ## Internet security
+                        ## Internet Security
                         * Don't connect to unencrypted (passwordless) wifi networks
                         * If you must connect, use a VPN service
-                        * Frequently update your web browsers
-                        * Install HTTPS Everywhere browser plugin
-                        * Install an ad blocker
-                        * Enable click-to-play
+                        * Frequently update your web browsers - commonly exploited by attackers
+                        * Install the [HTTPS Everywhere](https://www.eff.org/Https-everywhere) browser plugin
+                        * Install an ad blocker like [Adblock Plus](https://adblockplus.org/) - lots of malware distributed via ads
+                        * Enable [plugin click-to-play](http://arstechnica.com/information-technology/2016/04/edge-to-follow-chromes-lead-make-flash-ads-click-to-play/) - protects against Adobe Flash vulnerabilities
                     </section>
                     <section data-markdown>
                         ## Account Security
@@ -291,8 +306,8 @@
                         ## GitHub Account Security
                         * Enable 2FA on your GitHub account.
                         * Encourage your organization to make this required for all members.
-                        * Best thing you can do to secure your GitHub account if not already enabled.
-                        * Especially in light of recent [GitHub password reuse attack](http://www.theregister.co.uk/2016/06/16/github_accounts_breached_password_reuse_fail/).
+                        * Best thing you can do to secure your GitHub account if not already enabled, especially in light of recent [GitHub password reuse attack](http://www.theregister.co.uk/2016/06/16/github_accounts_breached_password_reuse_fail/).
+                        * Password reuse attack failed if you had 2FA enabled.
                     </section>
                     <section data-markdown>
                         Help! I enabled 2FA and broke `git clone`!
@@ -333,7 +348,7 @@
                         ## Making Private Repos Public
                         * Look for open or closed issues with sensitive information - scrub comments
                         * Look for previous commits with sensitive information
-                        * Use [BFG Repo Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) to scrub sensitive data in the codebase.
+                        * Use [BFG Repo Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) to scrub sensitive data in the codebase
                         * Look at every part of your code and ask yourself - could an attacker cause harm with this information?
                     </section>
                     <section data-markdown>
@@ -360,11 +375,12 @@
                     <section data-markdown>
                         ## Global `.gitignore`
                         * A robust global `.gitignore` file can help prevent accidentally checking in sensitive files
-                        <!--
-                        * Instructions on how to create a global gitignore
-                        * Sample gitignore file
-                        * Link to .gitignore repo
-                        -->
+                        * Global `.gitignore` applies to all repos
+                        ```
+                        git config --global core.excludesfile ~/.gitignore_global
+                        ```
+                        * For Node development on a Mac, recommend adding `*.log` (to prevent `npm-debug.log` files), `node_modules` folder, and `.DS_Store`
+                        * [Useful gitignore templates from GitHub](https://github.com/github/gitignore), including [Node](https://github.com/github/gitignore/blob/master/Node.gitignore), [Mac](https://github.com/github/gitignore/blob/master/Global/macOS.gitignore), [Windows](https://github.com/github/gitignore/blob/master/Global/Windows.gitignore), [vim](https://github.com/github/gitignore/blob/master/Global/Vim.gitignore), and [Visual Studio Code](https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore).
                     </section>
                     <section data-markdown>
                         ## CI security
@@ -375,21 +391,30 @@
                         travis encrypt SECRETVARIABLE=supersecretvalue
                         ```
                         * See the [Travis CI encryption docs](https://docs.travis-ci.com/user/encryption-keys/) for more information.
-                        * For CircleCI, check out [encrypted-files](https://github.com/circleci/encrypted-files) project
+                        * For CircleCI, check out the [encrypted-files](https://github.com/circleci/encrypted-files) project
                     </section>
                     <section data-markdown>
-                        ## Node Security
-                        * Never run `sudo npm install`
-                        * Instead install Node with a tool like nvm
+                        ## Npm security
+                        * By default npm requires root access to install packages globally
+                        * `sudo npm install -g &lt;package name&gt;`
+                        * Never run `sudo npm install` - package **could** contain malicous code
+                        * Malicious rimrafall package [reported by Lift Security](https://blog.liftsecurity.io/2015/01/27/a-malicious-module-on-npm) in 2015
+                            * `rm -rf /*` preinstall hook
+                        * To avoid using `sudo`, install Node with a tool like [nvm](https://github.com/creationix/nvm), the node version manager
                     </section>
                     <section data-markdown>
-                        ## npm security
-                        * Remove old contributors from your npm packages
+                        ## More npm security
+                        * If you are suspicious of a package, install with `npm install --ignore-scripts`
+                        * Mitigates a [package install vulnerability](http://blog.npmjs.org/post/141702881055/package-install-scripts-vulnerability) that could in theory cause a worm
+                        * Remove old contributors from your npm packages on [npmjs.com](https://www.npmjs.com/) - they can still publish new versions that could contain malicious code
                     </section>
                     <section data-markdown>
                         ## Dependency management
-                        * Use up to date packages and dependencies in your code
-                        * Automate using `nsp` or `retire.js`
+                        * Older versions of client-side JavaScript libraries and server-side Node packages may contain security vulnerabilities
+                        * Node Security Project (nsp) [maintains a list of vulnerabilities](https://nodesecurity.io/advisories)
+                        * Use tools like [nsp](https://github.com/nodesecurity/nsp) (Node only) and [retire.js](https://github.com/RetireJS/retire.js) (client-side and Node) to identify vulnerable dependencies
+                        * Don't use old libraries or modules - attackers will Google the library and look for published security issues then attack your site.
+                        * Consider adding nsp or retire.js as a step in your test (`npm test`) process
                     </section>
                     <section data-markdown>
                         ## Homebrew
@@ -417,6 +442,7 @@
                         ## Golden rules of AppSec
                         * All user input is untrusted and potentially malicious
                         * Encrypt all the things
+                        * Tighten application logic
                         * Add reasonable limits
                         * Hash and salt passwords
                         * Don't reveal more information than necessary
@@ -461,6 +487,7 @@
                         git clone git@github.com:alulsh/intro-to-security-for-developers.git
                         cd https-server
                         npm install
+                        npm start
                         ```
                     </section>
                     <section data-markdown>
@@ -698,7 +725,7 @@
                     <section data-markdown>
                         ## Password Security
                         * **Never store unencrypted, plain text passwords in your database**
-                        * See http://howtosafelystoreapassword.com/.
+                        * http://howtosafelystoreapassword.com/
                         * Store a hash of the password, not the password itself.
                         * The hash is one-way - the same password string produces the same hash value and can't be reversed
                         * Bcrypt, PBKDF2, and scrypt are [all secure options for hashing passwords](https://blog.agilebits.com/2015/03/30/bcrypt-is-great-but-is-password-cracking-infeasible/)
@@ -795,8 +822,8 @@
                         * There is no benefit to leaving these headers up, and removing them may even benefit performance.
                         * Don't run production servers in debug or verbose mode
                         * Don't display stack traces or detailed errors to users
+                        * Disable directory listing
                         * Don't leave sensitive information in HTML or JavaScript comments
-                            * staging/test endpoints, credentials, private IP addresses, workarounds
                     </section>
                     <section data-markdown>
                         ## Preventing Disclosure in Express
@@ -848,7 +875,7 @@
                     <section data-markdown>
                         ## Attacker motivations
                         * geopolitical - [NATO &amp; Ukraine DDoS](http://www.darkreading.com/attacks-and-breaches/ddos-attacks-hit-nato-ukrainian-media-outlets/d/d-id/1127742))
-                        * censoring activist movements - DDoS against Black Lives Matter
+                        * censoring activists - [DDoS against Black Lives Matter](https://equalit.ie/deflect-defends-blacklivesmatter/)
                         * extortion - pay us money and we'll stop the attack
                         * just because - [Lizard Squad](http://www.bbc.co.uk/newsbeat/article/30306319/who-are-lizard-squad-and-whats-next-for-the-hackers) 
                     </section>
@@ -940,8 +967,7 @@
                         ## HSTS
                         * Helmet also enables HTTP Strict Transport Security (HSTS) headers by default
                         * HSTS tells browsers to only load the website over HTTPS
-                        * Load this site only over HTTPS for the next year (31536000 seconds), including subdomains, also we are on the preload list:
-                            `Strict-Transport-Security:max-age=31536000; includeSubDomains; preload`
+                        * `Strict-Transport-Security:max-age=31536000; includeSubDomains; preload`
                         * Unfortunately, first initial visit to the site may be over HTTP
                         * Mitigated by adding your domain to Google's preload list at https://hstspreload.appspot.com/.
                         * **Warning** - preloading is a "one way street" and [may break older sites](https://scotthelme.co.uk/using-security-features-to-do-bad-things/), proceed with caution
@@ -977,24 +1003,35 @@
                         * Use HPKP with caution and start with report only
                     </section>
                 </section>
-<!--                 <section>
+<!--            <section>
                     <section data-markdown>
-                        # Infrastructure Security
+                        # Server Security
                     </section>
                     <section data-markdown>
-                        ## DevSecOps
-                        * Don’t run processes as root or admin
+                        ## Least Privilege
+                        * Don't run processes or applications as root or Administrator
+                        * Run the application with the minimum permissions it needs
+                        * Least privilege applies to scopes on access tokens as well
+                    </section>
+                    <section data-markdown>
+                        ## Account management
+                        * Disable and rename the guest account (Windows)
+                        * Rename the Admin account (Windows)
                         * Service accounts should have strong complex passwords
-                        * Update your operating systems and apply patches
-                        * Disable directory listing
-                        * Limit size of file uploads
                     </section>
                     <section data-markdown>
-                        ## AWS security
-                        * Don't enable directory listing on buckets
+                        ## Updates and patches
+                        * Update your operating systems and apply patches
+                    </section>
+                    <section data-markdown>
+                        ## AWS Security
+                        * Don't enable directory listing on S3 buckets
                     </section>
                 </section> -->
                 <section>
+                    <section data-markdown>
+                        # Additional Resources
+                    </section>
                     <section data-markdown>
                         ## More Security Topics
                         This presentation covers a limited set of topics in security, I highly encourage you to explore even more! Here's an incomplete list:
