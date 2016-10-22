@@ -35,9 +35,7 @@
                     <section data-markdown>
                         # Intro to Security for Developers
                         #### Alexandra Ulsh
-                        Mapbox Miniconf
-
-                        DCFemTech Tour de Code 2016
+                        Tech Lady Hackathon 2016
                     </section>
                     <section data-markdown>
                         ## Overview
@@ -239,12 +237,7 @@
                 </section>
                 <section>
                     <section data-markdown>
-                        # Consumer Security Quick Tips
-                    </section>
-                    <section data-markdown>
-                        This guidance is worthy of its own dedicated "Intro to Consumer Security" talk.
-
-                        Instead, I'll quickly point out the most common security issues I see at work, at Meetups, and with friends and family and what you can do to secure your devices and accounts.
+                        # Personal Security
                     </section>
                     <section data-markdown>
                         Developers need to learn more than just how to write secure code.
@@ -266,6 +259,13 @@
                         [![](http://imgs.xkcd.com/comics/security.png)](http://xkcd.com/538/)
                     </section>
                     <section data-markdown>
+                        ## Personal Security Checklist
+
+                        [https://github.com/alulsh/personal-security-checklist](https://github.com/alulsh/personal-security-checklist)
+
+                        Detailed checklist of steps you should take after this presentation to secure your devices and accounts.
+                    </section>
+                    <section data-markdown>
                         ## Laptops
                         * Lock your screen when you step away from your laptop
                         * Use a complex password on your laptop and require a password on wake
@@ -275,7 +275,7 @@
                     </section>
                     <section data-markdown>
                         ## Smartphones
-                        * Use a long passcode on your smartphone (8+ characters)
+                        * Use a long passcode on your smartphone (8+ characters), preferably alphanumeric
                         * Android: don't use [common lock patterns](http://www.androidauthority.com/lock-pattern-predictable-636267/)
                         * Enable Find My iPhone or Android Device Manager (for remote wipe)
                         * Update your operating system and apps frequently, especially security patches
@@ -343,6 +343,7 @@
                         * Use `git add &lt;file name&gt;` instead of `git add .`
                         * Don't post sensitive information in issues in public GitHub repos.
                         * Repo watchers will get the initial email with your sensitive information even if you later edit the comment on GitHub.com.
+                        * GitHub issue titles are forever
                     </section>
                     <section data-markdown>
                         ## Making Private Repos Public
@@ -440,8 +441,9 @@
                     </section>
                     <section data-markdown>
                         ## Golden rules of AppSec
-                        * All user input is untrusted and potentially malicious
                         * Encrypt all the things
+                        * All user input is untrusted and potentially malicious
+                        * Separate data from instructions
                         * Tighten application logic
                         * Add reasonable limits
                         * Hash and salt passwords
@@ -871,6 +873,7 @@
                         * Internet hosting company OVH suffered 1 terabyte DDoS attack - [the largest ever so far](http://www.scmagazineuk.com/ovh-suffers-11tbps-ddos-attack/article/524826/)
                         * Botnet of CCTV &amp; IoT devices with weak passwords launched attack
                         * Types of attacks: UDP flood, SYN flood, ping of death, DNS reflection
+                        * October 21st 2016 [DDoS attack](https://krebsonsecurity.com/2016/10/ddos-on-dyn-impacts-twitter-spotify-reddit/) took down half the internet 
                     </section>
                     <section data-markdown>
                         ## Attacker motivations
@@ -899,7 +902,7 @@
                         * CAPTCHA - human completes CAPTCHA before logging in
                         * Rate limit - limit requests to endpoint to 10 request/minute (ok for humans)
                         * Account lockout not desirable as this prevents legitimate users from accessing their account
-                        * Also allows attackers to intentionally lockout victims
+                        * Also allows attackers to intentionally lockout victims (a form of DoS)
                     </section>
                     <section data-markdown>
                         ## Rate Limiting
