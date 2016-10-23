@@ -1,6 +1,8 @@
 # Intro to Security for Developers
 
-Originally presented at [Mapbox Miniconf](https://miniconfmapbox.splashthat.com/) for [DCFemtech](https://dcfemtech.github.io/) 2016 [Tour de Code](https://dcfemtech.github.io/tourdecode).
+An incomplete introduction to security for developers. Topics include device security, account security, developer tools security, and application security (SSL/TLS, cross-site scripting, authentication systems, information disclosure, and common security headers).
+
+Also check out my [personal security checklist](https://github.com/alulsh/personal-security-checklist) for handy checklist to secure your devices and accounts.
 
 ## Presentation
 
@@ -18,7 +20,16 @@ npm install
 npm start
 ```
 
-Your default web browser should open the slides on `http://localhost:800/#/` automatically.
+Your default web browser should open the slides on `http://localhost:8000/#/` automatically.
+
+### Presentation History
+
+I've given this presentation at the following events. I've tagged each presentation as a release in this repo.
+
+| Event | Date | Release |
+|-------|------|---------|
+| [Mapbox Miniconf](https://miniconfmapbox.splashthat.com/) | October 8th, 2016 | [`mapbox-miniconf`](https://github.com/alulsh/intro-to-security-for-developers/releases/tag/mapbox-miniconf) |
+| [Tech Lady Hackathon #4](http://techladyhackathon.org/) | October 22nd, 2016 | [`techlady-hackathon-2016`](https://github.com/alulsh/intro-to-security-for-developers/releases/tag/techlady-hackathon-2016) |
 
 ## Code Samples
 
