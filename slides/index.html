@@ -35,14 +35,15 @@
                     <section data-markdown>
                         # Intro to Security for Developers
                         #### Alexandra Ulsh
-                        Tech Lady Hackathon 2016
+                        Women Who Code DC Tech Talk
+
+                        February 8th, 2017
                     </section>
                     <section data-markdown>
                         ## Overview
-                        * About me
                         * Why learn security?
                         * Common security terms
-                        * Consumer security
+                        * Personal security
                         * Developer tools security
                         * Application security
                             * SSL/TLS
@@ -152,7 +153,7 @@
                     <section data-markdown>
                         If we want to call ourselves software **engineers**, then we need to build secure, stable, and reliable software that minimizes harm to others.
 
-                        Furthermore, all people involved in creating software and other computer systems should care about security, stability, privacy, and reliabilty in what we create and maintain.
+                        Furthermore, all people involved in creating software and other computer systems should care about security, stability, privacy, and reliability in what we create and maintain.
                     </section>
                     <section data-markdown>
                         ### Diversity in Security
@@ -207,7 +208,7 @@
                         * Self-healing clouds
                         * Compliance operations, not checklists and documentation
                         * Real pentests, not theoretical vulnerabilities and scanners
-                        * Check out http://www.devsecops.org/
+                        * http://www.devsecops.org/
                     </section>
                     <section data-markdown>
                         ## Offense vs. Defense
@@ -325,7 +326,7 @@
                         cp -a ~/.ssh ~/ssh-backup
                         # Generate new SSH key pair with a passphrase
                         ssh-keygen -t rsa -b 4096 -C "your_email@email.com" -f ~/.ssh/id_rsa
-                        # Start the ssh-gent
+                        # Start the ssh-agent
                         eval "$(ssh-agent -s)"
                         # Add newly generated SSH key to the SSH agent and add to OS X Keychain
                         ssh-add -K ~/.ssh/id_rsa
@@ -343,7 +344,7 @@
                         * Use `git add &lt;file name&gt;` instead of `git add .`
                         * Don't post sensitive information in issues in public GitHub repos.
                         * Repo watchers will get the initial email with your sensitive information even if you later edit the comment on GitHub.com.
-                        * GitHub issue titles are forever
+                        * GitHub issue titles are forever.
                     </section>
                     <section data-markdown>
                         ## Making Private Repos Public
@@ -355,12 +356,11 @@
                     <section data-markdown>
                         I posted something sensitive on GitHub!
 
-                        * Take a deep breath.
-                        * Just one commit on one branch? Delete the bad commit then force push.
-                        * `git rebase -i HEAD~2` to interactive rebase the last 2 commits
-                        * Delete the bad commit (`dd` in vim)
-                        * Force push
-                            * `git origin push &lt;branch name&gt; --force-with-lease`
+                        * Just one commit on one branch? 
+                        * Delete the bad commit then force push.
+                            * `git rebase -i HEAD~2` to interactive rebase the last 2 commits
+                            * Delete the bad commit (`dd` in vim)
+                            * Force push: `git origin push &lt;branch name&gt; --force-with-lease`
                         * More than one commit? Check out [BFG Repo Cleaner](https://rtyley.github.io/bfg-repo-cleaner/).
                         * If credentials, revoke or rotate the compromised ones.
                     </section>
@@ -408,6 +408,7 @@
                         * If you are suspicious of a package, install with `npm install --ignore-scripts`
                         * Mitigates a [package install vulnerability](http://blog.npmjs.org/post/141702881055/package-install-scripts-vulnerability) that could in theory cause a worm
                         * Remove old contributors from your npm packages on [npmjs.com](https://www.npmjs.com/) - they can still publish new versions that could contain malicious code
+                        * Add `private: true` to the `package.json` of private Node projects to prevent accidental publishes to npmjs.com
                     </section>
                     <section data-markdown>
                         ## Dependency management
@@ -434,6 +435,11 @@
                         brew upgrade foobar
                         ```
                     </section>
+                </section>
+                <section data-markdown>
+                    # Break!
+
+                    Take a quick break to stretch or grab some water.
                 </section>
                 <section>
                     <section data-markdown>
@@ -481,7 +487,7 @@
                         * Development use only - self-signed certificates
                     </section>
                     <section data-markdown>
-                        ## Code sample
+                        ## HTTP Server Code sample
 
                         Follow along with the code sample in the `https-server` directory
 
@@ -757,6 +763,17 @@
                         The password would never be hardcoded and would instead be received directly from an endpoint.
                     </section>
                     <section data-markdown>
+                        ### Code sample
+                        Follow along with the code sample in the `bcrypt-sample` directory
+
+                        ```sh
+                        git clone git@github.com:alulsh/intro-to-security-for-developers.git
+                        cd bcrypt-sample
+                        npm install
+                        npm start
+                        ```
+                    </section>
+                    <section data-markdown>
                         ## Secure Cookies
                         * Cookie = user information written to a text file, e.g. shopping cart information
                         * Often used for user authentication as a session cookie
@@ -812,7 +829,7 @@
                         * Finding out website software and architecture information from HTTP headers
                         * Command line tools like `nc` (netcat) or `curl`
                         ```sh
-                        curl -I www.alexandra.ulsh
+                        curl -I www.alexandraulsh.com
                         ```
                         * Response includes `X-GitHub-Request-Id: 17EB2E2E:40D2:191BAD2C:57F7AFBE`
                         * Attacker now knows it's a GitHub Pages site
@@ -840,8 +857,6 @@
                             })
                         );
                         ```
-                        <!-- Possible to do: code sample and example with X-Powered-By header -->
-                        <!-- Possible to do: code sample with non-default cookie name -->
                     </section>
                 </section>
                 <section>
@@ -889,6 +904,7 @@
                         * [Akamai](https://www.akamai.com/us/en/solutions/products/cloud-security/ddos-protection-service.jsp)
                         * AWS WAF (web application firewall) + AWS CloudFront (CDN) - [see AWS DDoS whitepaper](https://d0.awsstatic.com/whitepapers/Security/DDoS_White_Paper.pdf)
                         * [Deflect](https://deflect.ca/) - free anti-DDoS service "for independent media, human rights organisations and activists"
+                        * [Project Shield](https://jigsaw.google.com/projects/#project-shield) by Google for independent news sites
                     </section>
                     <section data-markdown>
                         ## Brute Force Attacks
