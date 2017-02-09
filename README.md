@@ -28,6 +28,7 @@ I've given this presentation at the following events. I've tagged each presentat
 
 | Event | Date | Release |
 |-------|------|---------|
+| [Women Who Code DC Tech Talk](https://www.meetup.com/Women-Who-Code-DC/events/235989630/) | Feburary 9th, 2017 | `wwcdc-tech-talk` |
 | [Mapbox Miniconf](https://miniconfmapbox.splashthat.com/) | October 8th, 2016 | [`mapbox-miniconf`](https://github.com/alulsh/intro-to-security-for-developers/releases/tag/mapbox-miniconf) |
 | [Tech Lady Hackathon #4](http://techladyhackathon.org/) | October 22nd, 2016 | [`techlady-hackathon-2016`](https://github.com/alulsh/intro-to-security-for-developers/releases/tag/techlady-hackathon-2016) |
 
