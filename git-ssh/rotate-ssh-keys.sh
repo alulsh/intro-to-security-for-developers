@@ -12,7 +12,7 @@ open -a 1Password
 # Generate new SSH key pair with a passphrase
 ssh-keygen -t rsa -b 4096 -C "your_email@email.com" -f ~/.ssh/id_rsa
 
-# Start the ssh-gent
+# Start the ssh-agent
 eval "$(ssh-agent -s)"
 
 # Add newly generated SSH key to the SSH agent and add to OS X Keychain
