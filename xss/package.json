@@ -10,6 +10,6 @@
   "author": "Alexandra Ulsh",
   "license": "ISC",
   "dependencies": {
-    "serve": "^1.4.0"
+    "serve": "^11.2.0"
   }
 }
