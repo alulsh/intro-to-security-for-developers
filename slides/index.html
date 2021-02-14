@@ -27,41 +27,64 @@
       <div class="slides">
         <section>
           <section data-markdown>
-            # Intro to Security for Developers #### Alexandra Ulsh Women Who
-            Code DC Tech Talk February 8th, 2017
+            # Intro to Security for Developers 
+            #### Alexandra Ulsh 
+            Women Who Code DC Tech Talk 
+            
+            February 8th, 2017
           </section>
           <section data-markdown>
-            ## Overview * Why learn security? * Common security terms * Personal
-            security * Developer tools security * Application security * SSL/TLS
-            * XSS * Authentication systems * Information disclosure * Common
-            security headers * Additional resources
+            ## Overview
+
+            * Why learn security? 
+            * Common security terms 
+            * Personal security 
+            * Developer tools security 
+            * Application security 
+                * SSL/TLS
+                * XSS 
+                * Authentication systems 
+                * Information disclosure 
+                * Common security headers 
+            * Additional resources
           </section>
           <section data-markdown>
-            ## How to: Slides * This presentation uses
-            [reveal.js](https://github.com/hakimel/reveal.js). * Use the
-            left/right arrows to go the next topic and up/down arrows to view
-            the slides. * These slides are available [on my
-            website](http://www.alexandraulsh.com/intro-to-security-for-developers).
-            * To view locally: ```sh git clone
-            git@github.com:alulsh/intro-to-security-for-developers.git git
-            checkout gh-pages cd slides npm install npm start ```
+            ## How to: Slides 
+            * This presentation uses [reveal.js](https://github.com/hakimel/reveal.js). 
+            * Use the left/right arrows to go the next topic and up/down arrows to view
+            the slides. 
+            * These slides are available [on my website](http://www.alexandraulsh.com/intro-to-security-for-developers/slides).
+            * To view locally:
+
+            ```sh 
+            git clone
+            git@github.com:alulsh/intro-to-security-for-developers.git 
+            git checkout gh-pages 
+            cd slides 
+            npm install 
+            npm start
+            ```
           </section>
           <section data-markdown>
-            ## How to: Code Samples * This presentation includes [code samples
-            on
-            GitHub](https://github.com/alulsh/intro-to-security-for-developers)
-            to help teach security concepts interactively. * These must be run
-            locally - they're not on my website. * Prerequisites: *
-            [node.js](https://nodejs.org/en/download/) (preferably install using
-            [nvm](https://github.com/creationix/nvm)) *
-            [npm](https://docs.npmjs.com/getting-started/installing-node) * I
-            used Node 4.6.0 and npm 2.15.9, but these samples may work with
-            earlier or later versions of either node/npm
+            ## How to: Code Samples
+
+            * This presentation includes [code samples on GitHub](https://github.com/alulsh/intro-to-security-for-developers) to help teach security concepts interactively. 
+            * These must be run locally - they're not on my website. 
+            * Prerequisites: 
+                * [node.js](https://nodejs.org/en/download/) (preferably install using [nvm](https://github.com/creationix/nvm)) 
+                * [npm](https://docs.npmjs.com/getting-started/installing-node) 
+            * I used Node 4.6.0 and npm 2.15.9, but these samples may work with earlier or later versions of either node or npm.
           </section>
           <section data-markdown>
-            ## How to: Code Samples To get a code sample running: ```sh git
-            clone git@github.com:alulsh/intro-to-security-for-developers.git cd
-            &lt;code sample folder&gt; npm install npm start ```
+            ## How to: Code Samples 
+            
+            To get a code sample running: 
+            ```sh 
+            git clone git@github.com:alulsh/intro-to-security-for-developers.git 
+            cd &lt;code sample folder&gt; 
+            npm install 
+            npm start 
+            ```
           </section>
         </section>
         <section>
@@ -87,128 +110,126 @@
           </section>
           <section data-markdown>
             ### By the way, we're hiring!
-            [www.mapbox.com/jobs](https://www.mapbox.com/jobs/) * [Information
-            Security Engineer](https://www.mapbox.com/jobs/256538/) * [Platform
-            Security Engineer](https://www.mapbox.com/jobs/570790/) * [IT
-            Manager](https://www.mapbox.com/jobs/584690/) * [Back End Engineer
-            (APIs)](https://www.mapbox.com/jobs/542203/)
+
+            [www.mapbox.com/jobs](https://www.mapbox.com/jobs/) 
+            
+            * [Information Security Engineer](https://www.mapbox.com/jobs/256538/) 
+            * [Platform Security Engineer](https://www.mapbox.com/jobs/570790/) 
+            * [IT Manager](https://www.mapbox.com/jobs/584690/) 
+            * [Back End Engineer (APIs)](https://www.mapbox.com/jobs/542203/)
           </section>
           <section data-markdown>
-            ## How did I get started in security? * 3.5 years sysadmin for U.S.
-            DoD doing SharePoint administration * Security+ certification
-            required for job *
-            [STIGs](https://en.wikipedia.org/wiki/Security_Technical_Implementation_Guide)
-            for SharePoint, IIS, and SQL Server for
-            [DIACAP](https://en.wikipedia.org/wiki/Department_of_Defense_Information_Assurance_Certification_and_Accreditation_Process)
-            * STIGs = Security Technical Implementation Guides * DIACAP = DoD
-            Information Assurance Certification and Accreditation Process *
-            Open-sourced [PowerShell modules to STIG SharePoint on
-            GitHub](https://github.com/alulsh/SharePoint-2013-STIGs) * "Blue
-            Team" background
+            ## How did I get started in security?
+            * 3.5 years sysadmin for U.S. DoD doing SharePoint administration
+            * Security+ certification required for job
+            * [STIGs](https://en.wikipedia.org/wiki/Security_Technical_Implementation_Guide) for SharePoint, IIS, and SQL Server for [DIACAP](https://en.wikipedia.org/wiki/Department_of_Defense_Information_Assurance_Certification_and_Accreditation_Process)
+                * STIGs = Security Technical Implementation Guides
+                * DIACAP = DoD Information Assurance Certification and Accreditation Process
+            * Open-sourced [PowerShell modules to STIG SharePoint on GitHub](https://github.com/alulsh/SharePoint-2013-STIGs)
+            * "Blue Team" background
           </section>
           <section data-markdown>
-            ## How can you get started in security? * Learn how to secure your
-            computers, cellphones, and accounts * Learn how to write secure code
-            and deploy secure infrastructure * Learn how hackers attack systems
-            and how to defend against them * Teach your friends and coworkers
-            about security
+            ## How can you get started in security?
+            * Learn how to secure your computers, cellphones, and accounts
+            * Learn how to write secure code and deploy secure infrastructure
+            * Learn how hackers attack systems and how to defend against them
+            * Teach your friends and coworkers about security
           </section>
           <section data-markdown>
-            * Check out bug bounty programs on
-            [HackerOne](https://hackerone.com/) and
-            [Bugcrowd](https://bugcrowd.com/) * Offer to harden servers and do
-            secure code reviews * Offer to triage bug bounty reports for your
-            organization * Think about the ways you or your organization can be
-            hacked, then implement defenses * Set up a pentest learning lab with
-            a [Kali Linux](https://www.kali.org/) virtual machine * **Only hack
-            what you own or have permission to hack**
+            * Check out bug bounty programs on [HackerOne](https://hackerone.com/) and [Bugcrowd](https://bugcrowd.com/)
+            * Offer to harden servers and do secure code reviews
+            * Offer to triage bug bounty reports for your organization
+            * Think about the ways you or your organization can be hacked, then implement defenses
+            * Set up a pentest learning lab with a [Kali Linux](https://www.kali.org/) virtual machine
+            * **Only hack what you own or have permission to hack**
           </section>
         </section>
         <section>
-          <section data-markdown># Why learn security?</section>
           <section data-markdown>
-            ## Why security? * Protect yourself, people you care about, and your
-            organization * Responsibility to protect the security and privacy of
-            the people who use our applications * Solve complex and difficult
-            problems that make a difference * Never boring - threats are
-            constantly changing and evolving * Diverse field - web app security,
-            cryptography, forensics, malware analysis, IoT security, and more
+            # Why learn security?
           </section>
           <section data-markdown>
-            ### Software engineers > Engineers bear a burden to the public, and
-            their specific expertise as designers and builders of bridges or
-            buildings—or software—emanates from that responsibility. Only after
-            answering this calling does an engineer build anything, whether
-            bridges or buildings or software. ["Programmers: Stop Calling
-            Yourselves
-            Engineers"](http://www.theatlantic.com/technology/archive/2015/11/programmers-should-not-call-themselves-engineers/414271/)
+            ## Why security?
+            * Protect yourself, people you care about, and your organization
+            * Responsibility to protect the security and privacy of the people who use our applications
+            * Solve complex and difficult problems that make a difference
+            * Never boring - threats are constantly changing and evolving
+            * Diverse field - web app security, cryptography, forensics, malware analysis, IoT security, and more
+          </section>
+          <section data-markdown>
+            ### Software engineers
+
+            > Engineers bear a burden to the public, and their specific expertise as designers and builders of bridges or buildings—or software—emanates from that responsibility. Only after answering this calling does an engineer build anything, whether bridges or buildings or software.
+
+            ["Programmers: Stop Calling Yourselves Engineers"](http://www.theatlantic.com/technology/archive/2015/11/programmers-should-not-call-themselves-engineers/414271/)
+
             The Atlantic
           </section>
           <section data-markdown>
-            If we want to call ourselves software **engineers**, then we need to
-            build secure, stable, and reliable software that minimizes harm to
-            others. Furthermore, all people involved in creating software and
-            other computer systems should care about security, stability,
-            privacy, and reliability in what we create and maintain.
+            If we want to call ourselves software **engineers**, then we need to build secure, stable, and reliable software that minimizes harm to others.
+
+            Furthermore, all people involved in creating software and other computer systems should care about security, stability, privacy, and reliability in what we create and maintain.
           </section>
           <section data-markdown>
-            ### Diversity in Security * Women make up only 10% of the infosec
-            workforce per an [ISC2 white
-            paper](https://www.boozallen.com/content/dam/boozallen/documents/2015/09/women-in-security.pdf).
-            * Among the infosec workforce, 20% of women serve in GRC
-            (Governance, Risk, &amp; Compliance) roles vs. 12.5% of men. * Only
-            7% of infosec workforce is black per [DC
-            Inno](http://dcinno.streetwise.co/2016/03/23/lack-of-diversity-minorities-in-cybersecurity-industry-hiring/).
-            * Only 5% of infosec workforce is hispanic per [DC
-            Inno](http://dcinno.streetwise.co/2016/03/23/lack-of-diversity-minorities-in-cybersecurity-industry-hiring/).
+            ### Diversity in Security
+            * Women make up only 10% of the infosec workforce per an [ISC2 white paper](https://www.boozallen.com/content/dam/boozallen/documents/2015/09/women-in-security.pdf).
+            * Among the infosec workforce, 20% of women serve in GRC (Governance, Risk, &amp; Compliance) roles vs. 12.5% of men.
+            * Only 7% of infosec workforce is black per [DC Inno](http://dcinno.streetwise.co/2016/03/23/lack-of-diversity-minorities-in-cybersecurity-industry-hiring/).
+            * Only 5% of infosec workforce is hispanic per [DC Inno](http://dcinno.streetwise.co/2016/03/23/lack-of-diversity-minorities-in-cybersecurity-industry-hiring/).
           </section>
           <section data-markdown>
             ![97% of HackerOne hackers are male](img/WhoAreHackers.png)
           </section>
           <section data-markdown>
-            ### Diversity of Security Researchers Per [HackerOne 2016 Hacker
-            Report](https://hackerone.com/blog/bug-bounty-hacker-report-2016),
-            97% of their security researchers are male. Competitor Bug Crowd
-            doesn't even provide gender statistics in their [2016 State of the
-            Bug Bounty
-            Report](https://pages.bugcrowd.com/2016-state-of-bug-bounty-report).
+            ### Diversity of Security Researchers
+            Per [HackerOne 2016 Hacker Report](https://hackerone.com/blog/bug-bounty-hacker-report-2016), 97% of their security researchers are male.
+
+            Competitor Bug Crowd doesn't even provide gender statistics in their [2016 State of the Bug Bounty Report](https://pages.bugcrowd.com/2016-state-of-bug-bounty-report).
           </section>
           <section data-markdown>
-            ### Job opportunities in security ![Stats from MIT Technology
-            Review](img/TalentGap.png) "[Close the Talent Gap, Secure the
-            Future](https://www.technologyreview.com/s/601537/close-the-talent-gap-secure-the-future/)"
-            from MIT Technology Review
+            ### Job opportunities in security
+
+            ![Stats from MIT Technology Review](img/TalentGap.png)
+
+            "[Close the Talent Gap, Secure the Future](https://www.technologyreview.com/s/601537/close-the-talent-gap-secure-the-future/)" from MIT Technology Review
           </section>
         </section>
         <section>
-          <section data-markdown># Common Security Terms</section>
           <section data-markdown>
-            ## Types of security * **infosec** = information security *
-            **cybersecurity** vs. **infosec** vs. **information assurance (IA)**
-            * **appsec** = application security * **netsec** = network security
-            * **physical security** = locks, alarm systems, protecting devices
-            from being stolen
+            # Common Security Terms
           </section>
           <section data-markdown>
-            ## AIC/CIA Triad * Classic model for thinking about infosec *
-            Usually "CIA triad" but also "AIC triad" * AIC = availability,
-            integrity, confidentiality * **Availability** = systems are online
-            and accessible * **Integrity** = data has not been modified and can
-            be trusted * **Confidentiality** = data is private * Availability is
-            often neglected in infosec, but you can't ensure integrity and
-            confidentiality of data if the system is down.
+            ## Types of security
+            * **infosec** = information security
+            * **cybersecurity** vs. **infosec** vs. **information assurance (IA)**
+            * **appsec** = application security
+            * **netsec** = network security
+            * **physical security** = locks, alarm systems, protecting devices from being stolen
           </section>
           <section data-markdown>
-            ## DevSecOps * DevSecOps - applying DevOps philosophy to security *
-            Security as code * Self-healing clouds * Compliance operations, not
-            checklists and documentation * Real pentests, not theoretical
-            vulnerabilities and scanners * http://www.devsecops.org/
+            ## AIC/CIA Triad
+            * Classic model for thinking about infosec
+            * Usually "CIA triad" but also "AIC triad"
+            * AIC = availability, integrity, confidentiality
+                * **Availability** = systems are online and accessible
+                * **Integrity** = data has not been modified and can be trusted
+                * **Confidentiality** = data is private
+            * Availability is often neglected in infosec, but you can't ensure integrity and confidentiality of data if the system is down.
           </section>
           <section data-markdown>
-            ## Offense vs. Defense * **Pentesting** = penetration testing -
-            finding vulnerabilities in systems * **Red team** = offensive team
-            that pentests systems and breaks things * **Blue team** = defensive
-            team that protects systems and writes secure code
+            ## DevSecOps
+            * DevSecOps - applying DevOps philosophy to security
+            * Security as code
+            * Self-healing clouds
+            * Compliance operations, not checklists and documentation
+            * Real pentests, not theoretical vulnerabilities and scanners
+            * http://www.devsecops.org/
+          </section>
+          <section data-markdown>
+            ## Offense vs. Defense
+            * **Pentesting** = penetration testing - finding vulnerabilities in systems
+            * **Red team** = offensive team that pentests systems and breaks things
+            * **Blue team** = defensive team that protects systems and writes secure code
           </section>
           <section>
             <h2>So Many Hats</h2>
@@ -225,818 +246,870 @@
             >
           </section>
           <section data-markdown>
-            ## Hacker Hats * **White hat** = ethical hacker, asks for
-            permission, responsibly discloses vulnerabilities, possibly hired as
-            a pentester * **Black hat** = malicious, doesn't ask for permission,
-            deletes data, asks victims for money * **Gray hat** = nonchalant,
-            may or may not ask for permission, may not report vulnerabilities at
-            all or publicly discloses, hacks just for fun * **Red Hat?** A type
-            of Linux distribution
+            ## Hacker Hats
+            * **White hat** = ethical hacker, asks for permission, responsibly discloses vulnerabilities, possibly hired as a pentester
+            * **Black hat** = malicious, doesn't ask for permission, deletes data, asks victims for money
+            * **Gray hat** = nonchalant, may or may not ask for permission, may not report vulnerabilities at all or publicly discloses, hacks just for fun
+            * **Red Hat?** A type of Linux distribution
           </section>
           <section data-markdown>
-            ## Reporting Security Issues * **Full disclosure** - researcher
-            publishes blog post exposing an active security issue on a website
-            or in a desktop application * **Responsible/coordinated disclosure**
-            - researcher notifies organization of security issue and public
-            isn't notified until the organization releases a fix or a patch *
-            **Non-disclosure** - vulnerability information should never be
-            shared with a vendor or only under an NDA * **Bug bounty program** -
-            structured program that encourages security researchers to pentest
-            resources within scope and report security issues for money
+            ## Reporting Security Issues
+            * **Full disclosure** - researcher publishes blog post exposing an active security issue on a website or in a desktop application
+            * **Responsible/coordinated disclosure** - researcher notifies organization of security issue and public isn't notified until the organization releases a fix or a patch
+            * **Non-disclosure** - vulnerability information should never be shared with a vendor or only under an NDA
+          </section>
+          <section data-markdown>
+            * **Bug bounty program** - structured program that encourages security researchers to pentest resources within scope and report security issues for money            
           </section>
         </section>
         <section>
-          <section data-markdown># Personal Security</section>
           <section data-markdown>
-            Developers need to learn more than just how to write secure code. A
-            compromised laptop, weak password, or posting credentials on GitHub
-            can all lead to a breach.
+            # Personal Security
           </section>
           <section data-markdown>
-            ["Verizon DBIR: Over Half Of Data Breaches Exploited Legitimate
-            Passwords In
-            2015"](http://www.darkreading.com/endpoint/verizon-dbir-over-half-of-data-breaches-exploited-legitimate-passwords-in-2015/d/d-id/1325242)
-            ["In major goof, Uber stored sensitive database key on public GitHub
-            page"](http://arstechnica.com/security/2015/03/in-major-goof-uber-stored-sensitive-database-key-on-public-github-page/)
-            ["US Healthworks Suffers Data Breach Via Unencrypted
-            Laptop"](http://www.forbes.com/sites/davelewis/2015/06/01/us-healthworks-suffers-data-breach-via-unencrypted-laptop/#4f9f06897005)
+            Developers need to learn more than just how to write secure code.
+
+            A compromised laptop, weak password, or posting credentials on GitHub can all lead to a breach.
           </section>
           <section data-markdown>
-            ## Reality vs. Fiction Most security breaches aren't glamorous like
-            they are in the movies.
+            ["Verizon DBIR: Over Half Of Data Breaches Exploited Legitimate Passwords In 2015"](http://www.darkreading.com/endpoint/verizon-dbir-over-half-of-data-breaches-exploited-legitimate-passwords-in-2015/d/d-id/1325242)
+
+            ["In major goof, Uber stored sensitive database key on public GitHub page"](http://arstechnica.com/security/2015/03/in-major-goof-uber-stored-sensitive-database-key-on-public-github-page/)
+
+            ["US Healthworks Suffers Data Breach Via Unencrypted Laptop"](http://www.forbes.com/sites/davelewis/2015/06/01/us-healthworks-suffers-data-breach-via-unencrypted-laptop/#4f9f06897005)
+          </section>
+          <section data-markdown>
+            ## Reality vs. Fiction
+
+            Most security breaches aren't glamorous like they are in the movies.
+
             [![](http://imgs.xkcd.com/comics/security.png)](http://xkcd.com/538/)
           </section>
           <section data-markdown>
             ## Personal Security Checklist
+
             [https://github.com/alulsh/personal-security-checklist](https://github.com/alulsh/personal-security-checklist)
-            Detailed checklist of steps you should take after this presentation
-            to secure your devices and accounts.
+
+            Detailed checklist of steps you should take after this presentation to secure your devices and accounts.
           </section>
           <section data-markdown>
-            ## Laptops * Lock your screen when you step away from your laptop *
-            Use a complex password on your laptop and require a password on wake
-            * Encrypt your hard drive using
-            [FileVault](https://support.apple.com/en-us/HT204837) (Mac),
-            [BitLocker](http://www.windowscentral.com/how-use-bitlocker-encryption-windows-10)
-            (Windows), or
-            [LUKS](http://www.pavelkogan.com/2014/05/23/luks-full-disk-encryption/)
-            (Linux) * Enable a firewall on your computer * Update your operating
-            system and applications frequently, especially security patches
+            ## Laptops
+            * Lock your screen when you step away from your laptop
+            * Use a complex password on your laptop and require a password on wake
+            * Encrypt your hard drive using [FileVault](https://support.apple.com/en-us/HT204837) (Mac), [BitLocker](http://www.windowscentral.com/how-use-bitlocker-encryption-windows-10) (Windows), or [LUKS](http://www.pavelkogan.com/2014/05/23/luks-full-disk-encryption/) (Linux)
+            * Enable a firewall on your computer
+            * Update your operating system and applications frequently, especially security patches
           </section>
           <section data-markdown>
-            ## Smartphones * Use a long passcode on your smartphone (8+
-            characters), preferably alphanumeric * Android: don't use [common
-            lock
-            patterns](http://www.androidauthority.com/lock-pattern-predictable-636267/)
+            ## Smartphones
+            * Use a long passcode on your smartphone (8+ characters), preferably alphanumeric
+            * Android: don't use [common lock patterns](http://www.androidauthority.com/lock-pattern-predictable-636267/)
             * Enable Find My iPhone or Android Device Manager (for remote wipe)
-            * Update your operating system and apps frequently, especially
-            security patches
+            * Update your operating system and apps frequently, especially security patches
           </section>
           <section data-markdown>
-            ## Internet Security * Don't connect to unencrypted (passwordless)
-            wifi networks * If you must connect, use a VPN service * Frequently
-            update your web browsers - commonly exploited by attackers * Install
-            the [HTTPS Everywhere](https://www.eff.org/Https-everywhere) browser
-            plugin * Install an ad blocker like [uBlock
-            Origin](https://github.com/gorhill/uBlock) - lots of malware
-            distributed via ads * Enable [plugin
-            click-to-play](http://arstechnica.com/information-technology/2016/04/edge-to-follow-chromes-lead-make-flash-ads-click-to-play/)
-            - protects against Adobe Flash vulnerabilities
+            ## Internet Security
+            * Don't connect to unencrypted (passwordless) wifi networks
+            * If you must connect, use a VPN service
+            * Frequently update your web browsers - commonly exploited by attackers
+            * Install the [HTTPS Everywhere](https://www.eff.org/Https-everywhere) browser plugin
+            * Install an ad blocker like [uBlock Origin](https://github.com/gorhill/uBlock) - lots of malware distributed via ads
+            * Enable [plugin click-to-play](http://arstechnica.com/information-technology/2016/04/edge-to-follow-chromes-lead-make-flash-ads-click-to-play/) - protects against Adobe Flash vulnerabilities
           </section>
           <section data-markdown>
-            ## Account Security * Use a strong password - [long (16+ characters)
-            with special
-            characters](https://www.technologyreview.com/s/542576/youve-been-misled-about-what-makes-a-good-password/)
-            * Even better, enable two-factor authentication (2FA) or two-step
-            verification (2SV) on every account possible * Use a password
-            manager like [1Password](https://1password.com/) - use for all your
-            passwords, 2FA tokens, credit cards, access tokens, and backup codes
-            * **Immediately store your 2FA backup or recovery codes in a safe
-            place (password manager) after enabling 2FA** * Don't provide real
-            questions to security questions, store fake ones in a password
-            manager - [2014 Yahoo!
-            breach](https://www.wired.com/2016/09/time-kill-security-questions-answer-lies/)
+            ## Account Security
+            * Use a strong password - [long (16+ characters) with special characters](https://www.technologyreview.com/s/542576/youve-been-misled-about-what-makes-a-good-password/)
+            * Even better, enable two-factor authentication (2FA) or two-step verification (2SV) on every account possible
+            * Use a password manager like [1Password](https://1password.com/) - use for all your passwords, 2FA tokens, credit cards, access tokens, and backup codes
+            * **Immediately store your 2FA backup or recovery codes in a safe place (password manager) after enabling 2FA**
+          </section>
+          <section data-markdown>
+            * Don't provide real questions to security questions, store fake ones in a password manager - [2014 Yahoo! breach](https://www.wired.com/2016/09/time-kill-security-questions-answer-lies/)
           </section>
         </section>
         <section>
-          <section data-markdown># Developer Tools Security</section>
           <section data-markdown>
-            ## GitHub Account Security * Enable 2FA on your GitHub account. *
-            Encourage your organization to make this required for all members. *
-            Best thing you can do to secure your GitHub account if not already
-            enabled, especially in light of recent [GitHub password reuse
-            attack](http://www.theregister.co.uk/2016/06/16/github_accounts_breached_password_reuse_fail/).
+            # Developer Tools Security
+          </section>
+          <section data-markdown>
+            ## GitHub Account Security
+            * Enable 2FA on your GitHub account.
+            * Encourage your organization to make this required for all members.
+            * Best thing you can do to secure your GitHub account if not already enabled, especially in light of recent [GitHub password reuse attack](http://www.theregister.co.uk/2016/06/16/github_accounts_breached_password_reuse_fail/).
             * Password reuse attack failed if you had 2FA enabled.
           </section>
           <section data-markdown>
-            Help! I enabled 2FA and broke `git clone`! * HTTPS - [create a
-            personal access
-            token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/)
-            (store in your password manager) * Alternatively, [enable Git SSH
-            authentication](https://help.github.com/articles/generating-an-ssh-key/)
-            * **Always use a strong passphrase to encrypt your SSH keys** * A
-            passphrase-less SSH key can be stolen by an attacker to impersonate
-            you
+            Help! I enabled 2FA and broke `git clone`!
+
+            * HTTPS - [create a personal access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/) (store in your password manager)
+            * Alternatively, [enable Git SSH authentication](https://help.github.com/articles/generating-an-ssh-key/)
+            * **Always use a strong passphrase to encrypt your SSH keys**
+            * A passphrase-less SSH key can be stolen by an attacker to impersonate you
           </section>
           <section data-markdown>
-            ## Code sample - Rotating SSH Keys ```sh # Backup current SSH keys
-            cp -a ~/.ssh ~/ssh-backup # Generate new SSH key pair with a
-            passphrase ssh-keygen -t rsa -b 4096 -C "your_email@email.com" -f
-            ~/.ssh/id_rsa # Start the ssh-agent eval "$(ssh-agent -s)" # Add
-            newly generated SSH key to the SSH agent and add to OS X Keychain
-            ssh-add -K ~/.ssh/id_rsa ``` Full set of commands in
-            `rotate-ssh-keys.sh` in `git-ssh` folder
+            Help! I enabled 2FA and broke `git clone`!
+
+            * HTTPS - [create a personal access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/) (store in your password manager)
+            * Alternatively, [enable Git SSH authentication](https://help.github.com/articles/generating-an-ssh-key/)
+            * **Always use a strong passphrase to encrypt your SSH keys**
+            * A passphrase-less SSH key can be stolen by an attacker to impersonate you
           </section>
           <section data-markdown>
-            ## Repository Security * Public vs. private repos * Don't commit
-            credentials or secret access tokens in your code * **Public** access
-            tokens for client-side JavaScript code can be checked in * Store
-            [sensitive information as environment
-            variables](https://12factor.net/config) instead (even for private
-            repos)
+            ## Repository Security
+            * Public vs. private repos
+            * Don't commit credentials or secret access tokens in your code
+            * **Public** access tokens for client-side JavaScript code can be checked in
+            * Store [sensitive information as environment variables](https://12factor.net/config) instead (even for private repos)
           </section>
           <section data-markdown>
-            * Use `git add &lt;file name&gt;` instead of `git add .` * Don't
-            post sensitive information in issues in public GitHub repos. * Repo
-            watchers will get the initial email with your sensitive information
-            even if you later edit the comment on GitHub.com. * GitHub issue
-            titles are forever.
+            * Use `git add &lt;file name&gt;` instead of `git add .`
+            * Don't post sensitive information in issues in public GitHub repos.
+            * Repo watchers will get the initial email with your sensitive information even if you later edit the comment on GitHub.com.
+            * GitHub issue titles are forever.
           </section>
           <section data-markdown>
-            ## Making Private Repos Public * Look for open or closed issues with
-            sensitive information - scrub comments * Look for previous commits
-            with sensitive information * Use [BFG Repo
-            Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) to scrub
-            sensitive data in the codebase * Look at every part of your code and
-            ask yourself - could an attacker cause harm with this information?
+            ## Making Private Repos Public
+            * Look for open or closed issues with sensitive information - scrub comments
+            * Look for previous commits with sensitive information
+            * Use [BFG Repo Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) to scrub sensitive data in the codebase
+            * Look at every part of your code and ask yourself - could an attacker cause harm with this information?
           </section>
           <section data-markdown>
-            I posted something sensitive on GitHub! * Just one commit on one
-            branch? * Delete the bad commit then force push. * `git rebase -i
-            HEAD~2` to interactive rebase the last 2 commits * Delete the bad
-            commit (`dd` in vim) * Force push: `git origin push &lt;branch
-            name&gt; --force-with-lease` * More than one commit? Check out [BFG
-            Repo Cleaner](https://rtyley.github.io/bfg-repo-cleaner/). * If
-            credentials, revoke or rotate the compromised ones.
+            I posted something sensitive on GitHub!
+
+            * Just one commit on one branch? 
+            * Delete the bad commit then force push.
+                * `git rebase -i HEAD~2` to interactive rebase the last 2 commits
+                * Delete the bad commit (`dd` in vim)
+                * Force push: `git origin push &lt;branch name&gt; --force-with-lease`
+            * More than one commit? Check out [BFG Repo Cleaner](https://rtyley.github.io/bfg-repo-cleaner/).
+            * If credentials, revoke or rotate the compromised ones.
           </section>
           <section data-markdown>
-            ## Gist Security * Private Gists are **security by obscurity** -
-            anyone with the URL can see * If something is extremely sensitive,
-            don't store it in a private Gist at all * Public Gists are posted to
-            the top of the public [discover
-            gists](https://gist.github.com/discover) page * Hackers and black
-            hats have tools to mine public Gists for access tokens and
-            credentials * Assume any sensitive information in a public Gist has
-            been compromised * [Gist command line
-            tools](https://github.com/defunkt/gist) are public by default -
-            avoid using
+            ## Gist Security
+            * Private Gists are **security by obscurity** - anyone with the URL can see
+            * If something is extremely sensitive, don't store it in a private Gist at all
+            * Public Gists are posted to the top of the public [discover gists](https://gist.github.com/discover) page
           </section>
           <section data-markdown>
-            ## Global `.gitignore` * A robust global `.gitignore` file can help
-            prevent accidentally checking in sensitive files * Global
-            `.gitignore` applies to all repos ``` git config --global
-            core.excludesfile ~/.gitignore_global ``` * For Node development on
-            a Mac, recommend adding `*.log` (to prevent `npm-debug.log` files),
-            `node_modules` folder, and `.DS_Store` * [Useful gitignore templates
-            from GitHub](https://github.com/github/gitignore), including
-            [Node](https://github.com/github/gitignore/blob/master/Node.gitignore),
-            [Mac](https://github.com/github/gitignore/blob/master/Global/macOS.gitignore),
-            [Windows](https://github.com/github/gitignore/blob/master/Global/Windows.gitignore),
-            [vim](https://github.com/github/gitignore/blob/master/Global/Vim.gitignore),
-            and [Visual Studio
-            Code](https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore).
+            * Hackers and black hats have tools to mine public Gists for access tokens and credentials
+            * Assume any sensitive information in a public Gist has been compromised
+            * [Gist command line tools](https://github.com/defunkt/gist) are public by default - avoid using
           </section>
           <section data-markdown>
-            ## CI security * Don't store sensitive information such as
-            credentials or access tokens in your repo's `.travis.yml` file, even
-            for private repos * Encrypt sensitive information using the Travis
-            CI ruby gem: ``` sh gem install travis travis encrypt
-            SECRETVARIABLE=supersecretvalue ``` * See the [Travis CI encryption
-            docs](https://docs.travis-ci.com/user/encryption-keys/) for more
-            information. * For CircleCI, check out the
-            [encrypted-files](https://github.com/circleci/encrypted-files)
-            project
+            ## Global `.gitignore`
+            * A robust global `.gitignore` file can help prevent accidentally checking in sensitive files
+            * Global `.gitignore` applies to all repos
+            ```
+            git config --global core.excludesfile ~/.gitignore_global
+            ```
+            * For Node development on a Mac, recommend adding `*.log` (to prevent `npm-debug.log` files), `node_modules` folder, and `.DS_Store`
+            * [Useful gitignore templates from GitHub](https://github.com/github/gitignore), including [Node](https://github.com/github/gitignore/blob/master/Node.gitignore), [Mac](https://github.com/github/gitignore/blob/master/Global/macOS.gitignore), [Windows](https://github.com/github/gitignore/blob/master/Global/Windows.gitignore), [vim](https://github.com/github/gitignore/blob/master/Global/Vim.gitignore), and [Visual Studio Code](https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore).
           </section>
           <section data-markdown>
-            ## Npm security * By default npm requires root access to install
-            packages globally * `sudo npm install -g &lt;package name&gt;` *
-            Never run `sudo npm install` - package **could** contain malicous
-            code * Malicious rimrafall package [reported by Lift
-            Security](https://blog.liftsecurity.io/2015/01/27/a-malicious-module-on-npm)
-            in 2015 * `rm -rf /*` preinstall hook * To avoid using `sudo`,
-            install Node with a tool like
-            [nvm](https://github.com/creationix/nvm), the node version manager
+            ## CI security
+            * Don't store sensitive information such as credentials or access tokens in your repo's `.travis.yml` file, even for private repos
+            * Encrypt sensitive information using the Travis CI ruby gem:
+            ``` sh
+            gem install travis
+            travis encrypt SECRETVARIABLE=supersecretvalue
+            ```
+            * See the [Travis CI encryption docs](https://docs.travis-ci.com/user/encryption-keys/) for more information.
+            * For CircleCI, check out the [encrypted-files](https://github.com/circleci/encrypted-files) project
           </section>
           <section data-markdown>
-            ## More npm security * If you are suspicious of a package, install
-            with `npm install --ignore-scripts` * Mitigates a [package install
-            vulnerability](http://blog.npmjs.org/post/141702881055/package-install-scripts-vulnerability)
-            that could in theory cause a worm * Remove old contributors from
-            your npm packages on [npmjs.com](https://www.npmjs.com/) - they can
-            still publish new versions that could contain malicious code * Add
-            `private: true` to the `package.json` of private Node projects to
-            prevent accidental publishes to npmjs.com
+            ## Npm security
+            * By default npm requires root access to install packages globally
+            * `sudo npm install -g &lt;package name&gt;`
+            * Never run `sudo npm install` - package **could** contain malicous code
+            * Malicious rimrafall package [reported by Lift Security](https://blog.liftsecurity.io/2015/01/27/a-malicious-module-on-npm) in 2015
+                * `rm -rf /*` preinstall hook
+            * To avoid using `sudo`, install Node with a tool like [nvm](https://github.com/creationix/nvm), the node version manager
           </section>
           <section data-markdown>
-            ## Dependency management * Older versions of client-side JavaScript
-            libraries and server-side Node packages may contain security
-            vulnerabilities * Node Security Project (nsp) [maintains a list of
-            vulnerabilities](https://nodesecurity.io/advisories) * Use tools
-            like [nsp](https://github.com/nodesecurity/nsp) (Node only) and
-            [retire.js](https://github.com/RetireJS/retire.js) (client-side and
-            Node) to identify vulnerable dependencies * Don't use old libraries
-            or modules - attackers will Google the library and look for
-            published security issues then attack your site. * Consider adding
-            nsp or retire.js as a step in your test (`npm test`) process
+            ## More npm security
+            * If you are suspicious of a package, install with `npm install --ignore-scripts`
+            * Mitigates a [package install vulnerability](http://blog.npmjs.org/post/141702881055/package-install-scripts-vulnerability) that could in theory cause a worm
+            * Remove old contributors from your npm packages on [npmjs.com](https://www.npmjs.com/) - they can still publish new versions that could contain malicious code
+            * Add `private: true` to the `package.json` of private Node projects to prevent accidental publishes to npmjs.com
           </section>
           <section data-markdown>
-            ## Homebrew Mac - keep [Homebrew](http://brew.sh/index.html) package
-            manager up to date Update Homebrew to latest gitsha ```sh brew
-            update ``` View outdated packages ```sh brew outdated ``` Upgrade
-            package `foobar` ```sh brew upgrade foobar ```
+            ## Dependency management
+            * Older versions of client-side JavaScript libraries and server-side Node packages may contain security vulnerabilities
+            * Node Security Project (nsp) [maintains a list of vulnerabilities](https://nodesecurity.io/advisories)
+            * Use tools like [nsp](https://github.com/nodesecurity/nsp) (Node only) and [retire.js](https://github.com/RetireJS/retire.js) (client-side and Node) to identify vulnerable dependencies
+          </section>
+          <section data-markdown>
+            * Don't use old libraries or modules - attackers will Google the library and look for published security issues then attack your site.
+            * Consider adding nsp or retire.js as a step in your test (`npm test`) process
+          </section>
+          <section data-markdown>
+            ## Homebrew
+            Mac - keep [Homebrew](http://brew.sh/index.html) package manager up to date
+
+            Update Homebrew to latest gitsha
+            ```sh
+            brew update
+            ```
+            View outdated packages
+            ```sh
+            brew outdated
+            ```
+            Upgrade package `foobar`
+            ```sh
+            brew upgrade foobar
+            ```
           </section>
         </section>
         <section data-markdown>
-          # Break! Take a quick break to stretch or grab some water.
+          # Break! 
+          
+          Take a quick break to stretch or grab some water.
         </section>
         <section>
-          <section data-markdown># Application Security</section>
           <section data-markdown>
-            ## Golden rules of AppSec * Encrypt all the things * All user input
-            is untrusted and potentially malicious * Separate data from
-            instructions * Tighten application logic * Add reasonable limits *
-            Hash and salt passwords * Don't reveal more information than
-            necessary
-          </section>
-        </section>
-        <section>
-          <section data-markdown># Encrypt all the things</section>
-          <section data-markdown>
-            ## `https://` * HTTP Secure or HTTP over SSL/TLS * SSL/TLS = Secure
-            Socket Layer/Transport Layer Security * Port 443 by default *
-            Encrypts all data in transit between client &amp; server * Privacy,
-            authentication, and integrity of data
+            # Application Security
           </section>
           <section data-markdown>
-            ## PKI Primer * PKI = Public Key Infrastructure * HTTPS uses PKI,
-            specifically asymmetric public key cryptography * Asymmetric =
-            private keys (secret) and public keys (shared) * Keys shared with
-            secure key exchange algorithms (RSA, Diffie-Hellmen, elliptical
-            curve) * Digital certificates issued by certificate authorities
-            verify identity
-          </section>
-          <section data-markdown>
-            ## How do you configure SSL/TLS? * Buy a certificate from a
-            Certificate Authority (CA) * Domain Validated (DV), Organization
-            Validated (OV), Extended Validation (EV) * [Let's
-            Encrypt](https://letsencrypt.org/) * Free, automated, and open CA *
-            Requires shell access to server * Won't work on GitHub Pages
-            websites :( * Development use only - self-signed certificates
-          </section>
-          <section data-markdown>
-            ## HTTP Server Code sample Follow along with the code sample in the
-            `https-server` directory ```sh git clone
-            git@github.com:alulsh/intro-to-security-for-developers.git cd
-            https-server npm install npm start ```
-          </section>
-          <section data-markdown>
-            ## Generate a self-signed cert with OpenSSL OpenSSL `req` command to
-            generate a certificate signing request (CSR) ```sh openssl req -x509
-            -newkey rsa:2048 -keyout privatekey.pem -out cert.pem -days 365
-            -subj '/C=US/ST=DC/O=MyOrganization' -nodes ```
-          </section>
-          <section data-markdown>
-            * `-x509` - output self-signed certificate instead of CSR * `-newkey
-            rsa:2048` - 2048 bit RSA private key * `-keyout privatekey.pem` -
-            private key * `-out cert.pem` - self signed certificate * `-subj` -
-            subject name for certificate * `-days 365` - key is valid for a year
-            * `-nodes` - private key is un-encrypted without a passphrase
-            (**development only**)
-          </section>
-          <section data-markdown>
-            Add to your app's `package.json` as a script ```js "scripts": {
-            "cert": "openssl req -x509 -newkey rsa:2048 -keyout privatekey.pem
-            -out cert.pem -days 365 -subj '/C=US/ST=DC/O=MyOrganization'
-            -nodes", }, ``` To generate new self-signed certs for development:
-            ```sh npm run cert ``` You should see two new files -
-            `privatekey.pem` and `cert.pem`
-          </section>
-          <section data-markdown>
-            ## Simple HTTPS Express server ```js var express =
-            require('express'); var https = require('https'); var fs =
-            require('fs'); var app = express(); var options = { key:
-            fs.readFileSync('privatekey.pem'), cert: fs.readFileSync('cert.pem')
-            } https.createServer(options, app).listen(4000, function(err){ if
-            (err) throw err; console.log('Server started on port 4000'); });
-            app.get('/', function (req, res) { res.header('Content-type',
-            'text/html'); return res.end('&lt;h1&gt;Served over
-            HTTPS&lt;/h1&gt;'); }); ``` From `https-server` folder, run `npm
-            start` command, then visit `https://localhost:4000/`
-          </section>
-          <section data-markdown>
-            ## SSL vs TLS * SSL/TLS handshake to determine which versions of SSL
-            or TLS * All versions of SSL (1.0, 2.0, and 3.0) are insecure *
-            Disable all versions of SSL on your servers &amp; clients (browsers)
-            * Instead use TLS, preferably TLS 1.2 * Visit
-            [https://www.howsmyssl.com/](How's My SSL?) to test your browser's
-            SSL/TLS security
-          </section>
-          <section data-markdown>
-            ## SSL/TLS Exploits * POODLE - SSLv3 downgrade exploit, later
-            [certain TLS
-            implementations](https://blog.qualys.com/ssllabs/2014/12/08/poodle-bites-tls)
-            * [Heartbleed](https://en.wikipedia.org/wiki/Heartbleed) - OpenSSL
-            vulnerability * [DROWN](https://en.wikipedia.org/wiki/DROWN_attack)
-            - TLS vulnerability that exploited SSLv2 legacy support * **Disable
-            old versions of SSL and TLS if possible**
-          </section>
-          <section data-markdown>
-            ## Mixed content * HTTPS page contains HTTP content - images,
-            scripts, iframes * The connection is now only **partially
-            encrypted** - less privacy * Victims subject to sniffing or
-            man-in-the-middle attacks
-          </section>
-          <section data-markdown>
-            * Passive mixed content * `&lt;img&gt;`, `&lt;audio&gt;`,
-            `&lt;video&gt;` * Less harmful, attacker can only replace images *
-            Active mixed content * `&lt;script&gt;`, `&lt;link&gt;`,
-            `XMLHttpRequest` * Harmful, attacker can replace with malicious
-            scripts! * Good write up on [Mozilla Developer
-            Network](https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content)
-          </section>
-          <section data-markdown>
-            ## Code sample Follow along with the code sample in the
-            `mixed-content` directory ```sh git clone
-            git@github.com:alulsh/intro-to-security-for-developers.git cd
-            mixed-content npm install npm start ```
+            ## Golden rules of AppSec
+
+            * Encrypt all the things
+            * All user input is untrusted and potentially malicious
+            * Separate data from instructions
+            * Tighten application logic
+            * Add reasonable limits
+            * Hash and salt passwords
+            * Don't reveal more information than necessary
           </section>
         </section>
         <section>
-          <section data-markdown># Cross-Site Scripting (XSS)</section>
           <section data-markdown>
-            ## What's XSS? * Attackers injecting malicious code, usually
-            JavaScript, into your website * XSS payload = malicious code or
-            JavaScript * Treating user-provided data or input as trusted and not
-            potentially malicious * "Failure to separate data from instructions"
-            - ["A Gentle Introduction to Application
-            Security"](https://paragonie.com/blog/2015/08/gentle-introduction-application-security)
-            from Paragon Initiative
+            # Encrypt all the things
           </section>
           <section data-markdown>
-            ## How malicious is JavaScript, anyway? * Stealing cookies (access
-            to `document.cookie`) * Keyloggers (`addEventListener`) * Phishing
-            (create fake login forms) * Capturing screenshots of user's session
-            * More scary XSS payloads at
-            [xss-payloads.com](http://www.xss-payloads.com/payloads.html)
+            ## `https://`
+            * HTTP Secure or HTTP over SSL/TLS
+            * SSL/TLS = Secure Socket Layer/Transport Layer Security
+            * Port 443 by default
+            * Encrypts all data in transit between client &amp; server
+            * Privacy, authentication, and integrity of data
           </section>
           <section data-markdown>
-            ## Types of XSS * Where is the vulnerable code? * Server-side -
-            server XSS * Client-side - client XSS or DOM-based XSS * How is the
-            payload triggered? * Stored or persistent XSS * Reflected XSS *
-            Self-XSS
+            ## PKI Primer
+            * PKI = Public Key Infrastructure
+            * HTTPS uses PKI, specifically asymmetric public key cryptography
+            * Asymmetric = private keys (secret) and public keys (shared)
+            * Keys shared with secure key exchange algorithms (RSA, Diffie-Hellmen, elliptical curve)
+            * Digital certificates issued by certificate authorities verify identity
           </section>
           <section data-markdown>
-            ### Stored XSS * Attacker injects script into a website's database *
-            e.g. attacker pastes payload into a comment on a forum, which is
-            saved in the thread * Malicious JavaScript executed **every time
-            victims visit the page** * Usually server XSS, unable to find real
-            life stored client XSS examples (if you know one, tell me!) * Real
-            life example - [Stored XSS in Veris member
-            portal](https://hackerone.com/reports/118950) * Payload - `&lt;svg
-            onload=alert(1)&gt;`
+            ## How do you configure SSL/TLS?
+            * Buy a certificate from a Certificate Authority (CA)
+                * Domain Validated (DV), Organization Validated (OV), Extended Validation (EV)
+            * [Let's Encrypt](https://letsencrypt.org/)
+                * Free, automated, and open CA
+                * Requires shell access to server
+                * Won't work on GitHub Pages websites :(
+            * Development use only - self-signed certificates
           </section>
           <section data-markdown>
-            ### Reflected XSS * Victim clicks on link crafted to execute payload
-            on page load, e.g. link in a phishing email or social media post *
-            Either server XSS or client XSS * Real-life example - [Reflected XSS
-            in scores.ubnt.com](https://hackerone.com/reports/130889) * Payload
-            -
-            `https://scores.ubnt.com/form.html?uid=1&amp;p=airFiber"&gt;&lt;script&gt;alert(document.cookie);&lt;/script&gt;`
+            ## HTTP Server Code sample
+
+            Follow along with the code sample in the `https-server` directory
+
+            ```sh
+            git clone git@github.com:alulsh/intro-to-security-for-developers.git
+            cd https-server
+            npm install
+            npm start
+            ```
           </section>
           <section data-markdown>
-            ### Client XSS * Also referred to as DOM-based XSS * Insecure
-            client-side JavaScript code * Often but not always also reflected
-            XSS * Commonly seen with insecure use of `innerHTML` or templates
-            (underscore, EJS)
+            ## Generate a self-signed cert with OpenSSL
+
+            OpenSSL `req` command to generate a certificate signing request (CSR)
+
+            ```sh
+            openssl req -x509 -newkey rsa:2048 -keyout privatekey.pem -out cert.pem -days 365 -subj '/C=US/ST=DC/O=MyOrganization' -nodes
+            ```
           </section>
           <section data-markdown>
-            ### Code samples Follow along with the code sample in the `xss`
-            directory ```sh git clone
-            git@github.com:alulsh/intro-to-security-for-developers.git cd xss
-            npm install npm start ``` Visit `http://localhost:3000/` in your
-            browser
+            * `-x509` - output self-signed certificate instead of CSR
+            * `-newkey rsa:2048` - 2048 bit RSA private key
+            * `-keyout privatekey.pem` - private key
+            * `-out cert.pem` - self signed certificate
+            * `-subj` - subject name for certificate
+            * `-days 365` - key is valid for a year
+            * `-nodes` - private key is un-encrypted without a passphrase (**development only**)
           </section>
           <section data-markdown>
-            ### Malicious images * Payload from code sample -
-            `http://localhost:3000/results.html?query=&lt;img src="fake.jpg"
-            onerror=alert(1)&gt;` * Websites may block `&lt;script&gt;` tags,
-            but may allow rich HTML content including `&lt;img&gt;` and
-            `&lt;svg&gt;` * `onerror` attribute executes JavaScript when image
-            fails to load
+            Add to your app's `package.json` as a script
+
+            ```js
+              "scripts": {
+                "cert": "openssl req -x509 -newkey rsa:2048 -keyout privatekey.pem -out cert.pem -days 365 -subj '/C=US/ST=DC/O=MyOrganization' -nodes",
+              },
+            ```
+
+            To generate new self-signed certs for development:
+            ```sh
+            npm run cert
+            ```
+
+            You should see two new files - `privatekey.pem` and `cert.pem`
           </section>
           <section data-markdown>
-            ### Incomplete list of client XSS payloads * `javascript:` protocol
-            - `&lt;IMG SRC=javascript:alert('XSS')&gt;` * body tag - `&lt;BODY
-            ONLOAD=alert('XSS')&gt;` * link tag - `&lt;LINK REL="stylesheet"
-            HREF="javascript:alert('XSS');"&gt;` * CSS URLs - `&lt;DIV
-            STYLE="background-image: url(javascript:alert('XSS'))"&gt;` *
-            [Markdown parsers](https://hackerone.com/reports/82725) - `[Click
-            here](javascript:alert(1))`
+            ## Simple HTTPS Express server
+            ```js
+            var express = require('express');
+            var https = require('https');
+            var fs = require('fs');
+            var app = express();
+
+            var options = {
+                key: fs.readFileSync('privatekey.pem'),
+                cert: fs.readFileSync('cert.pem')
+            }
+
+            https.createServer(options, app).listen(4000, function(err){
+                if (err) throw err;
+                console.log('Server started on port 4000');
+            });
+
+            app.get('/', function (req, res) {
+                res.header('Content-type', 'text/html');
+                return res.end('&lt;h1&gt;Served over HTTPS&lt;/h1&gt;');
+            });
+            ```
+
+            From `https-server` folder, run `npm start` command, then visit `https://localhost:4000/`
           </section>
           <section data-markdown>
-            ### Even more payloads * OWASP's awesomely long [XSS Filter Evasion
-            Cheat
-            Sheet](https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet)
-            * [HTML5 Security Checklist](https://html5sec.org/) * [XSS
-            Hunter](https://xsshunter.com/) for XSS pentesting (ask for
-            permission before using)
+            ## SSL vs TLS
+            * SSL/TLS handshake to determine which versions of SSL or TLS
+            * All versions of SSL (1.0, 2.0, and 3.0) are insecure
+            * Disable all versions of SSL on your servers &amp; clients (browsers)
+            * Instead use TLS, preferably TLS 1.2
+            * Visit [https://www.howsmyssl.com/](How's My SSL?) to test your browser's SSL/TLS security
+          </section>
+          <section data-markdown>
+            ## SSL/TLS Exploits
+            * POODLE - SSLv3 downgrade exploit, later [certain TLS implementations](https://blog.qualys.com/ssllabs/2014/12/08/poodle-bites-tls)
+            * [Heartbleed](https://en.wikipedia.org/wiki/Heartbleed) - OpenSSL vulnerability
+            * [DROWN](https://en.wikipedia.org/wiki/DROWN_attack) - TLS vulnerability that exploited SSLv2 legacy support
+            * **Disable old versions of SSL and TLS if possible**
+          </section>
+          <section data-markdown>
+            ## Mixed content
+            * HTTPS page contains HTTP content - images, scripts, iframes
+            * The connection is now only **partially encrypted** - less privacy
+            * Victims subject to sniffing or man-in-the-middle attacks
+          </section>
+          <section data-markdown>
+            * Passive mixed content
+              * `&lt;img&gt;`, `&lt;audio&gt;`, `&lt;video&gt;`
+              * Less harmful, attacker can only replace images
+            * Active mixed content
+              * `&lt;script&gt;`, `&lt;link&gt;`, `XMLHttpRequest`
+              * Harmful, attacker can replace with malicious scripts!
+            * Good write up on [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content)
+          </section>
+          <section data-markdown>
+            ## Code sample
+            Follow along with the code sample in the `mixed-content` directory
+
+            ```sh
+            git clone git@github.com:alulsh/intro-to-security-for-developers.git
+            cd mixed-content
+            npm install
+            npm start
+            ```
+          </section>
+        </section>
+        <section>
+          <section data-markdown>
+            # Cross-Site Scripting (XSS)
+          </section>
+          <section data-markdown>
+            ## What's XSS?
+            * Attackers injecting malicious code, usually JavaScript, into your website
+            * XSS payload = malicious code or JavaScript
+            * Treating user-provided data or input as trusted and not potentially malicious
+            * "Failure to separate data from instructions" - ["A Gentle Introduction to Application Security"](https://paragonie.com/blog/2015/08/gentle-introduction-application-security) from Paragon Initiative
+          </section>
+          <section data-markdown>
+            ## How malicious is JavaScript, anyway?
+            * Stealing cookies (access to `document.cookie`)
+            * Keyloggers (`addEventListener`)
+            * Phishing (create fake login forms)
+            * Capturing screenshots of user's session
+            * More scary XSS payloads at [xss-payloads.com](http://www.xss-payloads.com/payloads.html)
+          </section>
+          <section data-markdown>
+            ## Types of XSS
+
+            * Where is the vulnerable code?
+                * Server-side - server XSS
+                * Client-side - client XSS or DOM-based XSS
+            * How is the payload triggered?
+                * Stored or persistent XSS
+                * Reflected XSS
+                * Self-XSS
+          </section>
+          <section data-markdown>
+            ### Stored XSS
+            * Attacker injects script into a website's database
+            * e.g. attacker pastes payload into a comment on a forum, which is saved in the thread
+            * Malicious JavaScript executed **every time victims visit the page**
+            * Usually server XSS, unable to find real life stored client XSS examples (if you know one, tell me!)
+            * Real life example - [Stored XSS in Veris member portal](https://hackerone.com/reports/118950)
+            * Payload - `&lt;svg onload=alert(1)&gt;`
+          </section>
+          <section data-markdown>
+            ### Reflected XSS
+            * Victim clicks on link crafted to execute payload on page load, e.g. link in a phishing email or social media post
+            * Either server XSS or client XSS
+            * Real-life example - [Reflected XSS in scores.ubnt.com](https://hackerone.com/reports/130889)
+            * Payload - `https://scores.ubnt.com/form.html?uid=1&amp;p=airFiber"&gt;&lt;script&gt;alert(document.cookie);&lt;/script&gt;`
+          </section>
+          <section data-markdown>
+            ### Client XSS
+            * Also referred to as DOM-based XSS
+            * Insecure client-side JavaScript code
+            * Often but not always also reflected XSS
+            * Commonly seen with insecure use of `innerHTML` or templates (underscore, EJS)
+          </section>
+          <section data-markdown>
+            ### Code samples
+            Follow along with the code sample in the `xss` directory
+
+            ```sh
+            git clone git@github.com:alulsh/intro-to-security-for-developers.git
+            cd xss
+            npm install
+            npm start
+            ```
+            Visit `http://localhost:3000/` in your browser
+          </section>
+          <section data-markdown>
+            ### Malicious images
+            * Payload from code sample - `http://localhost:3000/results.html?query=&lt;img src="fake.jpg" onerror=alert(1)&gt;`
+            * Websites may block `&lt;script&gt;` tags, but may allow rich HTML content including `&lt;img&gt;` and `&lt;svg&gt;`
+            * `onerror` attribute executes JavaScript when image fails to load
+          </section>
+          <section data-markdown>
+            ### Incomplete list of client XSS payloads
+            * `javascript:` protocol - `&lt;IMG SRC=javascript:alert('XSS')&gt;`
+            * body tag - `&lt;BODY ONLOAD=alert('XSS')&gt;`
+            * link tag - `&lt;LINK REL="stylesheet" HREF="javascript:alert('XSS');"&gt;`
+          </section>
+          <section data-markdown>
+            * CSS URLs - `&lt;DIV STYLE="background-image: url(javascript:alert('XSS'))"&gt;`
+            * [Markdown parsers](https://hackerone.com/reports/82725) - `[Click here](javascript:alert(1))`
+          </section>
+          <section data-markdown>
+            ### Even more payloads
+            * OWASP's awesomely long [XSS Filter Evasion Cheat Sheet](https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet)
+            * [HTML5 Security Checklist](https://html5sec.org/)
+            * [XSS Hunter](https://xsshunter.com/) for XSS pentesting (ask for permission before using)
           </section>
           <section data-markdown>
             ### How to prevent client XSS
-            <!-- To Do: Explain HTML escaping -->
-            * HTML escape user provided data before adding to the DOM * HTML
-            escaping &gt; sanitization * Attackers will find ways to get around
-            sanitization libraries * Recommend [lodash escape
-            function](https://lodash.com/docs/4.16.3#escape) `_.escape()` *
-            Don't use `textContent` or `createTextNode` to [escape
-            HTML](http://benv.ca/2012/10/02/you-are-probably-misusing-DOM-text-methods/)
-            * Use HTML escaped
-            [interpolation](https://en.wikipedia.org/wiki/String_interpolation)
-            templates, as seen in
-            [underscore](http://underscorejs.org/#template) * `&lt;%-` instead
-            of `&lt;%=` or `<%` * Real-life example: [Reflected cross-site
-            scripting (XSS) on
-            api.tiles.mapbox.com](https://hackerone.com/reports/135217)
+            * HTML escape user provided data before adding to the DOM
+            * HTML escaping &gt; sanitization
+            * Attackers will find ways to get around sanitization libraries
           </section>
           <section data-markdown>
-            ### More client XSS mitigations * [Quote your HTML attribute
-            values](http://wonko.com/post/html-escaping) * `&lt;a href="url"`
-            not `&lt;a href=url` * Avoid using `innerHTML` to add user-provided
-            data to the DOM * Instead create the DOM elements manually
-            (_artisanal DOM elements_) * Real life example: [XSS in
-            L.mapbox.shareControl in
-            mapbox.js](https://hackerone.com/reports/99245) * [mapbox.js pull
-            request #1102](https://github.com/mapbox/mapbox.js/pull/1102/files)
+            * Recommend [lodash escape function](https://lodash.com/docs/4.16.3#escape) `_.escape()`
+            * Don't use `textContent` or `createTextNode` to [escape HTML](http://benv.ca/2012/10/02/you-are-probably-misusing-DOM-text-methods/)
+            * Use HTML escaped [interpolation](https://en.wikipedia.org/wiki/String_interpolation) templates, as seen in [underscore](http://underscorejs.org/#template)
+              * `&lt;%-` instead of `&lt;%=` or `<%`
+              * Real-life example: [Reflected cross-site scripting (XSS) on api.tiles.mapbox.com](https://hackerone.com/reports/135217)
+          </section>
+          <section data-markdown>
+            ### More client XSS mitigations
+            * [Quote your HTML attribute values](http://wonko.com/post/html-escaping)
+                * `&lt;a href="url"` not `&lt;a href=url`
+            * Avoid using `innerHTML` to add user-provided data to the DOM
+                * Instead create the DOM elements manually (_artisanal DOM elements_)
+                * Real life example: [XSS in L.mapbox.shareControl in mapbox.js](https://hackerone.com/reports/99245)
+                * [mapbox.js pull request #1102](https://github.com/mapbox/mapbox.js/pull/1102/files)
             * Use `X-XSS-Protection` and Content Security Policy headers
           </section>
           <section data-markdown>
-            ### Self-XSS ![Facebook self XSS warning](img/FacebookSelfXSS.png)
+            ### Self-XSS 
+            ![Facebook self XSS warning](img/FacebookSelfXSS.png)
           </section>
           <section data-markdown>
-            ## XSS Resources * [Excess XSS, A comprehensive tutorial on
-            cross-site scripting](http://excess-xss.com/) * [XSS Game by
-            Google](https://xss-game.appspot.com/) * [OWASP XSS Prevention Cheat
-            Sheet](https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet)
+            ## XSS Resources
+            * [Excess XSS, A comprehensive tutorial on cross-site scripting](http://excess-xss.com/)
+            * [XSS Game by Google](https://xss-game.appspot.com/)
+            * [OWASP XSS Prevention Cheat Sheet](https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet)
           </section>
         </section>
         <section>
-          <section data-markdown># Authentication Systems</section>
           <section data-markdown>
-            ## Passport Module * If you need an authentication system for your
-            website, don't roll your own code, instead use someone else's. *
-            [Passport module](https://github.com/jaredhanson/passport) -
-            supports 300+ authentication methods *
-            [passport-local](https://github.com/jaredhanson/passport-local) -
-            basic authentication, username and password * OAuth:
-            [Google](https://github.com/jaredhanson/passport-google-oauth),
-            [Facebook](https://github.com/jaredhanson/passport-facebook),
-            [Twitter](https://github.com/jaredhanson/passport-twitter),
-            [GitHub](https://github.com/cfsghost/passport-github) *
-            [TOTP](https://github.com/jaredhanson/passport-totp) (for 2FA!),
-            [SAML](https://github.com/bergie/passport-saml),
-            [JWT](https://github.com/themikenicholson/passport-jwt),
-            [OpenID](https://github.com/jaredhanson/passport-openid), and more
+            # Authentication Systems
           </section>
           <section data-markdown>
-            ## Password Security * **Never store unencrypted, plain text
-            passwords in your database** * http://howtosafelystoreapassword.com/
-            * Store a hash of the password, not the password itself. * The hash
-            is one-way - the same password string produces the same hash value
-            and can't be reversed * Bcrypt, PBKDF2, and scrypt are [all secure
-            options for hashing
-            passwords](https://blog.agilebits.com/2015/03/30/bcrypt-is-great-but-is-password-cracking-infeasible/)
+            ## Passport Module
+            * If you need an authentication system for your website, don't roll your own code, instead use someone else's.
+            * [Passport module](https://github.com/jaredhanson/passport) - supports 300+ authentication methods
+            * [passport-local](https://github.com/jaredhanson/passport-local) - basic authentication, username and password
+            * OAuth: [Google](https://github.com/jaredhanson/passport-google-oauth), [Facebook](https://github.com/jaredhanson/passport-facebook), [Twitter](https://github.com/jaredhanson/passport-twitter), [GitHub](https://github.com/cfsghost/passport-github)
+            * [TOTP](https://github.com/jaredhanson/passport-totp) (for 2FA!), [SAML](https://github.com/bergie/passport-saml), [JWT](https://github.com/themikenicholson/passport-jwt), [OpenID](https://github.com/jaredhanson/passport-openid), and more
+          </section>
+          <section data-markdown>
+            ## Password Security
+            * **Never store unencrypted, plain text passwords in your database**
+            * http://howtosafelystoreapassword.com/
+            * Store a hash of the password, not the password itself.
+            * The hash is one-way - the same password string produces the same hash value and can't be reversed
+            * Bcrypt, PBKDF2, and scrypt are [all secure options for hashing passwords](https://blog.agilebits.com/2015/03/30/bcrypt-is-great-but-is-password-cracking-infeasible/)
             * "Don't write your own crypto" - it won't be as secure
           </section>
           <section data-markdown>
-            ## Salting Passwords * If two users have the same password in your
-            database, then an attacker can reverse engineer the hash. * Adding a
-            **salt** - a unique random string - makes each hash truly random,
-            even if two users have the same password. * [Use long
-            salts](https://crackstation.net/hashing-security.htm). * Never reuse
-            a salt - every account should have a unique salt.
+            ## Salting Passwords
+            * If two users have the same password in your database, then an attacker can reverse engineer the hash.
+            * Adding a **salt** - a unique random string - makes each hash truly random, even if two users have the same password.
+            * [Use long salts](https://crackstation.net/hashing-security.htm).
+            * Never reuse a salt - every account should have a unique salt.
           </section>
           <section data-markdown>
-            ## Using Bcrypt in Node Easily salt and hash a password securely in
-            Node using the [bcrypt
-            module](https://github.com/kelektiv/node.bcrypt.js). ```js var
-            bcrypt = require('bcrypt'); var password = 'supersecurepassword' var
-            saltRounds = 10; bcrypt.hash(password, saltRounds, function(err,
-            hash) { // Code to store password in your database }); ``` The
-            password would never be hardcoded and would instead be received
-            directly from an endpoint.
-          </section>
-          <section data-markdown>
-            ### Code sample Follow along with the code sample in the
-            `bcrypt-sample` directory ```sh git clone
-            git@github.com:alulsh/intro-to-security-for-developers.git cd
-            bcrypt-sample npm install npm start ```
-          </section>
-          <section data-markdown>
-            ## Secure Cookies * Cookie = user information written to a text
-            file, e.g. shopping cart information * Often used for user
-            authentication as a session cookie * Cookies are frequently the
-            target of XSS attacks, if stolen can be used to hijack a user's
-            session * `secure` flag - cookie can only be sent over HTTPS, not
-            HTTP * `httpOnly` flag - cookie cannot be accessed via JavaScript
-            (important for XSS) * Setting `httpOnly` flag **will** break any
-            JavaScript that relies on access to cookies
-          </section>
-          <section data-markdown>
-            ## Code Example - Cookies ```js var app = express(); var session =
-            require('express-session'); app.use(session({ secret: 'shibe memes',
-            cookie: { secure: true, httpOnly: true, domain: 'alexandraulsh.com'
-            } })); ```
-          </section>
-          <section data-markdown>
-            ## OAuth security Implementing OAuth is beyond the scope of this
-            presentation, but always use the `state` parameter when building
-            OAuth solutions. For passport modules, this should be as easy as
-            adding `state: true` to your strategy. This protects against CSRF
-            (Cross Site Request Forgery) attacks. See the [GitHub OAuth
-            documentation](https://developer.github.com/v3/oauth/#1-redirect-users-to-request-github-access)
-            for an example.
+            ## Using Bcrypt in Node
 
-            <!-- TODO code sameple for adding state parameter - passport module -->
+            Easily salt and hash a password securely in Node using the [bcrypt module](https://github.com/kelektiv/node.bcrypt.js).
+
+            ```js
+            var bcrypt = require('bcrypt');
+            var password = 'supersecurepassword'
+            var saltRounds = 10;
+
+            bcrypt.hash(password, saltRounds, function(err, hash) {
+                // Code to store password in your database
+            });
+            ```
+            The password would never be hardcoded and would instead be received directly from an endpoint.
+          </section>
+          <section data-markdown>
+            ### Code sample
+            Follow along with the code sample in the `bcrypt-sample` directory
+
+            ```sh
+            git clone git@github.com:alulsh/intro-to-security-for-developers.git
+            cd bcrypt-sample
+            npm install
+            npm start
+            ```
+          </section>
+          <section data-markdown>
+            ## Secure Cookies
+            * Cookie = user information written to a text file, e.g. shopping cart information
+            * Often used for user authentication as a session cookie
+            * Cookies are frequently the target of XSS attacks, if stolen can be used to hijack a user's session
+          </section>
+          <section data-markdown>
+            * `secure` flag - cookie can only be sent over HTTPS, not HTTP
+            * `httpOnly` flag - cookie cannot be accessed via JavaScript (important for XSS)
+            * Setting `httpOnly` flag **will** break any JavaScript that relies on access to cookies
+          </section>
+          <section data-markdown>
+            ## Code Example - Cookies
+            ```js
+            var app = express();
+            var session = require('express-session');
+
+            app.use(session({
+                secret: 'shibe memes',
+                cookie: {
+                    secure: true,
+                    httpOnly: true,
+                    domain: 'alexandraulsh.com'
+                }
+            }));
+            ```
+          </section>
+          <section data-markdown>
+            ## OAuth security
+            Implementing OAuth is beyond the scope of this presentation, but always use the `state` parameter when building OAuth solutions. For passport modules, this should be as easy as adding `state: true` to your strategy.
+
+            This protects against CSRF (Cross Site Request Forgery) attacks.
+
+            See the [GitHub OAuth documentation](https://developer.github.com/v3/oauth/#1-redirect-users-to-request-github-access) for an example.
           </section>
         </section>
         <section>
-          <section data-markdown># Information Disclosure</section>
           <section data-markdown>
-            ## Information Disclosure Revealing more information than necessary
-            about the configuration of your system or software.
+            # Information Disclosure
           </section>
           <section data-markdown>
-            ## Fingerprinting * Before attacking a target, attackers will try to
-            find out as much information as possible via **fingerprinting**. *
-            Easier to hack a system if you know it's architecture or what
-            software it's running * Easier to social engineer a company if you
-            know the people in it * Attackers get info from your website, blog
-            posts, employees social media posts, open source code, and HTTP
-            headers.
+            ## Information Disclosure
+            Revealing more information than necessary about the configuration of your system or software.
           </section>
           <section data-markdown>
-            ## Banner Grabbing * Finding out website software and architecture
-            information from HTTP headers * Command line tools like `nc`
-            (netcat) or `curl` ```sh curl -I www.alexandraulsh.com ``` *
-            Response includes `X-GitHub-Request-Id:
-            17EB2E2E:40D2:191BAD2C:57F7AFBE` * Attacker now knows it's a GitHub
-            Pages site * Programmatic information disclosure is particularly
-            dangerous - attackers can automate attacks
+            ## Fingerprinting
+            * Before attacking a target, attackers will try to find out as much information as possible via **fingerprinting**.
+            * Easier to hack a system if you know it's architecture or what software it's running
+            * Easier to social engineer a company if you know the people in it
+            * Attackers get info from your website, blog posts, employees social media posts, open source code, and HTTP headers.
           </section>
           <section data-markdown>
-            ## Preventing Information Disclosure * Disable HTTP headers that
-            reveal software names and versions. * There is no benefit to leaving
-            these headers up, and removing them may even benefit performance. *
-            Don't run production servers in debug or verbose mode * Don't
-            display stack traces or detailed errors to users * Disable directory
-            listing * Don't leave sensitive information in HTML or JavaScript
-            comments
+            ## Banner Grabbing
+            * Finding out website software and architecture information from HTTP headers
+            * Command line tools like `nc` (netcat) or `curl`
+            ```sh
+            curl -I www.alexandraulsh.com
+            ```
+            * Response includes `X-GitHub-Request-Id: 17EB2E2E:40D2:191BAD2C:57F7AFBE`
+            * Attacker now knows it's a GitHub Pages site
+            * Programmatic information disclosure is particularly dangerous - attackers can automate attacks
           </section>
           <section data-markdown>
-            ## Preventing Disclosure in Express * By default Express displays
-            the `X-Powered-By: Express` header * Disable using
-            `app.disable('x-powered-by');` * The default cookie name in Express
-            is `connect.sid` * Use a generic name like `session` instead of the
-            default name ```js app.use(session({ secret: 't0ps3cr3t', name:
-            'session' }) ); ```
-          </section>
-        </section>
-        <section>
-          <section data-markdown># Protecting Availability</section>
-          <section data-markdown>
-            ## Denial of Service (DoS) * Taking a system offline and rendering
-            it unavailable to its users * Can be triggered by one illogical
-            payload or multiple high-volume requests * Real life example:
-            [Denial of service in account statistics
-            endpoint](https://hackerone.com/reports/136221) * DoS condition
-            triggered by requesting a large period of time for account
-            statistics - 20 years of (non-existent) data! * Resolved by adding a
-            limit to endpoint to not request more than a year of data
+            ## Preventing Information Disclosure
+            * Disable HTTP headers that reveal software names and versions.
+            * There is no benefit to leaving these headers up, and removing them may even benefit performance.
+            * Don't run production servers in debug or verbose mode
           </section>
           <section data-markdown>
-            ## Validating Input * To mitigate DoS conditions, validate user
-            input and add reasonable limits to your application logic. * Don't
-            allow users to provide or request: * data from unlimited time
-            periods * negative values * strings when it should be a number *
-            code or specal characters (null bytes) when it should be text *
-            Limit the size of user uploads (e.g. 20mb) * Build resilient,
-            scalable systems that stay online when 1 server goes offline
+            * Don't display stack traces or detailed errors to users
+            * Disable directory listing
+            * Don't leave sensitive information in HTML or JavaScript comments
           </section>
           <section data-markdown>
-            ## Distributed Denial of Service (DDoS) * DoS attacks distributed
-            across multiple machines or attackers, often as part of a **botnet**
-            * Internet hosting company OVH suffered 1 terabyte DDoS attack -
-            [the largest ever so
-            far](http://www.scmagazineuk.com/ovh-suffers-11tbps-ddos-attack/article/524826/)
-            * Botnet of CCTV &amp; IoT devices with weak passwords launched
-            attack * Types of attacks: UDP flood, SYN flood, ping of death, DNS
-            reflection * October 21st 2016 [DDoS
-            attack](https://krebsonsecurity.com/2016/10/ddos-on-dyn-impacts-twitter-spotify-reddit/)
-            took down half the internet
+            ## Preventing Disclosure in Express
+            * By default Express displays the `X-Powered-By: Express` header
+            * Disable using `app.disable('x-powered-by');`
+            * The default cookie name in Express is `connect.sid`
           </section>
           <section data-markdown>
-            ## Attacker motivations * geopolitical - [NATO &amp; Ukraine
-            DDoS](http://www.darkreading.com/attacks-and-breaches/ddos-attacks-hit-nato-ukrainian-media-outlets/d/d-id/1127742)
-            * censoring activists - [DDoS against Black Lives
-            Matter](https://equalit.ie/deflect-defends-blacklivesmatter/) *
-            extortion - pay us money and we'll stop the attack * just because -
-            [Lizard
-            Squad](http://www.bbc.co.uk/newsbeat/article/30306319/who-are-lizard-squad-and-whats-next-for-the-hackers)
-          </section>
-          <section data-markdown>
-            ## Mitigating DDoS * Sign up for a DDoS protection service *
-            [CloudFlare](https://www.cloudflare.com/ddos/) *
-            [Akamai](https://www.akamai.com/us/en/solutions/products/cloud-security/ddos-protection-service.jsp)
-            * AWS WAF (web application firewall) + AWS CloudFront (CDN) - [see
-            AWS DDoS
-            whitepaper](https://d0.awsstatic.com/whitepapers/Security/DDoS_White_Paper.pdf)
-            * [Deflect](https://deflect.ca/) - free anti-DDoS service "for
-            independent media, human rights organisations and activists" *
-            [Project Shield](https://jigsaw.google.com/projects/#project-shield)
-            by Google for independent news sites
-          </section>
-          <section data-markdown>
-            ## Brute Force Attacks * Attacking an application's login endpoint
-            in order to crack a user's password and take over their account *
-            Hackers use tools like [Burp
-            Suite](https://support.portswigger.net/customer/portal/articles/1964020-using-burp-to-brute-force-a-login-page)
-            to load a dictionary of possible passwords * Offline brute force
-            attacks can be used to guess computer login passwords using [rainbow
-            tables](https://en.wikipedia.org/wiki/Rainbow_table) and tools like
-            [John the Ripper](https://en.wikipedia.org/wiki/John_the_Ripper)
-          </section>
-          <section data-markdown>
-            ## Brute Force Mitigations * Account lockout - account locks out
-            after specified number of bad logins * CAPTCHA - human completes
-            CAPTCHA before logging in * Rate limit - limit requests to endpoint
-            to 10 request/minute (ok for humans) * Account lockout not desirable
-            as this prevents legitimate users from accessing their account *
-            Also allows attackers to intentionally lockout victims (a form of
-            DoS)
-          </section>
-          <section data-markdown>
-            ## Rate Limiting * Wealth of rate limiting libraries for Node and
-            Express * Check out
-            [express-rate-limit](https://github.com/nfriedly/express-rate-limit)
-            and [express-brute](https://www.npmjs.com/package/express-brute) *
-            Example code to prevent brute force on login endpoint: ```js var
-            RateLimit = require('express-rate-limit'); var loginLimiter = new
-            RateLimit({ windowMs: 60*1000, // 1 minute max: 10, delayMs: 0 //
-            disabled }); app.post('/login', loginLimiter, function(req, res) {
-            // rest of login code here });; ```
+            Use a generic name like `session` instead of the default name
+            ```js
+            app.use(session({
+                secret: 't0ps3cr3t',
+                name: 'session'
+                })
+            );
+            ```
           </section>
         </section>
         <section>
-          <section data-markdown># Security HTTP Headers</section>
           <section data-markdown>
-            ## Express Helmet Module The
-            [helmet](https://github.com/helmetjs/helmet) Express module easily
-            sets common security-related HTTP headers for your server ```js var
-            express = require('express') var helmet = require('helmet') var app
-            = express() app.use(helmet()) ```
+            # Protecting Availability
           </section>
           <section data-markdown>
-            ## Code sample Follow along with the code sample in the `helmet`
-            directory ```sh git clone
-            git@github.com:alulsh/intro-to-security-for-developers.git cd helmet
-            npm install npm start ```
+            ## Denial of Service (DoS)
+            * Taking a system offline and rendering it unavailable to its users
+            * Can be triggered by one illogical payload or multiple high-volume requests
+            * Real life example: [Denial of service in account statistics endpoint](https://hackerone.com/reports/136221)
+            * DoS condition triggered by requesting a large period of time for account statistics - 20 years of (non-existent) data!
+            * Resolved by adding a limit to endpoint to not request more than a year of data
           </section>
           <section data-markdown>
-            ### Default Helmet Headers | Header | Value | Purpose | |---|---| |
-            `X-DNS-Prefetch-Control` | `off` | [Prevent DNS lookups before a
-            user clicks a
-            link](https://dev.chromium.org/developers/design-documents/dns-prefetching)
-            | | `X-Frame-Options` | `SAMEORIGIN` | Prevent
-            [clickjacking](https://www.troyhunt.com/clickjack-attack-hidden-threat-right-in/)
-            | | `X-Powered-By` | removes | Prevent information disclosure | |
-            `X-Download-Options` | `noopen` | Prevent IE from serving untrusted
-            HTML |
+            ## Validating Input
+            * To mitigate DoS conditions, validate user input and add reasonable limits to your application logic.
+            * Don't allow users to provide or request:
+                * data from unlimited time periods
+                * negative values
+                * strings when it should be a number
+                * code or specal characters (null bytes) when it should be text
+            * Limit the size of user uploads (e.g. 20mb)
+            * Build resilient, scalable systems that stay online when 1 server goes offline
           </section>
           <section data-markdown>
-            ### More Default Helmet Headers | Header | Value | Purpose |
-            |---|---| | `X-Content-Type-Options` | `nosniff` | [Prevents browser
-            from guessing MIME
-            type](https://msdn.microsoft.com/en-us/library/gg622941%28v=vs.85%29.aspx)
-            | | `X-XSS-Protection` | `1; mode=block` or `0` | XSS Protection for
-            IE9+ and Chrome |
+            ## Distributed Denial of Service (DDoS)
+            * DoS attacks distributed across multiple machines or attackers, often as part of a **botnet**
+            * Internet hosting company OVH suffered 1 terabyte DDoS attack - [the largest ever so far](http://www.scmagazineuk.com/ovh-suffers-11tbps-ddos-attack/article/524826/)
+            * Botnet of CCTV &amp; IoT devices with weak passwords launched attack
+            * Types of attacks: UDP flood, SYN flood, ping of death, DNS reflection
+            * October 21st 2016 [DDoS attack](https://krebsonsecurity.com/2016/10/ddos-on-dyn-impacts-twitter-spotify-reddit/) took down half the internet
           </section>
           <section data-markdown>
-            ## HSTS * Helmet also enables HTTP Strict Transport Security (HSTS)
-            headers by default * HSTS tells browsers to only load the website
-            over HTTPS * `Strict-Transport-Security:max-age=31536000;
-            includeSubDomains; preload` * Unfortunately, first initial visit to
-            the site may be over HTTP * Mitigated by adding your domain to
-            Google's preload list at https://hstspreload.appspot.com/. *
-            **Warning** - preloading is a "one way street" and [may break older
-            sites](https://scotthelme.co.uk/using-security-features-to-do-bad-things/),
-            proceed with caution
+            ## Attacker motivations
+            * geopolitical - [NATO &amp; Ukraine DDoS](http://www.darkreading.com/attacks-and-breaches/ddos-attacks-hit-nato-ukrainian-media-outlets/d/d-id/1127742)
+            * censoring activists - [DDoS against Black Lives Matter](https://equalit.ie/deflect-defends-blacklivesmatter/)
+            * extortion - pay us money and we'll stop the attack
+            * just because - [Lizard Squad](http://www.bbc.co.uk/newsbeat/article/30306319/who-are-lizard-squad-and-whats-next-for-the-hackers)
           </section>
           <section data-markdown>
-            ## Non-Default Helmet Headers * `Cache-Control` - disables caching
-            of client side content * `Referer` - hides the website that referred
-            the user to yours, helps protect privacy * Content Security Policy
-            (CSP) headers * HTTP Public Key Pinning (HPKP) headers
+            ## Mitigating DDoS
+            * Sign up for a DDoS protection service
+            * [CloudFlare](https://www.cloudflare.com/ddos/)
+            * [Akamai](https://www.akamai.com/us/en/solutions/products/cloud-security/ddos-protection-service.jsp)
+            * AWS WAF (web application firewall) + AWS CloudFront (CDN) - [see AWS DDoS whitepaper](https://d0.awsstatic.com/whitepapers/Security/DDoS_White_Paper.pdf)
+            * [Deflect](https://deflect.ca/) - free anti-DDoS service "for independent media, human rights organisations and activists"
+            * [Project Shield](https://jigsaw.google.com/projects/#project-shield) by Google for independent news sites
           </section>
           <section data-markdown>
-            ## Content Security Policy (CSP) * Protects against XSS by creating
-            strict allowed lists for scripts, fonts, css, forms, plugins, and
-            other resources * Only load scripts from my domain and
-            api.mapbox.com, and fonts from my domain and Google Fonts *
-            `Content-Security-Policy: script-src 'self' api.mapbox.com; font-src
-            'self' fonts.google.com;` * CSP is buggy and can break things, try
-            with reporting only at first * Excellent [write up on CSP at HTML5
-            Rocks](https://www.html5rocks.com/en/tutorials/security/content-security-policy/)
+            ## Brute Force Attacks
+            * Attacking an application's login endpoint in order to crack a user's password and take over their account
+            * Hackers use tools like [Burp Suite](https://support.portswigger.net/customer/portal/articles/1964020-using-burp-to-brute-force-a-login-page) to load a dictionary of possible passwords
+            * Offline brute force attacks can be used to guess computer login passwords using [rainbow tables](https://en.wikipedia.org/wiki/Rainbow_table) and tools like [John the Ripper](https://en.wikipedia.org/wiki/John_the_Ripper)
           </section>
           <section data-markdown>
-            ## HTTP Public Key Pinning (HPKP) * HPKP specifies that only certain
-            pinned key can be used to connect to your site for a specified
-            period of time * `Public-Key-Pins` and `public-key-pins-report-only`
-            headers * Protects against attackers compromising an entire
-            Certificate Authority (CA) * HPKP suicide - incorrectly configuring
-            HPKP so as to lock out your website for months *
-            [RansomPKP](https://scotthelme.co.uk/using-security-features-to-do-bad-things/)
-            - an attacker compromises your servers and commits HPKP suicide
+            ## Brute Force Mitigations
+            * Account lockout - account locks out after specified number of bad logins
+            * CAPTCHA - human completes CAPTCHA before logging in
+            * Rate limit - limit requests to endpoint to 10 request/minute (ok for humans)
+            * Account lockout not desirable as this prevents legitimate users from accessing their account
+            * Also allows attackers to intentionally lockout victims (a form of DoS)
           </section>
           <section data-markdown>
-            ## Summary * Helmet is an easy way to increase the security of your
-            Express website * Use HSTS with caution, especially preloading *
-            Creating a comprehensive CSP is worth it, but start with report only
+            ## Rate Limiting
+            * Wealth of rate limiting libraries for Node and Express
+            * Check out [express-rate-limit](https://github.com/nfriedly/express-rate-limit) and [express-brute](https://www.npmjs.com/package/express-brute)
+            * Example code to prevent brute force on login endpoint:
+                ```js
+                var RateLimit = require('express-rate-limit');
+
+                var loginLimiter = new RateLimit({
+                  windowMs: 60*1000, // 1 minute
+                  max: 10,
+                  delayMs: 0 // disabled
+                });
+
+                app.post('/login', loginLimiter, function(req, res) {
+                    // rest of login code here
+                });;
+                ```
+          </section>
+        </section>
+        <section>
+          <section data-markdown>
+            # Security HTTP Headers
+          </section>
+          <section data-markdown>
+            ## Express Helmet Module
+            The [helmet](https://github.com/helmetjs/helmet) Express module easily sets common security-related HTTP headers for your server
+            ```js
+            var express = require('express')
+            var helmet = require('helmet')
+            var app = express()
+
+            app.use(helmet())
+            ```
+          </section>
+          <section data-markdown>
+            ## Code sample
+            Follow along with the code sample in the `helmet` directory
+
+            ```sh
+            git clone git@github.com:alulsh/intro-to-security-for-developers.git
+            cd helmet
+            npm install
+            npm start
+            ```
+          </section>
+          <section data-markdown>
+            ### Default Helmet Headers
+            | Header | Value | Purpose |
+            |-|-|-|
+            | `X-DNS-Prefetch-Control` | `off` | [Prevent DNS lookups before a user clicks a link](https://dev.chromium.org/developers/design-documents/dns-prefetching) |
+            | `X-Frame-Options` | `SAMEORIGIN` | Prevent [clickjacking](https://www.troyhunt.com/clickjack-attack-hidden-threat-right-in/) |
+            | `X-Powered-By` | removes | Prevent information disclosure |
+          </section>
+          <section data-markdown>
+            ### More Default Helmet Headers
+            | Header | Value | Purpose |
+            |-|-|-|
+            | `X-Download-Options` | `noopen` | Prevent IE from serving untrusted HTML |
+            | `X-Content-Type-Options` | `nosniff` | [Prevents browser from guessing MIME type](https://msdn.microsoft.com/en-us/library/gg622941%28v=vs.85%29.aspx) |
+            | `X-XSS-Protection` | `1; mode=block` or `0` | XSS Protection for IE9+ and Chrome |
+          </section>
+          <section data-markdown>
+            ## HSTS
+            * Helmet also enables HTTP Strict Transport Security (HSTS) headers by default
+            * HSTS tells browsers to only load the website over HTTPS
+            * `Strict-Transport-Security:max-age=31536000; includeSubDomains; preload`
+          </section>
+          <section data-markdown>
+            * Unfortunately, first initial visit to the site may be over HTTP
+            * Mitigated by adding your domain to Google's preload list at https://hstspreload.appspot.com/.
+            * **Warning** - preloading is a "one way street" and [may break older sites](https://scotthelme.co.uk/using-security-features-to-do-bad-things/), proceed with caution
+          </section>
+          <section data-markdown>
+            ## Non-Default Helmet Headers
+            * `Cache-Control` - disables caching of client side content
+            * `Referer` - hides the website that referred the user to yours, helps protect privacy
+            * Content Security Policy (CSP) headers
+            * HTTP Public Key Pinning (HPKP) headers
+          </section>
+          <section data-markdown>
+            ## Content Security Policy (CSP)
+            * Protects against XSS by creating strict allowed lists for scripts, fonts, css, forms, plugins, and other resources
+            * Only load scripts from my domain and api.mapbox.com, and fonts from my domain and Google Fonts
+              * `Content-Security-Policy: script-src 'self' api.mapbox.com; font-src 'self' fonts.google.com;`
+          </section>
+          <section data-markdown>
+            * CSP is buggy and can break things, try with reporting only at first
+            * Excellent [write up on CSP at HTML5 Rocks](https://www.html5rocks.com/en/tutorials/security/content-security-policy/)
+          </section>
+          <section data-markdown>
+            ## HTTP Public Key Pinning (HPKP)
+            * HPKP specifies that only certain pinned key can be used to connect to your site for a specified period of time
+                * `Public-Key-Pins` and `public-key-pins-report-only` headers
+          </section>
+          <section data-markdown>
+            * Protects against attackers compromising an entire Certificate Authority (CA)
+            * HPKP suicide - incorrectly configuring HPKP so as to lock out your website for months
+            * [RansomPKP](https://scotthelme.co.uk/using-security-features-to-do-bad-things/) - an attacker compromises your servers and commits HPKP suicide
+          </section>
+          <section data-markdown>
+            ## Summary
+            * Helmet is an easy way to increase the security of your Express website
+            * Use HSTS with caution, especially preloading
+            * Creating a comprehensive CSP is worth it, but start with report only
             * Use HPKP with caution and start with report only
           </section>
         </section>
-        <!--            <section>
-                    <section data-markdown>
-                        # Server Security
-                    </section>
-                    <section data-markdown>
-                        ## Least Privilege
-                        * Don't run processes or applications as root or Administrator
-                        * Run the application with the minimum permissions it needs
-                        * Least privilege applies to scopes on access tokens as well
-                    </section>
-                    <section data-markdown>
-                        ## Account management
-                        * Disable and rename the guest account (Windows)
-                        * Rename the Admin account (Windows)
-                        * Service accounts should have strong complex passwords
-                    </section>
-                    <section data-markdown>
-                        ## Updates and patches
-                        * Update your operating systems and apply patches
-                    </section>
-                    <section data-markdown>
-                        ## AWS Security
-                        * Don't enable directory listing on S3 buckets
-                    </section>
-                </section> -->
         <section>
-          <section data-markdown># Additional Resources</section>
           <section data-markdown>
-            ## More Security Topics This presentation covers a limited set of
-            topics in security, I highly encourage you to explore even more!
-            Here's an incomplete list: * Cryptography * Forensics * Compliance *
-            Social engineering * Lock picking * Bluesnarfing * War driving
+            # Additional Resources
           </section>
           <section data-markdown>
-            * Clickjacking (UI redressing) * Content spoofing * Open redirects *
-            CSRF/XSRF * Phishing * SQL Injection and NoSQL Injection * Remote
-            code execution (RCE) * XML Entity Expansion ("A billion laughs") *
-            CORS
+            ## More Security Topics
+            This presentation covers a limited set of topics in security, I highly encourage you to explore even more! Here's an incomplete list:
+
+            * Cryptography
+            * Forensics
+            * Compliance
+            * Social engineering
+            * Lock picking
+            * Bluesnarfing
+            * War driving
           </section>
           <section data-markdown>
-            ## Resources * [Hacksplaining](https://www.hacksplaining.com/) *
-            [Node.js security
-            checklist](https://blog.risingstack.com/node-js-security-checklist/)
-            * [A Gentle Introduction to Application
-            Security](https://paragonie.com/blog/2015/08/gentle-introduction-application-security)
-            * [Security Checklist for
-            Developers](https://github.com/FallibleInc/security-guide-for-developers/blob/master/security-checklist.md)
-            * [Express Production Best Practices:
-            Security](http://expressjs.com/en/advanced/best-practice-security.html)
-            * [DVWA - Damn Vulnerable Web
-            App](https://github.com/ethicalhack3r/DVWA) * [Facebook's Capture
-            the Flag](https://github.com/facebook/fbctf) * [OverTheWire
-            Wargames](http://overthewire.org/wargames/)
+            * Clickjacking (UI redressing)
+            * Content spoofing
+            * Open redirects
+            * CSRF/XSRF
+            * Phishing
+            * SQL Injection and NoSQL Injection
+            * Remote code execution (RCE)
+            * XML Entity Expansion ("A billion laughs")
+            * CORS
           </section>
           <section data-markdown>
-            ## Security Meetups in DC * [White Hat
-            Academy](https://www.meetup.com/White-Hat-Academy/) * Great workshop
-            and free events like Capture The Flag * [OWASP
-            DC](https://www.meetup.com/OWASPDC/) * [CapSec
-            DC](https://www.meetup.com/CapSec-DC/)
+            ## Resources
+            * [Hacksplaining](https://www.hacksplaining.com/)
+            * [Node.js security checklist](https://blog.risingstack.com/node-js-security-checklist/)
+            * [A Gentle Introduction to Application Security](https://paragonie.com/blog/2015/08/gentle-introduction-application-security)
+            * [Security Checklist for Developers](https://github.com/FallibleInc/security-guide-for-developers/blob/master/security-checklist.md)
+            * [Express Production Best Practices: Security](http://expressjs.com/en/advanced/best-practice-security.html)
+            * [DVWA - Damn Vulnerable Web App](https://github.com/ethicalhack3r/DVWA)
+            * [Facebook's Capture the Flag](https://github.com/facebook/fbctf)
+            * [OverTheWire Wargames](http://overthewire.org/wargames/)
           </section>
           <section data-markdown>
-            ## Questions? [@AlexUlsh](https://twitter.com/AlexUlsh)
+            ## Security Meetups in DC
+            * [White Hat Academy](https://www.meetup.com/White-Hat-Academy/)
+              * Great workshop and free events like Capture The Flag
+            * [OWASP DC](https://www.meetup.com/OWASPDC/)
+            * [CapSec DC](https://www.meetup.com/CapSec-DC/)
+          </section>
+          <section data-markdown>
+            ## Questions? 
+            
+            [@AlexUlsh](https://twitter.com/AlexUlsh)
           </section>
         </section>
       </div>
